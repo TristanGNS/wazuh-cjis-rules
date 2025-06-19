@@ -187,4 +187,11 @@
     "policy_area": "Incident Response",
     "notes": "Flags failure of automated mechanisms that support incident handling. Depends on logs from SOAR/playbook systems or automation frameworks, showing `event.type=incident_automation` and `automation.status=failed`."
   },
+  "100028": {
+    "description": "Incident handling was incomplete or failed to integrate lessons learned into training and procedures",
+    "cjis": ["5.3.2.1"],
+    "nist": ["IR-4"],
+    "policy_area": "Incident Response",
+    "notes": "Flags when incidents do not follow through containment → eradication → recovery → review, or when corrective actions from lessons learned are not integrated. Relies on logs tagged with `incident_review` and lifecycle status metadata."
+  },
 }
