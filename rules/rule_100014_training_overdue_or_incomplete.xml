@@ -1,0 +1,16 @@
+<group name="security_training,cjis,user_awareness">
+  <rule id="100014" level="8">
+    <description>CJIS 5.2.1.1 - Security awareness training is incomplete or overdue</description>
+    <field name="event.type">training_status</field>
+    <field name="training.status">overdue</field>
+    <group>training,compliance,policy_violation</group>
+    <compliance>
+      <cjis>5.2.1.1</cjis>
+      <nist_800_53>AT-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes you receive logs or audit data from an LMS, HR system, or training platform (e.g., KnowBe4, MetaCompliance, Moodle) that tracks training.status, user.id, and optionally, the last/next due date.
+-->
