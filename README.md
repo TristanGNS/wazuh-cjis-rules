@@ -16,10 +16,10 @@ wazuh-cjis-rules/
 ├── metadata/
 │   └── cjis-control-map.json      # Rule-to-control mapping reference
 ├── rules/
-│   ├── rule\_100001\_failed\_login.xml
-│   ├── rule\_100002\_audit\_log\_mod.xml
+│   ├── rule_100001_failed_login.xml
+│   ├── rule_100002_audit_log_mod.xml
 │   └── ...
-├── include\_rules.xml              # Main include list for ossec.conf
+├── include_rules.xml              # Main include list for ossec.conf
 └── README.md
 
 ```
