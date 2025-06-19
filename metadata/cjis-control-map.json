@@ -74,6 +74,13 @@
     "nist": ["CA-7"],
     "policy_area": "Information Exchange",
     "notes": "Supports CA-7 by detecting when critical metrics or control visibility is missing or broken. Requires metric coverage tracking via monitoring/logging systems integrated into Wazuh."
+  },
+  "100012": {
+    "description": "User account created without acknowledging updated Rules of Behavior",
+    "cjis": ["5.2.1"],
+    "nist": ["PL-4"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Detects account creation or access provisioning for users who have not signed off on the current Rules of Behavior. Requires acknowledgment tracking data from HR/IAM systems."
   }
 }
 
