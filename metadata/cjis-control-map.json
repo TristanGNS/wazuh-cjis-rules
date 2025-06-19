@@ -271,4 +271,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Assumes log data or agent monitors storage usage on audit log volume or disk mount. Alert triggers when disk threshold or audit log space capacity exceeds defined limit."
   },
+  "100040": {
+    "description": "Unauthorized access, modification, or deletion of audit logs or logging tools detected",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-9"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Requires file integrity or audit trail monitoring on log directories and logging tool config files. Assumes audit.result reflects tampering or unauthorized deletion events."
+  },
 }
