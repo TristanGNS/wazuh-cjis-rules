@@ -1,7 +1,15 @@
 <group name="cjis_custom_rules">
   <rule>
     <include>rules/rule_100001_failed_login.xml</include>
-    <!-- <include>rules/rule_100002_audit_log_modified.xml</include> -->
+    <include>rules/rule_100002_audit_log_modified.xml</include>
+    <include>rules/rule_100003_collaboration_access_mismatch.xml</include>
+    <include>rules/rule_100004_unauthorized_component_detected.xml</include>
+    <include>rules/rule_100005_security_plan_access_violation.xml</include>
+    <include>rules/rule_100006_ir_plan_access_violation.xml</include>
+    <include>rules/rule_100007_missing_access_agreement.xml</include>
+    <include>rules/rule_100008_unscreened_user_access.xml</include>
+    <include>rules/rule_100009_unauthorized_physical_access.xml</include>
+    <include>rules/rule_100010_missing_or_outdated_risk_assessment.xml</include>
     <!-- etc. -->
   </rule>
 </group>
