@@ -1,0 +1,40 @@
+<group name="incident_reporting_automation,cjis,incident_response">
+  <rule id="100020" level="9">
+    <description>CJIS 5.3.1 - Incident detected but no automated reporting mechanism triggered</description>
+    <field name="event.type">incident_detected</field>
+    <field name="reporting.automated">false</field>
+    <group>incident_response,automation_gap</group>
+    <compliance>
+      <cjis>5.3.1</cjis>
+      <nist_800_53>IR-6(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+* Assumptions:
+-- Your environment has automated incident response tooling (e.g., ticketing systems, SIEM alerts, SOAR, email handlers).
+
+-- A log source exists that indicates:
+---- An incident was detected (event.type = incident_detected)
+---- The method or status of reporting (reporting.automated = true|false)
+
+-- The reporting logic is consistent enough that false negatives are rare (i.e., "automated" reporting is reliably tracked and logged when it occurs).
+
+===
+
+* Integration Options:
+-- Wazuh custom JSON logs from:
+
+---- SIEM automation
+---- Syslog alerts from Helpdesk (like Jira, HaloPSA, or ServiceNow)
+---- SOAR platform logs (TheHive, Cortex, etc.)
+
+-- Correlation between alert rule → ticket/notification sent
+
+===
+
+* Risk Without Assumption Met:
+If there's no log or event indicating whether an alert was or was not reported automatically,
+the rule won't trigger effectively — it may miss silent failures or cause false positives if heuristics aren’t robust.
+-->
