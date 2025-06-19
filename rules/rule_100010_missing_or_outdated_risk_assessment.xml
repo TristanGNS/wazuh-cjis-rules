@@ -1,0 +1,16 @@
+<group name="risk_assessment,cjis,governance">
+  <rule id="100010" level="9">
+    <description>CJIS 5.1.2 - Missing or outdated system risk assessment</description>
+    <field name="event.type">risk_assessment</field>
+    <field name="assessment.status">overdue</field>
+    <group>governance,compliance,documentation</group>
+    <compliance>
+      <cjis>5.1.2</cjis>
+      <nist_800_53>RA-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This assumes you are importing or generating logs from your GRC tool, policy platform, or a compliance review pipeline that includes assessment.status (e.g., “overdue”, “not_run”, “failed”, etc.).
+-->
