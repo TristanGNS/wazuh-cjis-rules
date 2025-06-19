@@ -1,1 +1,15 @@
+{
+  "100001": {
+    "description": "Failed login attempt",
+    "cjis": ["5.6.2.2"],
+    "nist": ["AC-7"],
+    "policy_area": "Access Control"
+  },
+  "100002": {
+    "description": "Audit log modification",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-9"],
+    "policy_area": "Auditing and Accountability"
+  }
+}
 
