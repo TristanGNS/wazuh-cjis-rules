@@ -1,0 +1,30 @@
+<group name="incident_response_testing,cjis,incident_response">
+  <rule id="100036" level="8">
+    <description>CJIS 5.3.3 - Incident response test not conducted within defined frequency</description>
+    <field name="event.type">ir_test</field>
+    <field name="test.status">overdue</field>
+    <group>incident_response,testing,compliance</group>
+    <compliance>
+      <cjis>5.3.3</cjis>
+      <nist_800_53>IR-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.3 | NIST IR-3: Incident Response Testing
+
+* Assumptions:
+-- Organization has a structured IR testing schedule (tabletop, simulation, red/blue exercises)
+-- Logs include event type `ir_test` with test type and a `test.status` field (e.g., `overdue`, `completed`)
+-- Scheduling or audit system produces logs when deadlines are missed
+
+* Integration Options:
+-- GRC or ticketing tools that track required testing cycles
+-- SOAR platforms with built-in simulation or review workflows
+-- Scheduled task output (e.g., cron) with result export into Wazuh
+
+* Risk Without Assumption Met:
+If testing status is not logged or not tracked via automation, this rule cannot function. Recommend configuring alerting on overdue IR test deadlines.
+-->
