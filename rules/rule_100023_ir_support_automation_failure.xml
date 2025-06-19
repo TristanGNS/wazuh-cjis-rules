@@ -1,0 +1,28 @@
+<group name="incident_response_automation,cjis,incident_response">
+  <rule id="100023" level="8">
+    <description>CJIS 5.3.1.1.1 - Automated IR support delivery mechanism failed or not triggered</description>
+    <field name="event.type">ir_support_trigger</field>
+    <field name="automation.status">failed</field>
+    <group>automation,incident_response,support</group>
+    <compliance>
+      <cjis>5.3.1.1.1</cjis>
+      <nist_800_53>IR-7(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.1.1.1 | NIST IR-7(1): Automated IR Support Mechanisms
+
+* Assumptions:
+-- IR workflows use automated systems (SOAR, scripts, chatbots, self-service portals)
+-- Failures in these systems are logged and reportable (automation.status)
+
+* Integration Options:
+-- Wazuh alert forwarding via webhook to SOAR
+-- Logging from orchestration platforms (e.g., TheHive, Cortex, Jira, or Slackbot)
+
+* Risk Without Assumption Met:
+If IR processes are mostly manual or automation logs are not ingested, detection of unavailability is not possible. Consider implementing heartbeat or test-execution logging.
+-->
