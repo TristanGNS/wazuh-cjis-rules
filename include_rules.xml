@@ -23,6 +23,23 @@
     <include>rules/rule_100021_incident_vulnerability_unlinked.xml</include>
     <include>rules/rule_100022_ir_support_unavailable.xml</include>
     <include>rules/rule_100023_ir_support_automation_failure.xml</include>
+    <include>rules/rule_100024_ir_external_coordination_missing.xml</include>
+    <include>rules/rule_100025_ir_policy_or_procedure_outdated.xml</include>
+    <include>rules/rule_100026_ir_plan_missing_or_outdated.xml</include>
+    <include>rules/rule_100027_incident_automation_failed.xml</include>
+    <include>rules/rule_100028_incomplete_incident_handling.xml</include>
+    <include>rules/rule_100029_incident_automation_tracking_failed.xml</include>
+    <include>rules/rule_100030_coop_not_triggered.xml</include>
+    <include>rules/rule_100031_incident_correlation_absent.xml</include>
+    <include>rules/rule_100032_dynamic_reconfiguration_skipped.xml</include>
+    <include>rules/rule_100033_incident_not_documented.xml</include>
+    <include>rules/rule_100034_audit_log_review_skipped.xml</include>
+    <include>rules/rule_100035_ir_training_incomplete.xml</include>
+    <include>rules/rule_100036_ir_test_overdue.xml</include>
+    <include>rules/rule_100037_audit_retention_violation.xml</include>
+    <include>rules/rule_100038_timestamp_sync_issue.xml</include>
+    <include>rules/rule_100039_audit_log_capacity_alert.xml</include>
+    <include>rules/rule_100040_protect_audit_integrity.xml</include>
     
     <!-- <include>rules/</include> -->
     <!-- etc. -->
