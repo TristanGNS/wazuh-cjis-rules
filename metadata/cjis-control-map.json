@@ -81,6 +81,13 @@
     "nist": ["PL-4"],
     "policy_area": "Security Awareness Training",
     "notes": "Detects account creation or access provisioning for users who have not signed off on the current Rules of Behavior. Requires acknowledgment tracking data from HR/IAM systems."
+  },
+  "100013": {
+    "description": "Organizational credentials or sensitive data used on external websites or social media",
+    "cjis": ["5.2.1"],
+    "nist": ["PL-4(1)"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Detects violations of acceptable use policy involving posting org data or using email/passwords on external sites. Requires logs from DLP, CASB, or email security tools integrated into Wazuh."
   }
 }
 
