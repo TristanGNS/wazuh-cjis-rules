@@ -41,11 +41,14 @@ wazuh-cjis-rules/
 | Milestone | Description | Status |
 |----------|-------------|--------|
 | ✅ Stage 1 | Repository scaffolding, structure design, README setup | Complete |
-| 🔧 Stage 2 | Initial CJIS rule creation (Area 1: Information Exchange) | In Progress |
+| 🔧 Stage 2.1 | Rule Creation – Area 1: Information Exchange | Complete |
+| 🔧 Stage 2.2 | Rule Creation – Area 2: Security Awareness Training | Complete |
+| 🔧 Stage 2.3 | Rule Creation – Area 3: Incident Response | In Progress |
 | 🔜 Stage 3 | Build compliance dashboards and rule validation tools | Planned |
 | 🧪 Stage 4 | Deploy in Wazuh test environment, validate triggers | Planned |
 | 📤 Stage 5 | Develop SCA policies and reporting scripts | Planned |
 | 📚 Stage 6 | Documentation & CJIS compliance mapping exports | Planned |
+
 
 ---
 
