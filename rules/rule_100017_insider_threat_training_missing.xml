@@ -1,0 +1,17 @@
+<group name="insider_threat_training,cjis,security_awareness">
+  <rule id="100017" level="9">
+    <description>CJIS 5.2.1.2 - Insider threat literacy training is missing or overdue</description>
+    <field name="event.type">training_status</field>
+    <field name="training.topic">insider_threat</field>
+    <field name="training.status">overdue</field>
+    <group>training,awareness,policy_violation</group>
+    <compliance>
+      <cjis>5.2.1.2</cjis>
+      <nist_800_53>AT-2(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+Assumes logs are generated from your LMS or training platform that tracks topic-specific training (insider_threat) and includes due/completion status per user.
+-->
