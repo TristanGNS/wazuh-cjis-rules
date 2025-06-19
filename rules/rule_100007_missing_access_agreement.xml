@@ -1,0 +1,16 @@
+<group name="access_agreements,cjis,personnel_security">
+  <rule id="100007" level="10">
+    <description>CJIS 5.1.1.7 - Access granted without signed or updated access agreement</description>
+    <field name="event.type">user_created</field>
+    <field name="user.access_agreement">missing</field>
+    <group>account_creation,policy_violation</group>
+    <compliance>
+      <cjis>5.1.1.7</cjis>
+      <nist_800_53>PS-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes you have log feeds that include metadata on access agreements at account creation (e.g., HR systems, IAM logs, or SSO audit logs).
+-->
