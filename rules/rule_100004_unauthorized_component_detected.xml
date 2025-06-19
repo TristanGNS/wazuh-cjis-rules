@@ -1,0 +1,16 @@
+<group name="unauthorized_software,cjis,acquisition">
+  <rule id="100004" level="9">
+    <description>CJIS 5.1.1 - Unauthorized or unapproved component detected</description>
+    <field name="event.type">unauthorized_software</field>
+    <field name="vendor.approved">false</field>
+    <group>supply_chain,asset_management,third_party</group>
+    <compliance>
+      <cjis>5.1.1</cjis>
+      <nist_800_53>SA-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Note:
+This rule assumes you are pulling asset discovery or package inventory data (e.g., from osquery, Wazuh vuln detector, or integrations with asset governance systems).
+-->
