@@ -60,6 +60,13 @@
     "nist": ["PE-3"],
     "policy_area": "Information Exchange",
     "notes": "Detects failed or unauthorized access attempts at secure physical locations. Requires logs from physical access systems, guards, or entry control mechanisms."
+  },
+  "100010": {
+    "description": "System or organizational risk assessment is missing, outdated, or not reviewed as required",
+    "cjis": ["5.1.2"],
+    "nist": ["RA-3"],
+    "policy_area": "Information Exchange",
+    "notes": "Helps identify when required risk assessments have not been completed, updated, or reviewed. Requires logs from GRC, compliance, or risk tracking systems integrated into Wazuh."
   }
 }
 
