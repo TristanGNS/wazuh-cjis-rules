@@ -1,0 +1,32 @@
+<group name="timestamp_integrity,auditing,cjis,accountability">
+  <rule id="100038" level="7">
+    <description>CJIS 5.4.1 - Missing or misaligned time stamp in audit log</description>
+    <field name="event.type">audit</field>
+    <field name="timestamp.status">invalid</field>
+    <group>audit,time,accountability</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-8</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-8: Time Stamps
+
+* Assumptions:
+-- Audit logs are produced with structured metadata about time stamp validation
+-- A validation agent/tool tags logs with `timestamp.status=invalid` if the format, offset, or source is incorrect
+
+* Integration Options:
+-- Wazuh SCA policy or custom rules to check:
+   - NTP synchronization status
+   - Time offset drift > acceptable threshold
+   - Absence of UTC/offset tagging in logs
+-- Middleware agents or log processors (e.g., Filebeat, Fluentd) performing audit log hygiene checks
+
+* Risk Without Assumption Met:
+Without log analysis or a validation process, this rule cannot detect time stamp issues.
+This would result in lost integrity in event sequencing or chain-of-custody.
+-->
