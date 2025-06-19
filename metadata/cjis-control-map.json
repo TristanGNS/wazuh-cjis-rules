@@ -116,6 +116,13 @@
     "nist": ["AT-2(2)"],
     "policy_area": "Security Awareness Training",
     "notes": "Detects if users have not completed insider threat awareness training within required timeframes. Requires training logs that specify topic and completion status."
+  },
+  "100018": {
+    "description": "Identification and authentication policy or procedure documents are outdated or not reviewed as required",
+    "cjis": ["5.2.1.3"],
+    "nist": ["IA-1"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Detects outdated I&A policies that have not been reviewed or disseminated according to frequency or trigger events. Requires GRC or documentation system logs that track review cycles."
   }
 }
 
