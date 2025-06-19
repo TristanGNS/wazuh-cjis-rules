@@ -1,0 +1,11 @@
+<group name="authentication_failed,cjis">
+  <rule id="100001" level="10">
+    <decoded_as>json</decoded_as>
+    <field name="event.action">failed_login</field>
+    <description>Failed Login Attempt (CJIS 5.6.2.2)</description>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>AC-7</nist_800_53>
+    </compliance>
+  </rule>
+</group>
