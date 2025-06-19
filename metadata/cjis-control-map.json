@@ -137,6 +137,13 @@
     "nist": ["IR-6(1)"],
     "policy_area": "Incident Response",
     "notes": "Supports detection of reporting failures when automated mechanisms (e.g., email, ticket, SIEM integration) are expected but not engaged."
+  },
+  "100021": {
+    "description": "Vulnerabilities related to an incident were not reported or documented properly",
+    "cjis": ["5.3.1"],
+    "nist": ["IR-6(2)"],
+    "policy_area": "Incident Response",
+    "notes": "Detects failure to associate or report vulnerabilities discovered during incident handling. Requires correlation between vulnerability management and IR systems."
   }
 }
 
