@@ -39,6 +39,13 @@
     "nist": ["IR-8"],
     "policy_area": "Information Exchange",
     "notes": "Fulfills IR-8 and CJIS 5.1.1.1 by ensuring unauthorized access or edits to the IR Plan are logged and alerted on. Supports confidentiality and change control."
+  },
+  "100007": {
+    "description": "Access granted to user without signed or renewed access agreement",
+    "cjis": ["5.1.1.7"],
+    "nist": ["PS-6"],
+    "policy_area": "Information Exchange",
+    "notes": "Validates that access is not provisioned without a signed access agreement. Log source must include access agreement status at user onboarding or provisioning time."
   }
 }
 
