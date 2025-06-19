@@ -1,0 +1,16 @@
+<group name="incident_response_plan,cjis,policy_violation">
+  <rule id="100006" level="10">
+    <description>CJIS 5.1.1.1 - Unauthorized access or modification of the Incident Response Plan</description>
+    <field name="event.file">/etc/org/incident-response-plan.md</field>
+    <field name="event.action">unauthorized_access</field>
+    <group>fim,confidential_docs</group>
+    <compliance>
+      <cjis>5.1.1.1</cjis>
+      <nist_800_53>IR-8</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes you’re monitoring the IR plan as a designated file (e.g., markdown, PDF, or DOCX) using Wazuh’s File Integrity Monitoring (FIM) or auditd.
+-->
