@@ -18,6 +18,13 @@
     "nist": ["AC-21"],
     "policy_area": "Information Exchange",
     "notes": "Trigger when information is shared with an external entity without proper access authorization match. Requires logging from collaboration or data governance tools."
+  },
+  "100004": {
+    "description": "Unauthorized or unapproved software or component detected on monitored asset",
+    "cjis": ["5.1.1"],
+    "nist": ["SA-4"],
+    "policy_area": "Information Exchange",
+    "notes": "Supports acquisition controls by flagging unapproved systems or components. Requires integration with inventory/asset scanning or package management logs."
   }
 }
 
