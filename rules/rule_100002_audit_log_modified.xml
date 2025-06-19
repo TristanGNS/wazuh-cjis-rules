@@ -1,0 +1,15 @@
+<group name="audit_log_modification,cjis,incident_response">
+  <rule id="100002" level="10">
+    <if_sid>18107</if_sid>
+    <description>CJIS 5.3.4 - Audit log file modified or deleted</description>
+    <group>audit_log,integrity,syscheck</group>
+    <pci_dss>10.5.5</pci_dss>
+    <compliance>
+      <cjis>5.3.4</cjis>
+      <nist_800_53>AU-9</nist_800_53>
+    </compliance>
+    <frequency>1</frequency>
+    < timeframe>60</timeframe>
+    <no_full_log/>
+  </rule>
+</group>
