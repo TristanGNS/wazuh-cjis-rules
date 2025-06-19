@@ -1,0 +1,29 @@
+<group name="incident_tracking_monitoring,cjis,incident_response">
+  <rule id="100033" level="10">
+    <description>CJIS 5.3.2.1 - Incident occurred without being formally tracked or documented</description>
+    <field name="event.type">incident</field>
+    <field name="documentation.status">missing</field>
+    <group>incident_response,monitoring,compliance_gap</group>
+    <compliance>
+      <cjis>5.3.2.1</cjis>
+      <nist_800_53>IR-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.2.1 | NIST IR-5: Incident Monitoring
+
+* Assumptions:
+-- Your IR system or ticketing platform logs incident tracking events including `event.type=incident` and a status or tag reflecting documentation (e.g., `documentation.status=created|missing`)
+-- Failure to generate or assign a tracking ID or log entry will produce an auditable event
+
+* Integration Options:
+-- SOAR platforms with tracking automation
+-- Incident logging standards requiring a UUID, ticket ID, or documentation link for every triggered alert
+-- Manual review catch-up logs or audit platform that compares alerts vs documentation events
+
+* Risk Without Assumption Met:
+If incidents are not tied to a structured documentation process or the platform does not emit missing-entry logs, this rule won’t trigger. Recommend enforcing auto-ticket or log capture policies for any critical alert.
+-->
