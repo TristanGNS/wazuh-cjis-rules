@@ -1,0 +1,31 @@
+<group name="incident_response_training,cjis,incident_response">
+  <rule id="100035" level="7">
+    <description>CJIS 5.3.3 - Incident response training not completed within assigned timeframe</description>
+    <field name="event.type">training_audit</field>
+    <field name="training.topic">incident_response</field>
+    <field name="training.status">overdue</field>
+    <group>incident_response,training,compliance</group>
+    <compliance>
+      <cjis>5.3.3</cjis>
+      <nist_800_53>IR-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.3 | NIST IR-2: Incident Response Training
+
+* Assumptions:
+-- Your training management system logs audits of required training completion status per user/role
+-- Logs include topic or training type (e.g., `incident_response`) and status (e.g., `training.status=complete|overdue`)
+-- Users are mapped to response roles at provisioning or onboarding and tracked via HR or identity system
+
+* Integration Options:
+-- HR systems with role-based training audits
+-- LMS (Learning Management System) logs exported to SIEM or compliance platform
+-- Custom scripts that validate against required frequency thresholds
+
+* Risk Without Assumption Met:
+If training logs are not available, incomplete, or not tagged by topic/role, this rule cannot evaluate compliance. Recommend exporting or forwarding training audit logs into Wazuh or related SIEM tooling.
+-->
