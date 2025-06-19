@@ -32,6 +32,13 @@
     "nist": ["PM-1"],
     "policy_area": "Information Exchange",
     "notes": "Detects access or modification attempts to protected security program plan files. Supports PM-1 requirements for review, update, and protection of ISPP."
+  },
+  "100006": {
+    "description": "Unauthorized access or change to the Incident Response Plan",
+    "cjis": ["5.1.1.1"],
+    "nist": ["IR-8"],
+    "policy_area": "Information Exchange",
+    "notes": "Fulfills IR-8 and CJIS 5.1.1.1 by ensuring unauthorized access or edits to the IR Plan are logged and alerted on. Supports confidentiality and change control."
   }
 }
 
