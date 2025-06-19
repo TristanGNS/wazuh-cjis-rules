@@ -25,6 +25,13 @@
     "nist": ["SA-4"],
     "policy_area": "Information Exchange",
     "notes": "Supports acquisition controls by flagging unapproved systems or components. Requires integration with inventory/asset scanning or package management logs."
+  },
+  "100005": {
+    "description": "Unauthorized access or change to the Information Security Program Plan (ISPP)",
+    "cjis": ["5.1.1.1"],
+    "nist": ["PM-1"],
+    "policy_area": "Information Exchange",
+    "notes": "Detects access or modification attempts to protected security program plan files. Supports PM-1 requirements for review, update, and protection of ISPP."
   }
 }
 
