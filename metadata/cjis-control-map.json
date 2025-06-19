@@ -158,6 +158,13 @@
     "nist": ["IR-7(1)"],
     "policy_area": "Incident Response",
     "notes": "Flags failed automation in IR support processes, such as playbook execution failure, untriggered alerts, or broken chatops pipelines. Depends on logs with fields like `automation.status` and `event.type=ir_support_trigger`."
-  }
+  },
+  "100024": {
+    "description": "Lack of coordination between internal incident response team and external support providers",
+    "cjis": ["5.3.1.1.2"],
+    "nist": ["IR-7(2)"],
+    "policy_area": "Incident Response",
+    "notes": "Detects whether formal coordination or contact listing between internal IR team and third-party response partners is in place. Depends on logs with `coordination.status` fields or relationship audit metadata."
+  },
 }
 
