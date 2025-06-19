@@ -67,6 +67,13 @@
     "nist": ["RA-3"],
     "policy_area": "Information Exchange",
     "notes": "Helps identify when required risk assessments have not been completed, updated, or reviewed. Requires logs from GRC, compliance, or risk tracking systems integrated into Wazuh."
+  },
+  "100011": {
+    "description": "Gaps in continuous monitoring of system-level security or privacy metrics",
+    "cjis": ["5.1.2"],
+    "nist": ["CA-7"],
+    "policy_area": "Information Exchange",
+    "notes": "Supports CA-7 by detecting when critical metrics or control visibility is missing or broken. Requires metric coverage tracking via monitoring/logging systems integrated into Wazuh."
   }
 }
 
