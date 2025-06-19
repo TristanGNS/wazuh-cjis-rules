@@ -173,4 +173,11 @@
     "policy_area": "Incident Response",
     "notes": "Flags outdated or missing reviews of incident response policies. Requires compliance, audit, or GRC system logs that include document name and status (e.g., `incident_response`, `outdated`)."
   },
+  "100026": {
+    "description": "Incident response plan is missing, outdated, or not reviewed and distributed after key events",
+    "cjis": ["5.3.2"],
+    "nist": ["IR-8"],
+    "policy_area": "Incident Response",
+    "notes": "Ensures the IR plan is up to date, reviewed, and shared appropriately. Depends on logs that track plan status such as 'outdated', 'reviewed', or 'distributed' from audit or compliance systems."
+  },
 }
