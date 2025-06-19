@@ -1,0 +1,29 @@
+<group name="audit_review_failure,cjis,incident_response">
+  <rule id="100034" level="9">
+    <description>CJIS 5.3.2.2 - Audit logs not reviewed within expected frequency or failed to escalate on risk input</description>
+    <field name="event.type">audit_review</field>
+    <field name="review.status">overdue</field>
+    <group>audit,compliance,incident_response</group>
+    <compliance>
+      <cjis>5.3.2.2</cjis>
+      <nist_800_53>AU-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.2.2 | NIST AU-6: Audit Record Review, Analysis, and Reporting
+
+* Assumptions:
+-- Audit review processes emit logs indicating the status of audit reviews (e.g., `event.type=audit_review`, `review.status=on_time|overdue|skipped`)
+-- Risk-based alerting is in place, and failure to elevate review frequency (based on threat intel or law enforcement info) is auditable
+
+* Integration Options:
+-- SIEM audit log review summary logs
+-- SOAR platform or GRC system that monitors audit review cadence and threat escalation triggers
+-- Manual log review system with schedule tracking (cron, SCA checks)
+
+* Risk Without Assumption Met:
+If audit review activity is not tracked or surfaced in logs, this rule cannot evaluate control effectiveness. Recommend emitting audit cadence logs and including status flags in review workflows.
+-->
