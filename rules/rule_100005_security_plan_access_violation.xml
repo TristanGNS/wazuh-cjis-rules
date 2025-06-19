@@ -1,0 +1,16 @@
+<group name="information_security_plan,cjis,policy_violation">
+  <rule id="100005" level="10">
+    <description>CJIS 5.1.1.1 - Unauthorized access or modification of Information Security Program Plan</description>
+    <field name="event.file">/etc/org/security-program-plan.md</field>
+    <field name="event.action">unauthorized_access</field>
+    <group>fim,confidential_docs</group>
+    <compliance>
+      <cjis>5.1.1.1</cjis>
+      <nist_800_53>PM-1</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This assumes you are protecting your ISPP as a specific file (e.g., .md, .pdf, .docx) and logging access/modification attempts either via FIM, auditd, or third-party tooling.
+-->
