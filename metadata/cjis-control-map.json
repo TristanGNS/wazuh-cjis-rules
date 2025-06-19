@@ -123,6 +123,13 @@
     "nist": ["IA-1"],
     "policy_area": "Security Awareness Training",
     "notes": "Detects outdated I&A policies that have not been reviewed or disseminated according to frequency or trigger events. Requires GRC or documentation system logs that track review cycles."
+  },
+  "100019": {
+    "description": "Security-relevant event was not reported to the incident response team or appropriate authority",
+    "cjis": ["5.3.1"],
+    "nist": ["IR-6"],
+    "policy_area": "Incident Response",
+    "notes": "Supports detection of report failures by flagging events that match threat criteria but lack associated reporting metadata. May require SIEM or case management system integration."
   }
 }
 
