@@ -1,0 +1,29 @@
+<group name="incident_response_assistance,cjis,incident_response">
+  <rule id="100022" level="9">
+    <description>CJIS 5.3.1.1.1 - Incident response assistance unavailable or inaccessible during a triggered incident</description>
+    <field name="event.type">incident_triggered</field>
+    <field name="ir_support.available">false</field>
+    <group>incident_response,support_availability</group>
+    <compliance>
+      <cjis>5.3.1.1.1</cjis>
+      <nist_800_53>IR-7</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.1.1.1 | NIST IR-7: Incident Response Assistance
+
+* Assumptions:
+-- Incident response tickets or alerts include metadata such as "ir_support.available"
+-- The organization has a defined IR support structure (SOC/NOC/on-call techs)
+-- Events triggering IR support require a support status check/log
+
+* Integration Options:
+-- Log feeds from ticketing systems, escalation workflows, or SIEM
+-- Webhook monitoring from on-call rotation platforms (e.g., PagerDuty, Opsgenie)
+
+* Risk Without Assumption Met:
+Without structured indicators of IR availability, this rule cannot detect when support was missing at critical moments.
+-->
