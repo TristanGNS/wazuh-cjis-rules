@@ -243,4 +243,11 @@
     "policy_area": "Incident Response",
     "notes": "This rule detects overdue incident response training for personnel in security roles. Requires structured logs such as `training.topic=incident_response` and `training.status=overdue`."
   },
+  "100036": {
+    "description": "Incident response test was not performed on schedule per defined testing cadence",
+    "cjis": ["5.3.3"],
+    "nist": ["IR-3"],
+    "policy_area": "Incident Response",
+    "notes": "Flags missing or overdue incident response exercises. Depends on structured logs like `event.type=ir_test` and `test.status=overdue` or equivalent."
+  },
 }
