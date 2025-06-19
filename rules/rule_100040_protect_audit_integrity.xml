@@ -1,0 +1,32 @@
+<group name="audit_protection,cjis,auditing,accountability">
+  <rule id="100040" level="10">
+    <description>CJIS 5.4.1 - Unauthorized access or alteration of audit log data or logging tools detected</description>
+    <field name="event.module">audit</field>
+    <field name="event.action">unauthorized_access</field>
+    <field name="audit.object">logs</field>
+    <field name="audit.result">modified|deleted</field>
+    <group>audit,integrity</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-9</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-9: Protection of Audit Information
+
+* Assumptions:
+-- Logs and monitoring sources must emit events when protected files or audit directories are accessed, modified, or deleted.
+-- You are using Wazuh File Integrity Monitoring (FIM) or similar tools to detect changes in `/var/ossec/logs/`, audit config files, or centralized log paths.
+
+* Integration Options:
+-- Wazuh FIM monitoring of log directories
+-- OSSEC decoders watching audit logs for tampering signatures
+-- Sysmon (on Windows) rules for event IDs related to file permission changes or deletions
+
+* Risk Without Assumption Met:
+If audit logs are not under integrity monitoring or tamper alerts aren't triggered, this rule is ineffective. 
+Compromised audit records may go unnoticed.
+-->
