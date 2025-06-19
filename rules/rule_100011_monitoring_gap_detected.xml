@@ -1,0 +1,17 @@
+<group name="continuous_monitoring,cjis,metrics_visibility">
+  <rule id="100011" level="9">
+    <description>CJIS 5.1.2 - Missing or failed continuous monitoring coverage for defined metrics</description>
+    <field name="event.type">monitoring_gap</field>
+    <field name="metric.coverage">incomplete</field>
+    <group>monitoring,gaps,governance</group>
+    <compliance>
+      <cjis>5.1.2</cjis>
+      <nist_800_53>CA-7</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This assumes you ingest logs from your monitoring platform (e.g., Wazuh's own self-monitoring, Zabbix, Nagios, Prometheus) that track whether required metrics are actively being collected. 
+You could also simulate gaps via heartbeat/absence detection logic in Wazuh custom decoders.
+-->
