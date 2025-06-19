@@ -88,6 +88,13 @@
     "nist": ["PL-4(1)"],
     "policy_area": "Security Awareness Training",
     "notes": "Detects violations of acceptable use policy involving posting org data or using email/passwords on external sites. Requires logs from DLP, CASB, or email security tools integrated into Wazuh."
+  },
+  "100014": {
+    "description": "Security or privacy literacy training is missing, outdated, or not completed by user",
+    "cjis": ["5.2.1.1"],
+    "nist": ["AT-2"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Fulfills CJIS 5.2.1.1 by detecting overdue or missing training completions. Requires logs from the organization's security awareness training system or HR compliance tracking."
   }
 }
 
