@@ -46,6 +46,13 @@
     "nist": ["PS-6"],
     "policy_area": "Information Exchange",
     "notes": "Validates that access is not provisioned without a signed access agreement. Log source must include access agreement status at user onboarding or provisioning time."
+  },
+  "100008": {
+    "description": "User account provisioned without prior personnel screening",
+    "cjis": ["5.1.1.7"],
+    "nist": ["PS-3"],
+    "policy_area": "Information Exchange",
+    "notes": "Supports CJIS and PS-3 requirements by detecting unscreened individuals being granted access. Requires logs with `screening_status` or equivalent metadata from HR or IAM systems."
   }
 }
 
