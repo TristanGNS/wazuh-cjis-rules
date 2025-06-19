@@ -257,4 +257,11 @@
     "policy_area": "Incident Response",
     "notes": "Checks whether logs are expired or purged before required retention. Expects audit metadata with `retention.status=violation` emitted from review tooling or storage lifecycle audit jobs."
   },
+  "100038": {
+    "description": "Audit log entry is missing or includes non-compliant timestamp (unsynced clock or no UTC/offset)",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-8"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Time stamps must be UTC-based or include offset, with granularity per policy. Assumes audit logs include `timestamp.status=invalid` when validation fails."
+  },
 }
