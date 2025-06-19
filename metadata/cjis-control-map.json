@@ -53,6 +53,13 @@
     "nist": ["PS-3"],
     "policy_area": "Information Exchange",
     "notes": "Supports CJIS and PS-3 requirements by detecting unscreened individuals being granted access. Requires logs with `screening_status` or equivalent metadata from HR or IAM systems."
+  },
+  "100009": {
+    "description": "Unauthorized or unlogged physical access attempt to a secure area",
+    "cjis": ["5.1.1.7"],
+    "nist": ["PE-3"],
+    "policy_area": "Information Exchange",
+    "notes": "Detects failed or unauthorized access attempts at secure physical locations. Requires logs from physical access systems, guards, or entry control mechanisms."
   }
 }
 
