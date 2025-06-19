@@ -250,4 +250,11 @@
     "policy_area": "Incident Response",
     "notes": "Flags missing or overdue incident response exercises. Depends on structured logs like `event.type=ir_test` and `test.status=overdue` or equivalent."
   },
+  "100037": {
+    "description": "Audit logs were not retained for the time period required by policy",
+    "cjis": ["5.3.4"],
+    "nist": ["AU-11"],
+    "policy_area": "Incident Response",
+    "notes": "Checks whether logs are expired or purged before required retention. Expects audit metadata with `retention.status=violation` emitted from review tooling or storage lifecycle audit jobs."
+  },
 }
