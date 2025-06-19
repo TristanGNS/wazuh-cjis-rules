@@ -1,0 +1,16 @@
+<group name="personnel_screening,cjis,access_control">
+  <rule id="100008" level="10">
+    <description>CJIS 5.1.1.7 - User account provisioned without valid personnel screening</description>
+    <field name="event.type">user_created</field>
+    <field name="user.screening_status">unscreened</field>
+    <group>account_creation,policy_violation</group>
+    <compliance>
+      <cjis>5.1.1.7</cjis>
+      <nist_800_53>PS-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+Assumes your account provisioning system (or HR/security system) logs include screening_status metadata (e.g., from Okta, HRIS, background check tools, or onboarding logs).
+-->
