@@ -1,0 +1,17 @@
+<group name="id_auth_policy,cjis,governance,documentation">
+  <rule id="100018" level="9">
+    <description>CJIS 5.2.1.3 - Identification and authentication policy review overdue or not updated after required events</description>
+    <field name="event.type">policy_audit</field>
+    <field name="policy.name">identification_authentication</field>
+    <field name="policy.status">outdated</field>
+    <group>documentation,policy_review,compliance</group>
+    <compliance>
+      <cjis>5.2.1.3</cjis>
+      <nist_800_53>IA-1</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes your compliance or GRC system generates logs indicating the status of required policy documents (e.g., policy.name, policy.status, and timestamps for last review or update).
+-->
