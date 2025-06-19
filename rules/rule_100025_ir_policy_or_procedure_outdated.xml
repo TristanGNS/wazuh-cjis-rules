@@ -1,0 +1,31 @@
+<group name="incident_response_policy,cjis,incident_response">
+  <rule id="100025" level="9">
+    <description>CJIS 5.3.2 - Incident response policy or procedures outdated or not reviewed after required event</description>
+    <field name="event.type">policy_audit</field>
+    <field name="policy.name">incident_response</field>
+    <field name="policy.status">outdated</field>
+    <group>incident_response,documentation,governance</group>
+    <compliance>
+      <cjis>5.3.2</cjis>
+      <nist_800_53>IR-1</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.2 | NIST IR-1: Incident Response Policy and Procedures
+
+* Assumptions:
+-- You maintain audit or compliance logs that include the status of incident response policies and procedures
+-- These logs contain fields like `policy.name` and `policy.status`
+-- Reviews are tracked on an event-based or scheduled basis (e.g., post-incident, annually)
+
+* Integration Options:
+-- Compliance or GRC platform exports (e.g., ServiceNow, LogicGate, ZenGRC)
+-- Manual audit logs ingested into Wazuh via JSON, syslog, or scheduled scan
+-- File hash/version monitoring on documented policy files
+
+* Risk Without Assumption Met:
+If policy/procedure review cycles are not logged or monitored, this rule cannot be used effectively. Recommend establishing audit tracking for document review or version control systems.
+-->
