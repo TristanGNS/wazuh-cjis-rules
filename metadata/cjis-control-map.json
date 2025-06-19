@@ -11,6 +11,13 @@
     "nist": ["AU-9"],
     "policy_area": "Incident Response",
     "notes": "Alerts on modification or deletion of critical audit log files. Requires syscheck/FIM monitoring to be active."
+  },
+  "100003": {
+    "description": "Unauthorized information sharing with mismatched access authorizations",
+    "cjis": ["5.1.1"],
+    "nist": ["AC-21"],
+    "policy_area": "Information Exchange",
+    "notes": "Trigger when information is shared with an external entity without proper access authorization match. Requires logging from collaboration or data governance tools."
   }
 }
 
