@@ -1,0 +1,17 @@
+<group name="role_based_training,cjis,security_awareness">
+  <rule id="100016" level="8">
+    <description>CJIS 5.2.1.1 - Role-based security training incomplete or outdated</description>
+    <field name="event.type">training_status</field>
+    <field name="training.role">administrator</field>
+    <field name="training.status">overdue</field>
+    <group>training,compliance,policy_violation</group>
+    <compliance>
+      <cjis>5.2.1.1</cjis>
+      <nist_800_53>AT-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes your training platform or HR feed logs training completion status and role association, such as "training.role": "database_admin" or "incident_response_lead", along with due/complete state.
+-->
