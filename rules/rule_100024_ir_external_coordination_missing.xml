@@ -1,0 +1,28 @@
+<group name="incident_response_coordination,cjis,incident_response">
+  <rule id="100024" level="9">
+    <description>CJIS 5.3.1.1.2 - No coordination or identification of incident response team with external providers</description>
+    <field name="event.type">external_coordination_check</field>
+    <field name="coordination.status">not_established</field>
+    <group>incident_response,external_relations,policy_violation</group>
+    <compliance>
+      <cjis>5.3.1.1.2</cjis>
+      <nist_800_53>IR-7(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.3.1.1.2 | NIST IR-7(2): Coordination with External Providers
+
+* Assumptions:
+-- There is a scheduled or event-driven check (audit, ping, availability test) that verifies IR coordination with external providers
+-- Your logs contain fields such as `coordination.status` with values like "established", "not_established", or "expired"
+
+* Integration Options:
+-- Scheduled task in Wazuh or external SOAR that validates vendor contact/registration status
+-- API or database checks for up-to-date lists of IR team contacts registered with external partners
+
+* Risk Without Assumption Met:
+If your incident coordination system does not log relationship verification or contact assignments, this rule cannot validate external coordination. May require enrichment or scheduled audits.
+-->
