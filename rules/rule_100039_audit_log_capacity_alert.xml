@@ -1,0 +1,31 @@
+<group name="audit_storage,cjis,auditing,accountability">
+  <rule id="100039" level="9">
+    <description>CJIS 5.4.1 - Audit log storage nearing or exceeding capacity</description>
+    <field name="event.module">storage</field>
+    <field name="event.type">threshold_alert</field>
+    <field name="storage.component">audit_log</field>
+    <field name="threshold.exceeded">true</field>
+    <group>audit,storage,threshold</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-4: Audit Log Storage Capacity
+
+* Assumptions:
+-- The logging system (Wazuh agent or external tool) generates alerts on low or exceeded disk capacity related to audit logs.
+-- Alerts contain fields identifying the source (e.g., `storage.component=audit_log`) and include a boolean flag like `threshold.exceeded=true`.
+
+* Integration Options:
+-- Use Wazuh File Integrity Monitoring or OS-level storage monitors to detect `/var/ossec/logs/` usage thresholds.
+-- Use Wazuh’s `disk_space` module or log forwarding agents with storage monitoring capabilities (e.g., NXLog, Fluent Bit).
+
+* Risk Without Assumption Met:
+If audit log volume thresholds are not monitored or reported in logs, this rule cannot function. 
+Data loss may occur without alerting if log rotation or truncation silently discards old entries.
+-->
