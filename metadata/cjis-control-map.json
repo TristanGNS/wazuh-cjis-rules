@@ -6,10 +6,11 @@
     "policy_area": "Access Control"
   },
   "100002": {
-    "description": "Audit log modification",
-    "cjis": ["5.4.1"],
+    "description": "Audit log file modified or deleted",
+    "cjis": ["5.3.4"],
     "nist": ["AU-9"],
-    "policy_area": "Auditing and Accountability"
+    "policy_area": "Incident Response",
+    "notes": "Alerts on modification or deletion of critical audit log files. Requires syscheck/FIM monitoring to be active."
   }
 }
 
