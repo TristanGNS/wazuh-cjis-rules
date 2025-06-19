@@ -1,0 +1,17 @@
+<group name="physical_access,cjis,facility_security">
+  <rule id="100009" level="10">
+    <description>CJIS 5.1.1.7 - Unauthorized or unlogged physical access attempt</description>
+    <field name="event.type">physical_access</field>
+    <field name="event.action">unauthorized_entry</field>
+    <field name="location.zone">secure_area</field>
+    <group>facility,access_control</group>
+    <compliance>
+      <cjis>5.1.1.7</cjis>
+      <nist_800_53>PE-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule assumes integration with a physical access control system that logs access badge use, failed entries, or unescorted visitor activity (e.g., via syslog, API push, or CSV ingestion into Wazuh).
+-->
