@@ -1,0 +1,18 @@
+<group name="incident_reporting,cjis,incident_response">
+  <rule id="100019" level="9">
+    <description>CJIS 5.3.1 - Security event detected without associated incident report or escalation</description>
+    <field name="event.type">security_event</field>
+    <field name="incident.status">not_reported</field>
+    <group>incident_response,reporting_gap,policy_violation</group>
+    <compliance>
+      <cjis>5.3.1</cjis>
+      <nist_800_53>IR-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+Requires either:
+- A SIEM/alerting system tagging suspicious activity as incident.status: not_reported, or
+- Correlation logic (via Wazuh or external system) that identifies known threat behaviors without a matching ticket or response.
+-->
