@@ -102,6 +102,13 @@
     "nist": ["IR-2"],
     "policy_area": "Security Awareness Training",
     "notes": "Triggers when incident response training has not been completed within expected timeframes. Supports IR-2 training compliance. Requires logs from HR or LMS."
+  },
+  "100016": {
+    "description": "Role-based training not completed or overdue for user in a privileged or critical role",
+    "cjis": ["5.2.1.1"],
+    "nist": ["AT-3"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Supports CJIS 5.2.1.1 and AT-3 by ensuring that access is not granted or retained without role-specific training. Requires integration with LMS, HR, or compliance system logging training status by role."
   }
 }
 
