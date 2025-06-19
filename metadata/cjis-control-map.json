@@ -42,7 +42,7 @@
   },
   "100007": {
     "description": "Access granted to user without signed or renewed access agreement",
-    "cjis": ["5.1.1.7"],
+    "cjis": ["5.1.1.7", "5.2.1.3"],
     "nist": ["PS-6"],
     "policy_area": "Information Exchange",
     "notes": "Validates that access is not provisioned without a signed access agreement. Log source must include access agreement status at user onboarding or provisioning time."
