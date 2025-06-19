@@ -109,6 +109,13 @@
     "nist": ["AT-3"],
     "policy_area": "Security Awareness Training",
     "notes": "Supports CJIS 5.2.1.1 and AT-3 by ensuring that access is not granted or retained without role-specific training. Requires integration with LMS, HR, or compliance system logging training status by role."
+  },
+  "100017": {
+    "description": "Insider threat literacy training is missing or overdue for user",
+    "cjis": ["5.2.1.2"],
+    "nist": ["AT-2(2)"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Detects if users have not completed insider threat awareness training within required timeframes. Requires training logs that specify topic and completion status."
   }
 }
 
