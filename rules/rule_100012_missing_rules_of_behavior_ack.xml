@@ -1,0 +1,16 @@
+<group name="rules_of_behavior,cjis,security_awareness">
+  <rule id="100012" level="10">
+    <description>CJIS 5.2.1 - User granted access without acknowledging Rules of Behavior</description>
+    <field name="event.type">user_created</field>
+    <field name="user.ack_rules_of_behavior">false</field>
+    <group>account_creation,policy_violation</group>
+    <compliance>
+      <cjis>5.2.1</cjis>
+      <nist_800_53>PL-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+This rule depends on your onboarding or IAM system sending structured logs that include a flag like user.ack_rules_of_behavior. If this data isn’t available by default, you may need to enrich onboarding logs or build a policy exception feed.
+-->
