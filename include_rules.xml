@@ -10,6 +10,21 @@
     <include>rules/rule_100008_unscreened_user_access.xml</include>
     <include>rules/rule_100009_unauthorized_physical_access.xml</include>
     <include>rules/rule_100010_missing_or_outdated_risk_assessment.xml</include>
+    <include>rules/rule_100011_monitoring_gap_detected.xml</include>
+    <include>rules/rule_100012_missing_rules_of_behavior_ack.xml</include>
+    <include>rules/rule_100013_external_use_of_org_credentials.xml</include>
+    <include>rules/rule_100014_training_overdue_or_incomplete.xml</include>
+    <include>rules/rule_100015_ir_training_incomplete.xml</include>
+    <include>rules/rule_100016_role_training_incomplete.xml</include>
+    <include>rules/rule_100017_insider_threat_training_missing.xml</include>
+    <include>rules/rule_100018_auth_policy_review_missing.xml</include>
+    <include>rules/rule_100019_unreported_incident_detected.xml</include>
+    <include>rules/rule_100020_missing_automated_incident_reporting.xml</include>
+    <include>rules/rule_100021_incident_vulnerability_unlinked.xml</include>
+    <include>rules/rule_100022_ir_support_unavailable.xml</include>
+    <include>rules/rule_100023_ir_support_automation_failure.xml</include>
+    
+    <!-- <include>rules/</include> -->
     <!-- etc. -->
   </rule>
 </group>
