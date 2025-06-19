@@ -264,4 +264,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Time stamps must be UTC-based or include offset, with granularity per policy. Assumes audit logs include `timestamp.status=invalid` when validation fails."
   },
+  "100039": {
+    "description": "Audit log storage capacity is insufficient for compliance with retention policy",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-4"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Assumes log data or agent monitors storage usage on audit log volume or disk mount. Alert triggers when disk threshold or audit log space capacity exceeds defined limit."
+  },
 }
