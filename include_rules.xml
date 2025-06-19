@@ -1,0 +1,7 @@
+<group name="cjis_custom_rules">
+  <rule>
+    <include>rules/rule_100001_failed_login.xml</include>
+    <!-- <include>rules/rule_100002_audit_log_modified.xml</include> -->
+    <!-- etc. -->
+  </rule>
+</group>
