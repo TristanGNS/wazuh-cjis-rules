@@ -144,6 +144,13 @@
     "nist": ["IR-6(2)"],
     "policy_area": "Incident Response",
     "notes": "Detects failure to associate or report vulnerabilities discovered during incident handling. Requires correlation between vulnerability management and IR systems."
+  },
+  "100022": {
+    "description": "Incident response assistance was unavailable or not accessible during an active incident",
+    "cjis": ["5.3.1.1.1"],
+    "nist": ["IR-7"],
+    "policy_area": "Incident Response",
+    "notes": "Supports detection of IR assistance gaps by flagging when incidents are triggered without accessible or active IR support personnel. Requires metadata from ticketing systems or alert correlation pipelines indicating `ir_support.available`."
   }
 }
 
