@@ -1,0 +1,17 @@
+<group name="incident_response_training,cjis,security_awareness">
+  <rule id="100015" level="8">
+    <description>CJIS 5.2.1.1 - Incident response training incomplete or not provided on time</description>
+    <field name="event.type">training_status</field>
+    <field name="training.topic">incident_response</field>
+    <field name="training.status">overdue</field>
+    <group>training,incident_response,policy_violation</group>
+    <compliance>
+      <cjis>5.2.1.1</cjis>
+      <nist_800_53>IR-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+Like previous training rules, this assumes integration with an LMS or HR system that tracks training topic completion status (incident_response, security_awareness, etc.) per user.
+-->
