@@ -222,4 +222,11 @@
     "policy_area": "Incident Response",
     "notes": "Identifies failures to perform live system changes (e.g., network re-routing, ACL updates, port blocking) as part of IR response. Depends on structured logs with `reconfiguration.status=not_performed` or similar tracking."
   },
+  "100033": {
+    "description": "An incident occurred without being formally tracked or documented in the incident response system",
+    "cjis": ["5.3.2.1"],
+    "nist": ["IR-5"],
+    "policy_area": "Incident Response",
+    "notes": "Fires when a qualifying incident event is detected but no documentation or tracking action has been logged. Requires structured logs with `documentation.status` fields or equivalent evidence of IR workflow gaps."
+  },
 }
