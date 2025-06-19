@@ -1,0 +1,17 @@
+<group name="information_exchange,cjis,access_control">
+  <rule id="100003" level="8">
+    <description>CJIS 5.1.1 - Potential unauthorized or mismatched access sharing attempt</description>
+    <field name="event.type">sharing_violation</field>
+    <field name="user.authz_status">unauthorized</field>
+    <field name="resource.shared_with">external_partner</field>
+    <group>collaboration,access_control</group>
+    <compliance>
+      <cjis>5.1.1</cjis>
+      <nist_800_53>AC-21</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+NOTE:
+You’ll need to ensure whatever systems generate these logs (Teams, Slack, file share platforms, etc.) feed into Wazuh — e.g., via syslog or a custom JSON ingestion pipeline that flags unauthorized shares.
+-->
