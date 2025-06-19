@@ -95,6 +95,13 @@
     "nist": ["AT-2"],
     "policy_area": "Security Awareness Training",
     "notes": "Fulfills CJIS 5.2.1.1 by detecting overdue or missing training completions. Requires logs from the organization's security awareness training system or HR compliance tracking."
+  },
+  "100015": {
+    "description": "Incident response training missing or overdue for user with response duties",
+    "cjis": ["5.2.1.1"],
+    "nist": ["IR-2"],
+    "policy_area": "Security Awareness Training",
+    "notes": "Triggers when incident response training has not been completed within expected timeframes. Supports IR-2 training compliance. Requires logs from HR or LMS."
   }
 }
 
