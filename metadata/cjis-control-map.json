@@ -236,4 +236,11 @@
     "policy_area": "Incident Response",
     "notes": "Detects missing or overdue audit record reviews, or failure to increase review cadence after risk events. Relies on structured review status logs such as `review.status=overdue` and `event.type=audit_review`."
   },
+  "100035": {
+    "description": "Incident response training was not completed within the defined time period after onboarding or role change",
+    "cjis": ["5.3.3"],
+    "nist": ["IR-2"],
+    "policy_area": "Incident Response",
+    "notes": "This rule detects overdue incident response training for personnel in security roles. Requires structured logs such as `training.topic=incident_response` and `training.status=overdue`."
+  },
 }
