@@ -40,15 +40,24 @@ wazuh-cjis-rules/
 
 | Milestone | Description | Status |
 |----------|-------------|--------|
-| ✅ Stage 1   | Repository scaffolding, structure design, README setup               | Complete |
-| ✅ Stage 2.1 | Rule Creation – Area 1: Information Exchange                          | Complete |
-| ✅ Stage 2.2 | Rule Creation – Area 2: Security Awareness Training                   | Complete |
-| ✅ Stage 2.3 | Rule Creation – Area 3: Incident Response                              | Complete |
-| 🔧 Stage 2.4 | Rule Creation – Area 4: Auditing and Accountability                   | In Progress |
-| 🔜 Stage 3   | Build compliance dashboards and rule validation tools                 | Planned |
-| 🧪 Stage 4   | Deploy in Wazuh test environment, validate triggers                   | Planned |
-| 📤 Stage 5   | Develop SCA policies and reporting scripts                            | Planned |
-| 📚 Stage 6   | Documentation & CJIS compliance mapping exports                       | Planned |
+| ✅ Stage 1   | Repository scaffolding, structure design, README setup                 | Complete |
+| ✅ Stage 2.01 | Rule Creation – Area 1: Information Exchange                          | Complete |
+| ✅ Stage 2.02 | Rule Creation – Area 2: Security Awareness Training                   | Complete |
+| ✅ Stage 2.03 | Rule Creation – Area 3: Incident Response                             | Complete |
+| 🔧 Stage 2.04 | Rule Creation – Area 4: Auditing and Accountability                   | In Progress |
+| 🔜 Stage 2.05 | Rule Creation – Area 5 Access Control                                 | Planned |
+| 🔜 Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | Planned |
+| 🔜 Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | Planned |
+| 🔜 Stage 2.08 | Rule Creation – Area 8 Media Protection                               | Planned |
+| 🔜 Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | Planned |
+| 🔜 Stage 2.10 | Rule Creation – Area 10 Systems and Communication                     | Planned |
+| 🔜 Stage 2.11 | Rule Creation – Area 11 Formal Audits                                 | Planned |
+| 🔜 Stage 2.12 | Rule Creation – Area 12 Personnel Security                            | Planned |
+| 🔜 Stage 2.13 | Rule Creation – Area 13 Mobile Devices                                | Planned |
+| 🔜 Stage 3   | Build compliance dashboards and rule validation tools                  | Planned |
+| 🧪 Stage 4   | Deploy in Wazuh test environment, validate triggers                    | Planned |
+| 📤 Stage 5   | Develop SCA policies and reporting scripts                             | Planned |
+| 📚 Stage 6   | Documentation & CJIS compliance mapping exports                        | Planned |
 
 
 
