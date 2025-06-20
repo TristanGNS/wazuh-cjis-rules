@@ -1,0 +1,39 @@
+<group name="audit_retention,compliance,cjis,accountability">
+  <rule id="100059" level="7">
+    <description>CJIS 5.4.3 - Audit records not retained for sufficient duration</description>
+    <field name="audit.retention.days">< 90</field>
+    <group>audit_policy</group>
+    <compliance>
+      <cjis>5.4.3</cjis>
+      <nist_800_53>AU-11</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.3 | NIST AU-11: Audit Record Retention
+
+* Requirements:
+-- Audit logs must be retained for an organization-defined period that aligns with:
+   - Internal retention policies
+   - Legal or regulatory requirements (e.g., 1 year minimum for many agencies)
+   - Incident investigation and forensic readiness needs
+
+* Assumptions:
+-- Logs are stored with metadata such as creation date and expiration/purge date
+-- The system has a field (or queryable metric) representing `audit.retention.days`
+-- Default compliance threshold in this rule is < 90 days (adjustable per agency policy)
+
+* Integration Recommendations:
+-- Use Wazuh's `wazuh-modulesd` log collector with `global.db` queries or external storage alerts
+-- Consider immutable log storage options (e.g., S3 with WORM, or SIEM log archiving) for CJIS-compliant retention
+
+* Risk Without Assumption Met:
+-- Without clear visibility into audit log lifecycles, retention violations may go unnoticed
+-- Inadequate retention impairs post-incident forensics, undermines legal defensibility, and breaks CJIS compliance
+
+* Tuning Suggestions:
+-- Customize `audit.retention.days` threshold based on agency-specific policies (e.g., 180, 365, 730 days)
+-- Include additional checks for log archive availability (e.g., backup confirmations)
+-->
