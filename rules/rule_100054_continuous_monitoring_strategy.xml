@@ -1,0 +1,28 @@
+<group name="continuous_monitoring,cjis,auditing,system_strategy">
+  <rule id="100054" level="7">
+    <description>CJIS 5.4.3 - Continuous monitoring not implemented or missing key reporting/assessment requirements</description>
+    <field name="monitoring.status">disabled</field>
+    <field name="metric.reporting.status">missing</field>
+    <group>compliance,monitoring</group>
+    <compliance>
+      <cjis>5.4.3</cjis>
+      <nist_800_53>CA-7</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.3 | NIST CA-7: Continuous Monitoring
+
+* Assumptions:
+-- The system generates logs or telemetry for the presence/absence of monitoring metrics and reporting events.
+-- monitoring.status may reflect boolean state; metric.reporting.status may indicate missing reports or delayed evaluations.
+
+* Integration Options:
+-- Wazuh integration with a configuration compliance tool (like OpenSCAP, Wazuh SCA) can validate strategy presence.
+-- Scheduled job audit logs (cron, task scheduler) could confirm reporting frequency or identify gaps.
+
+* Risk Without Assumption Met:
+Absence of continuous monitoring or failure to assess/report system status breaks visibility across the security lifecycle.
+-->
