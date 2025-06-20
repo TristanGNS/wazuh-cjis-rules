@@ -390,4 +390,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Monitors for automated logging of user account management events. Assumes normalized audit fields (e.g., audit.account.create). Requires log coverage across identity/auth sources (Active Directory, auditd, etc)."
   },
+  "100057": {
+    "description": "Audit record review and reporting are not integrated using automated mechanisms, as required by CJIS 5.4.3 and NIST AU-6(1).",
+    "cjis": ["5.4.3"],
+    "nist": ["AU-6(1)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Triggers when logs are being collected but are not integrated into an automated process for audit review and reporting. Supports detection of compliance gaps in environments lacking SIEM, scheduled analysis, or Wazuh integration logic."
+  },
 }
