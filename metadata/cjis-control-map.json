@@ -404,4 +404,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule detects environments where either (a) no reporting interface is available for audit review, or (b) audit data is manipulated during log reduction in ways that prevent accurate event reconstruction. Requires logging platform to support filtered views while preserving raw event integrity."
   },
+  "100059": {
+    "description": "Audit logs are not retained for the required duration per organizational or regulatory policy, in violation of CJIS 5.4.3 / AU-11.",
+    "cjis": ["5.4.3"],
+    "nist": ["AU-11"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule checks for inadequate audit retention settings, typically defined by `audit.retention.days`. CJIS typically requires logs to be retained for sufficient time to enable after-the-fact investigation, legal discovery, and compliance reviews. This threshold should match agency policy and legal obligations."
+  },
 }
