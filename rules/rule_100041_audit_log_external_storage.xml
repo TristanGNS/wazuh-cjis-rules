@@ -1,0 +1,30 @@
+<group name="audit_storage_separation,cjis,auditing,accountability">
+  <rule id="100041" level="7">
+    <description>CJIS 5.4.1 - Audit logs not stored on a separate physical system/component from the system being audited</description>
+    <field name="audit.storage.location">local</field>
+    <field name="audit.scope">same_host</field>
+    <group>audit,log_storage,separation</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-9(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-9(2): Protection of Audit Information - Log Storage Separation
+
+* Assumptions:
+-- You have a method of identifying where logs are stored (e.g., structured logging output, configuration file scans, agent tags).
+-- The field `audit.storage.location` or similar (such as `log.location`) is present and indicates whether logs are local or remote.
+-- The flag `audit.scope = same_host` denotes the audit logs reside on the same system being monitored.
+
+* Integration Options:
+-- Log forwarding verification (e.g., rsyslog/Winlogbeat to SIEM)
+-- Wazuh agent logs parsing `/etc/rsyslog.conf`, NXLog, or Windows Event Forwarding config
+-- Asset inventory enrichment to map system roles (e.g., if same host is doing both processing and audit log storage)
+
+* Risk Without Assumption Met:
+If the audit storage path isn’t explicitly monitored or log forwarding isn’t validated, this rule may generate false negatives.
+-->
