@@ -1,0 +1,33 @@
+<group name="audit_review_reporting,cjis,auditing,accountability">
+  <rule id="100043" level="7">
+    <description>CJIS 5.4.1 - Audit records show signs of suspicious activity but were not reviewed or reported as required</description>
+    <field name="audit.anomaly_detected">true</field>
+    <field name="audit.reviewed">false</field>
+    <field name="alert.sent">false</field>
+    <group>audit,log_review</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-6: Audit Record Review, Analysis, and Reporting
+
+* Assumptions:
+-- You have an audit log parser/enricher (e.g., Wazuh ruleset or custom script) that flags entries as suspicious or anomalous via fields like:
+   - audit.anomaly_detected = true
+   - audit.reviewed = false
+   - alert.sent = false (if alerting never happened)
+
+-- There’s a scheduled process for audit log review and alerting (manual or automated).
+
+* Integration Options:
+-- Integration with SIEMs or Wazuh's `ossec`/`wodle_audit` modules, applying anomaly detection flags.
+-- Rule can operate on enhanced logs produced by a post-processing step (e.g., parsed Sysmon or auditd output enriched with anomaly indicators).
+
+* Risk Without Assumption Met:
+If audit logs are not reviewed or labeled post-ingestion, or anomalies are not programmatically tagged, this rule may not function. Manual tagging or ML-assisted classification is a viable workaround.
+-->
