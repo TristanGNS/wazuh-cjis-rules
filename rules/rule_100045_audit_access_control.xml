@@ -1,0 +1,29 @@
+<group name="audit_privileged_access,cjis,auditing,accountability">
+  <rule id="100045" level="9">
+    <description>CJIS 5.4.1 - Unauthorized user accessed audit logging management functions</description>
+    <field name="event.action">audit_config_change</field>
+    <field name="user.role">!=audit_admin</field>
+    <group>audit,access_control</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-9(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-9(4): Access by Subset of Privileged Users
+
+* Assumptions:
+-- Audit logging configuration actions (e.g., enabling/disabling logging, changing log rotation) are logged as `event.action = audit_config_change`
+-- Role or user tag is included in the log, such as `user.role = admin` or `user.role = audit_admin`
+-- Organization has defined a subset role label such as `audit_admin`, `log_supervisor`, or `security_auditor`
+
+* Integration Options:
+-- Wazuh ruleset parsing sudo logs, shell command history (e.g., changes to `rsyslog`, `auditd`, `logrotate.conf`)
+-- Role verification can be done via custom decoders or mapped from user metadata (e.g., LDAP tags)
+
+* Risk Without Assumption Met:
+If user roles are not parsed into logs or if audit changes do not generate distinct log events, this rule cannot detect violations. Consider enhancing audit trail granularity with shell history or auditd syscall tracking.
+-->
