@@ -1,0 +1,37 @@
+<group name="audit_analysis,automation,cjis,auditing">
+  <rule id="100057" level="7">
+    <description>CJIS 5.4.3 - Missing automated integration for audit record review and reporting</description>
+    <field name="audit.analysis.automated">false</field>
+    <group>compliance,audit_integration</group>
+    <compliance>
+      <cjis>5.4.3</cjis>
+      <nist_800_53>AU-6(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.3 | NIST AU-6(1): Audit Record Review, Analysis, and Reporting | Automated Process Integration
+
+* Requirements:
+-- Organizations must leverage automated tools to integrate the audit review, analysis, and reporting lifecycle.
+-- Manual review alone is insufficient. Logs should feed into automated systems for correlation, anomaly detection, and alerting.
+-- Examples of compliant mechanisms include:
+   - Wazuh rulesets with agent log correlation
+   - SIEM pipelines (e.g., ELK stack, Splunk)
+   - Scheduled log queries or dashboards
+
+* Assumptions:
+-- Log records are ingested into Wazuh or an external analysis engine.
+-- Field `audit.analysis.automated` is set via enrichment, decoder, or log annotation to indicate automation coverage.
+
+* Integration Suggestions:
+-- Validate log ingestion is complete and timely.
+-- Define scheduled queries or saved searches (e.g., in Kibana or Splunk) that run automatically.
+-- Ensure output from analysis flows into notification systems or reports.
+
+* Risk Without Assumption Met:
+-- Without automation, logs may go unreviewed.
+-- Manual audit processes are error-prone, untimely, and ineffective at detecting patterns or correlated threats.
+-->
