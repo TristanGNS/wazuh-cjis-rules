@@ -355,4 +355,18 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Assumes enrichment field `audit.repo_count` is present to track whether logs are unified from multiple sources. Integration should support multi-source audit aggregation."
   },
+  "100052": {
+    "description": "Remote access is not being monitored through automated means, violating CJIS remote session control guidance.",
+    "cjis": ["5.4.1.1"],
+    "nist": ["AC-17(1)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Triggers if remote access sessions are detected but no active monitoring service is confirmed. Assumes telemetry on remote access events and monitoring state is available."
+  },
+  "100053": {
+    "description": "System monitoring failed to detect unauthorized activity or anomalies, violating CJIS system oversight obligations.",
+    "cjis": ["5.4.1.1"],
+    "nist": ["SI-4"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule assumes integration with behavioral analysis or alerting platforms that flag monitoring effectiveness. Triggered when detection fails against expected threats or conditions."
+  },
 }
