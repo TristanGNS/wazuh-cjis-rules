@@ -67,46 +67,66 @@ wazuh-cjis-rules/
 
 The following CJIS requirements and NIST controls are currently addressed in the initial implementation phase:
 
-| CJIS Requirement | Control Name                                         | NIST Control     | Policy Area                         |
-|------------------|------------------------------------------------------|------------------|--------------------------------------|
-| 5.1.1            | Information Exchange                                 | AC-21            | Area 1 – Information Exchange Ag     |
-| 5.1.1            | Information Exchange                                 | SA-4             | Area 1 – Information Exchange Ag     |
-| 5.1.1.1          | Information Handling                                 | PM-1             | Area 1 – Information Exchange Ag     |
-| 5.1.1.1          | Incident Response Plan                               | IR-8             | Area 1 – Information Exchange Ag     |
-| 5.1.1.7          | Access Agreements                                    | PS-6             | Area 1 – Information Exchange Ag     |
-| 5.1.1.7          | Personnel Screening                                  | PS-3             | Area 1 – Information Exchange Ag     |
-| 5.1.1.7          | Physical Access Control                              | PE-3             | Area 1 – Information Exchange Ag     |
-| 5.1.2            | Risk Assessment                                      | RA-3             | Area 1 – Information Exchange Ag     |
-| 5.1.2            | Continuous Monitoring                                | CA-7             | Area 1 – Information Exchange Ag     |
-| 5.2.1            | Rules of Behavior                                    | PL-4             | Area 2 – Security Awareness Training |
-| 5.2.1            | Social Media & External Usage Restrictions           | PL-4(1)          | Area 2 – Security Awareness Training |
-| 5.2.1.1          | Literacy Training and Awareness                      | AT-2             | Area 2 – Security Awareness Training |
-| 5.2.1.1          | Incident Response Training                           | IR-2             | Area 2 – Security Awareness Training |
-| 5.2.1.1          | Role-Based Training                                  | AT-3             | Area 2 – Security Awareness Training |
-| 5.2.1.2          | Insider Threat Literacy Training                     | AT-2(2)          | Area 2 – Security Awareness Training |
-| 5.2.1.3          | Identification & Authentication Policies             | IA-1             | Area 2 – Security Awareness Training |
-| 5.3.1            | Incident Reporting                                   | IR-6             | Area 3 – Incident Response           |
-| 5.3.1            | Automated Incident Reporting                         | IR-6(1)          | Area 3 – Incident Response           |
-| 5.3.1            | Vulnerabilities Related to Incidents                 | IR-6(2)          | Area 3 – Incident Response           |
-| 5.3.1.1.1        | Incident Response Assistance                         | IR-7             | Area 3 – Incident Response           |
-| 5.3.1.1.1        | Automation Support for IR Availability               | IR-7(1)          | Area 3 – Incident Response           |
-| 5.3.1.1.2        | Coordination with External Providers                 | IR-7(2)          | Area 3 – Incident Response           |
-| 5.3.2            | Policy and Procedures for Incident Management        | IR-1             | Area 3 – Incident Response           |
-| 5.3.2            | Incident Response Plan                               | IR-8             | Area 3 – Incident Response           |
-| 5.3.2.1          | Automated Incident Handling                          | IR-4(1)          | Area 3 – Incident Response           |
-| 5.3.2.1          | Incident Handling Lifecycle & Lessons Learned        | IR-4             | Area 3 – Incident Response           |
-| 5.3.2.1          | Automated Tracking & Incident Analytics              | IR-5(1)          | Area 3 – Incident Response           |
-| 5.3.2.1          | Continuity of Operations                             | IR-4(3)          | Area 3 – Incident Response           |
-| 5.3.2.1          | Information Correlation                              | IR-4(4)          | Area 3 – Incident Response           |
-| 5.3.2.1          | Dynamic Reconfiguration                              | IR-4(2)          | Area 3 – Incident Response           |
-| 5.3.2.1          | Incident Monitoring                                  | IR-5             | Area 3 – Incident Response           |
-| 5.3.2.2          | Audit Record Review & Reporting                      | AU-6             | Area 3 – Incident Response           |
-| 5.3.3            | Incident Response Training                           | IR-2             | Area 3 – Incident Response           |
-| 5.3.3            | Incident Response Testing                            | IR-3             | Area 3 – Incident Response           |
-| 5.3.4            | Audit Record Retention                               | AU-11            | Area 3 – Incident Response           |
-| 5.4.1            | Time Stamps in Audit Logs                            | AU-8             | Area 4 – Auditing and Accountability |
-| 5.4.1            | Audit Log Storage Capacity                           | AU-4             | Area 4 – Auditing and Accountability |
-| 5.4.1            | Protection of Audit Information                      | AU-9             | Area 4 – Auditing and Accountability |
+| CJIS Requirement | Control Name                                         | NIST Control     | Policy Area                        | Rule ID  |
+|------------------|------------------------------------------------------|------------------|-------------------------------------|----------|
+| 5.1.1            | Information Exchange                                 | AC-21            | Information Exchange                | 100003   |
+| 5.1.1            | Information Exchange                                 | SA-4             | Information Exchange                | 100004   |
+| 5.1.1.1          | Information Handling                                 | PM-1             | Information Exchange                | 100005   |
+| 5.1.1.1          | Incident Response Plan                               | IR-8             | Information Exchange                | 100006   |
+| 5.1.1.7          | Access Agreements                                    | PS-6             | Information Exchange                | 100007   |
+| 5.1.1.7          | Personnel Screening                                  | PS-3             | Information Exchange                | 100008   |
+| 5.1.1.7          | Physical Access Control                              | PE-3             | Information Exchange                | 100009   |
+| 5.1.2            | Risk Assessment                                      | RA-3             | Information Exchange                | 100010   |
+| 5.1.2            | Continuous Monitoring                                | CA-7             | Information Exchange                | 100011   |
+| 5.2.1            | Rules of Behavior                                    | PL-4             | Security Awareness Training         | 100012   |
+| 5.2.1            | Social Media & External Usage Restrictions           | PL-4(1)          | Security Awareness Training         | 100013   |
+| 5.2.1.1          | Literacy Training and Awareness                      | AT-2             | Security Awareness Training         | 100014   |
+| 5.2.1.1          | Incident Response Training                           | IR-2             | Security Awareness Training         | 100015   |
+| 5.2.1.1          | Role-Based Training                                  | AT-3             | Security Awareness Training         | 100016   |
+| 5.2.1.2          | Insider Threat Literacy Training                     | AT-2(2)          | Security Awareness Training         | 100017   |
+| 5.2.1.3          | Identification & Authentication Policies             | IA-1             | Security Awareness Training         | 100018   |
+| 5.3.1            | Incident Reporting                                   | IR-6             | Incident Response                   | 100019   |
+| 5.3.1            | Automated Incident Reporting                         | IR-6(1)          | Incident Response                   | 100020   |
+| 5.3.1            | Vulnerabilities Related to Incidents                 | IR-6(2)          | Incident Response                   | 100021   |
+| 5.3.1.1.1        | Incident Response Assistance                         | IR-7             | Incident Response                   | 100022   |
+| 5.3.1.1.1        | Automation Support for IR Availability               | IR-7(1)          | Incident Response                   | 100023   |
+| 5.3.1.1.2        | Coordination with External Providers                 | IR-7(2)          | Incident Response                   | 100024   |
+| 5.3.2            | Policy and Procedures for Incident Management        | IR-1             | Incident Response                   | 100025   |
+| 5.3.2            | Incident Response Plan                               | IR-8             | Incident Response                   | 100026   |
+| 5.3.2.1          | Automated Incident Handling                          | IR-4(1)          | Incident Response                   | 100027   |
+| 5.3.2.1          | Incident Handling Lifecycle & Lessons Learned        | IR-4             | Incident Response                   | 100028   |
+| 5.3.2.1          | Automated Tracking & Incident Analytics              | IR-5(1)          | Incident Response                   | 100029   |
+| 5.3.2.1          | Continuity of Operations                             | IR-4(3)          | Incident Response                   | 100030   |
+| 5.3.2.1          | Information Correlation                              | IR-4(4)          | Incident Response                   | 100031   |
+| 5.3.2.1          | Dynamic Reconfiguration                              | IR-4(2)          | Incident Response                   | 100032   |
+| 5.3.2.1          | Incident Monitoring                                  | IR-5             | Incident Response                   | 100033   |
+| 5.3.2.2          | Audit Record Review & Reporting                      | AU-6             | Incident Response                   | 100034   |
+| 5.3.3            | Incident Response Training                           | IR-2             | Incident Response                   | 100035   |
+| 5.3.3            | Incident Response Testing                            | IR-3             | Incident Response                   | 100036   |
+| 5.3.4            | Audit Record Retention                               | AU-11            | Incident Response                   | 100037   |
+| 5.4.1            | Time Stamps in Audit Logs                            | AU-8             | Auditing and Accountability         | 100038   |
+| 5.4.1            | Audit Log Storage Capacity                           | AU-4             | Auditing and Accountability         | 100039   |
+| 5.4.1            | Protection of Audit Information                      | AU-9             | Auditing and Accountability         | 100040   |
+| 5.4.1            | Separate Audit Log Storage                           | AU-9(2)          | Auditing and Accountability         | 100041   |
+| 5.4.1            | Audit Logging Process Failure Response               | AU-5             | Auditing and Accountability         | 100042   |
+| 5.4.1            | Audit Review and Alerting                            | AU-6             | Auditing and Accountability         | 100043   |
+| 5.4.1            | Audit Storage Capacity Warning                       | AU-5(1)          | Auditing and Accountability         | 100044   |
+| 5.4.1            | Audit Access by Subset of Privileged Users           | AU-9(4)          | Auditing and Accountability         | 100045   |
+| 5.4.1            | Additional Audit Information                         | AU-3(1)          | Auditing and Accountability         | 100046   |
+| 5.4.1            | Real-time Alerts on Logging Failure                  | AU-5(2)          | Auditing and Accountability         | 100047   |
+| 5.4.1            | Complete Audit Log Entry Structure                   | AU-3             | Auditing and Accountability         | 100048   |
+| 5.4.1            | Previous Logon Notification                          | AC-9             | Auditing and Accountability         | 100049   |
+| 5.4.1            | Audit Record Generation                              | AU-12            | Auditing and Accountability         | 100050   |
+| 5.4.1            | Correlation Across Audit Repositories                | AU-6(3)          | Auditing and Accountability         | 100051   |
+| 5.4.1.1          | Remote Access Monitoring                             | AC-17(1)         | Auditing and Accountability         | 100052   |
+| 5.4.1.1          | System Monitoring for Threats                        | SI-4             | Auditing and Accountability         | 100053   |
+| 5.4.3            | Continuous Monitoring Strategy                       | CA-7             | Auditing and Accountability         | 100054   |
+| 5.4.3            | Event Logging Content & Frequency                    | AU-2             | Auditing and Accountability         | 100055   |
+| 5.4.1.1          | Automated Audit of Account Lifecycle Events          | AC-2(4)          | Auditing and Accountability         | 100056   |
+| 5.4.3            | Automated Audit Review Integration                   | AU-6(1)          | Auditing and Accountability         | 100057   |
+| 5.4.3            | Audit Reduction & Report Generation                  | AU-7             | Auditing and Accountability         | 100058   |
+| 5.4.3            | Audit Record Retention Policy Enforcement            | AU-11            | Auditing and Accountability         | 100059   |
+
 
 
 Each of these will be implemented with a dedicated `.xml` rule file that:
