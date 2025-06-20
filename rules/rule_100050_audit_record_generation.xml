@@ -1,0 +1,27 @@
+<group name="audit_generation,cjis,auditing,accountability">
+  <rule id="100050" level="7">
+    <description>CJIS 5.4.1 - Missing or misconfigured audit record generation for required event types or system components (AU-12)</description>
+    <field name="event.audit_generated">false</field>
+    <group>audit,system_monitoring</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-12</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-12: Audit Record Generation
+
+* Assumptions:
+-- The log source includes or is enriched with `event.audit_generated = true|false` or similar indicators (e.g., auditd plugin failure logs, logging engine status, configuration state diffs).
+-- Audit configurations per system component are defined and validated.
+
+* Integration Options:
+-- Wazuh with auditd module, file integrity monitoring, and agent configuration status checking.
+-- External compliance scanners or policy-as-code platforms reporting audit misconfigurations.
+
+* Risk Without Assumption Met:
+Lack of auditing for critical event types or system components may lead to undetectable breaches, hinder investigations, and violate CJIS requirements.
+-->
