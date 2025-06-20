@@ -285,4 +285,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Assumes audit log storage path is observable and taggable via agent logs, config scans, or enrichment. Ideal with FIM or log forwarding configuration validation."
   },
+  "100042": {
+    "description": "Audit logging process failure occurred without triggering required alert or remediation actions",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-5"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Requires visibility into audit subsystem failure logs and confirmation of alert/response action (via field like alert.sent). Must ensure logging pipelines report failure events clearly."
+  },
 }
