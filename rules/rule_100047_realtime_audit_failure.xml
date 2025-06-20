@@ -1,0 +1,30 @@
+<group name="audit_failure_realtime_alerts,cjis,auditing,accountability">
+  <rule id="100047" level="10">
+    <description>CJIS 5.4.1 - Real-time alert: Audit logging process failure detected</description>
+    <field name="event.module">wazuh-modulesd</field>
+    <field name="event.type">log_failure</field>
+    <field name="alert.level">>=10</field>
+    <group>audit_failure,realtime_alerts</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-5(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-5(2): Real-Time Alerts on Audit Logging Failures
+
+* Assumptions:
+-- Wazuh or associated components (e.g., rsyslog, journald, logrotate) emit explicit failures during log rotation, disk fill, or permission issues.
+-- These are categorized with type=log_failure or flagged with error codes/strings in event.module=wazuh-modulesd or equivalent.
+-- Real-time alerting system is active, and notification routing (email, webhook, SIEM) is functional and monitored.
+
+* Integration Options:
+-- Configure alert escalation in Wazuh for log failures
+-- Use syslog or journald monitoring for log service failures
+
+* Risk Without Assumption Met:
+If logging issues are not raised in real time, incidents may go undetected. Organizations may miss evidence due to log overflow, corruption, or access denial to critical audit trails.
+-->
