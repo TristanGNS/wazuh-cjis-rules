@@ -1,0 +1,42 @@
+<group name="account_management,cjis,auditing,access_control">
+  <rule id="100056" level="9">
+    <description>CJIS 5.4.1.1 - Missing automated audit log for user account management actions</description>
+    <field name="audit.account.create">false</field>
+    <field name="audit.account.modify">false</field>
+    <field name="audit.account.enable">false</field>
+    <field name="audit.account.disable">false</field>
+    <field name="audit.account.delete">false</field>
+    <group>compliance,account_auditing</group>
+    <compliance>
+      <cjis>5.4.1.1</cjis>
+      <nist_800_53>AC-2(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1.1 | NIST AC-2(4): Account Management | Automated Audit Actions
+
+* Requirements:
+-- All user account lifecycle actions (create, modify, enable, disable, delete) must be automatically audited by the system.
+-- These actions must be logged regardless of how they are performed (e.g., via GUI, CLI, APIs, scheduled tasks, or automation).
+
+* Assumptions:
+-- The system logs account operations with distinct audit flags or fields.
+-- A decoder or enrichment mechanism has extracted relevant booleans like audit.account.create = true|false.
+-- Wazuh agents (or centralized logging) are configured to monitor identity management logs (e.g., `/var/log/secure`, AD event IDs, auditd).
+
+* Integration Options:
+-- For Linux: auditd rules for syscall tracking (`useradd`, `usermod`, `userdel`, etc.)
+-- For Windows: Security Event Log IDs
+   - 4720 (User account created)
+   - 4722 (Enabled)
+   - 4725 (Disabled)
+   - 4726 (Deleted)
+   - 4738 (Modified)
+-- Use Wazuh decoders to normalize event fields into `audit.account.[action]`.
+
+* Risk Without Assumption Met:
+If these account actions are not logged, you lose traceability of access provisioning and de-provisioning events. This introduces a major risk of undetected privilege abuse, insider threat, or compliance failure.
+-->
