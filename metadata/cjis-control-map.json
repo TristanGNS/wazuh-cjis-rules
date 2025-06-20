@@ -327,4 +327,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule ensures real-time alerts are generated when audit logging systems fail. Requires error capture from Wazuh modules or log daemons, and alerting must occur within organization-defined timeframes."
   },
+  "100048": {
+    "description": "Log entry missing required audit context fields such as event type, source, timestamp, actor, and result.",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-3"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule detects incomplete audit entries, ensuring logs capture all required elements for compliance and forensic auditability. Relies on decoder validation or context-enrichment mechanisms to flag incompleteness."
+  },
 }
