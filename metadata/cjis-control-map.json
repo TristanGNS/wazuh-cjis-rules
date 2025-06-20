@@ -334,4 +334,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule detects incomplete audit entries, ensuring logs capture all required elements for compliance and forensic auditability. Relies on decoder validation or context-enrichment mechanisms to flag incompleteness."
   },
+  "100049": {
+    "description": "User was not presented with previous logon date/time at successful authentication.",
+    "cjis": ["5.4.1"],
+    "nist": ["AC-9"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Detects absence of user notification for prior logon on successful login events. Assumes log stream includes or can be enriched with a `last_logon.notified` boolean or corresponding event entry."
+  },
 }
