@@ -1,0 +1,31 @@
+<group name="audit_logging_failure,cjis,auditing,accountability">
+  <rule id="100042" level="9">
+    <description>CJIS 5.4.1 - Audit logging process failure occurred without alerting designated personnel</description>
+    <field name="event.module">logging</field>
+    <field name="event.status">failure</field>
+    <field name="alert.sent">false</field>
+    <group>audit,log_failure</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-5: Response to Audit Logging Process Failures
+
+* Assumptions:
+-- Your system logs errors or failures in the logging/audit subsystem, with fields like `event.module=logging`, `event.status=failure`.
+-- There is a mechanism or field (`alert.sent`) denoting whether an alert was dispatched upon the logging failure.
+-- You have a Wazuh decoder or enrichment pipeline exposing audit failure events in a parseable format.
+
+* Integration Options:
+-- Wazuh monitoring syslog/journalctl logs from rsyslog, syslog-ng, journald, NXLog, etc.
+-- Alert triggers based on missing log volume or agent-side log buffer errors
+-- Custom script hooks for failure condition evaluation (e.g., Filebeat module errors)
+
+* Risk Without Assumption Met:
+If logging failures are not explicitly tracked or alert status is not known, this rule will either fail to trigger or result in false positives. Visibility into the failure context is required for this rule to be actionable.
+-->
