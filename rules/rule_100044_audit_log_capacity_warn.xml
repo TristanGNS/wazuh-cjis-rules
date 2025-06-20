@@ -1,0 +1,31 @@
+<group name="audit_storage_capacity,cjis,auditing,accountability">
+  <rule id="100044" level="7">
+    <description>CJIS 5.4.1 - Audit log storage capacity has exceeded threshold with no warning issued</description>
+    <field name="audit.storage.percent_used">>90</field>
+    <field name="alert.sent">false</field>
+    <group>audit,log_storage</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-5(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-5(1): Audit Log Capacity Warning
+
+* Assumptions:
+-- The audit subsystem or log aggregation tool reports percent utilization of storage.
+   Example field: audit.storage.percent_used = 91
+-- There is a downstream alerting or notification mechanism triggered when storage thresholds are exceeded.
+   Example: alert.sent = false
+
+* Integration Options:
+-- Log monitoring from Wazuh agents, rsyslog, logrotate, or SIEM storage backends (e.g., Elasticsearch, S3).
+-- File system-level alerting via auditd or log processing metrics piped to Wazuh as custom logs.
+
+* Risk Without Assumption Met:
+If storage thresholds are not monitored or logs don’t expose `percent_used`, this rule won’t work. 
+Instead, use a sidecar script or monitoring probe that logs JSON to Wazuh.
+-->
