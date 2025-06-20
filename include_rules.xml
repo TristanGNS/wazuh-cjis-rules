@@ -40,6 +40,25 @@
     <include>rules/rule_100038_timestamp_sync_issue.xml</include>
     <include>rules/rule_100039_audit_log_capacity_alert.xml</include>
     <include>rules/rule_100040_protect_audit_integrity.xml</include>
+    <include>rules/rule_100041_audit_log_external_storage.xml</include>
+    <include>rules/rule_100042_audit_log_failure_response.xml</include>
+    <include>rules/rule_100043_audit_log_review.xml</include>
+    <include>rules/rule_100044_audit_log_capacity_warn.xml</include>
+    <include>rules/rule_100045_audit_access_control.xml</include>
+    <include>rules/rule_100046_audit_extra_fields.xml</include>
+    <include>rules/rule_100047_realtime_audit_failure.xml</include>
+    <include>rules/rule_100048_audit_record_content.xml</include>
+    <include>rules/rule_100049_previous_logon_notification.xml</include>
+    <include>rules/rule_100050_audit_record_generation.xml</include>
+    <include>rules/rule_100051_audit_repository_correlation.xml</include>
+    <include>rules/rule_100052_remote_access_monitoring.xml</include>
+    <include>rules/rule_100053_system_monitoring_insufficient.xml</include>
+    <include>rules/rule_100054_continuous_monitoring_strategy.xml</include>
+    <include>rules/rule_100055_event_logging_missing.xml</include>
+    <include>rules/rule_100056_account_audit.xml</include>
+    <include>rules/rule_100057_automated_audit_integration.xml</include>
+    <include>rules/rule_100058_audit_report_generation.xml</include>
+    <include>rules/rule_100059_audit_retention.xml</include>
     
     <!-- <include>rules/</include> -->
     <!-- etc. -->
