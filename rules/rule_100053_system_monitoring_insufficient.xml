@@ -1,0 +1,30 @@
+<group name="system_monitoring_insight,cjis,auditing">
+  <rule id="100053" level="8">
+    <description>CJIS 5.4.1.1 - Failure to detect unauthorized use or abnormal activity through system monitoring</description>
+    <field name="event.type">system_monitor</field>
+    <field name="event.alert_level">low</field>
+    <field name="event.activity">undetected</field>
+    <group>monitoring,system_events,compliance</group>
+    <compliance>
+      <cjis>5.4.1.1</cjis>
+      <nist_800_53>SI-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1.1 | NIST SI-4: System Monitoring
+
+* Assumptions:
+-- The system produces `event.type = system_monitor` events with details on anomaly detection.
+-- A field or tag such as `event.activity = undetected` is derived from threat detection or log correlation failures.
+
+* Integration Options:
+-- Wazuh agent + sysmon + OSSEC rules
+-- Zabbix alert thresholds not being met or anomaly detection disabled
+-- Lack of alert data following risk change events (e.g., CVE, failed logins)
+
+* Risk Without Assumption Met:
+Failure to detect misuse, lateral movement, or rogue access undermines system integrity. Also prevents fulfillment of CJIS situational awareness requirements.
+-->
