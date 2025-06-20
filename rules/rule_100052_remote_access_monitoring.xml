@@ -1,0 +1,29 @@
+<group name="remote_access_monitoring,cjis,access_control,auditing">
+  <rule id="100052" level="7">
+    <description>CJIS 5.4.1.1 - Automated monitoring of remote access methods not functioning or misconfigured</description>
+    <field name="event.subtype">remote_access</field>
+    <field name="event.monitor.status">disabled</field>
+    <group>remote_access,monitoring,compliance</group>
+    <compliance>
+      <cjis>5.4.1.1</cjis>
+      <nist_800_53>AC-17(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1.1 | NIST AC-17(1): Remote Access Monitoring and Control
+
+* Assumptions:
+-- Monitoring includes VPNs, RDP, SSH, and web-based admin consoles.
+-- Events indicate lack of active monitoring (e.g., event.monitor.status = disabled or unknown).
+
+* Integration Options:
+-- Wazuh + OSQuery for remote connection detection
+-- VPN log ingestion with detection of access without correlating log trail
+-- Zabbix/Elastic alerts indicating failed agent checks on remote session logs
+
+* Risk Without Assumption Met:
+Unmonitored remote access may lead to undetected breach entry vectors. Fails CJIS control expectations for remote session governance.
+-->
