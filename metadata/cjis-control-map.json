@@ -292,4 +292,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Requires visibility into audit subsystem failure logs and confirmation of alert/response action (via field like alert.sent). Must ensure logging pipelines report failure events clearly."
   },
+  "100043": {
+    "description": "Audit records indicating anomalies were not reviewed or reported to appropriate personnel",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-6"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule depends on visibility into audit logs flagged as anomalous or containing suspicious indicators. Alerting logic must check for unreviewed anomalies or failures to notify designated parties. Adaptable via log enrichment pipelines or correlation engines."
+  },
 }
