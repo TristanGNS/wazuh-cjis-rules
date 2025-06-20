@@ -313,4 +313,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule enforces that only members of a defined privileged user subset (e.g., audit_admins) can make changes to audit logging systems. It relies on logs that include both the action and user role, such as sudo logs, auditd config changes, or Wazuh OSQuery data."
   },
+  "100046": {
+    "description": "Audit record missing one or more required fields (e.g., session ID, source IP)",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-3(1)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule ensures audit records contain all organization-defined fields like user.session_id or src.ip. Triggered if logs are missing these contextual attributes. Enrichment may be required from endpoint agents or decoders."
+  },
 }
