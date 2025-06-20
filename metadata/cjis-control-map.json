@@ -320,4 +320,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule ensures audit records contain all organization-defined fields like user.session_id or src.ip. Triggered if logs are missing these contextual attributes. Enrichment may be required from endpoint agents or decoders."
   },
+  "100047": {
+    "description": "Audit logging failure triggered a real-time alert to designated personnel",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-5(2)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule ensures real-time alerts are generated when audit logging systems fail. Requires error capture from Wazuh modules or log daemons, and alerting must occur within organization-defined timeframes."
+  },
 }
