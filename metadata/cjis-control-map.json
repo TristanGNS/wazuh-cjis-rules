@@ -341,4 +341,18 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Detects absence of user notification for prior logon on successful login events. Assumes log stream includes or can be enriched with a `last_logon.notified` boolean or corresponding event entry."
   },
+  "100050": {
+    "description": "Audit records are not being generated for required event types or components per AU-2 and AU-3 specifications.",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-12"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Verifies audit record generation is active for defined event types. Assumes enrichment field `event.audit_generated` exists or equivalent detection method is in place."
+  },
+  "100051": {
+    "description": "Audit records are not being correlated across repositories, limiting situational awareness across systems.",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-6(3)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Assumes enrichment field `audit.repo_count` is present to track whether logs are unified from multiple sources. Integration should support multi-source audit aggregation."
+  },
 }
