@@ -1,0 +1,28 @@
+<group name="event_logging,cjis,auditing,visibility">
+  <rule id="100055" level="8">
+    <description>CJIS 5.4.3 - Critical event types not configured or not present in system audit logs</description>
+    <field name="event.logging.configured">false</field>
+    <field name="event.critical.type">missing</field>
+    <group>compliance,event_logging</group>
+    <compliance>
+      <cjis>5.4.3</cjis>
+      <nist_800_53>AU-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.3 | NIST AU-2: Event Logging
+
+* Assumptions:
+-- The system has a validation method for logging policy coverage (e.g., log audit tools, log forwarding config tests).
+-- You can identify when key event types (e.g., logins, file access, privilege escalation) are not configured or missing.
+
+* Integration Options:
+-- Wazuh logtest modules can validate logging presence.
+-- Agent-side decoders could raise alerts if no audit logs match expected event types over time.
+
+* Risk Without Assumption Met:
+Missing audit event types means breaches or misconduct may be undetectable or uninvestigable.
+-->
