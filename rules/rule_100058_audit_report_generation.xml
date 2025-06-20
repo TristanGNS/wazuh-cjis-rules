@@ -1,0 +1,39 @@
+<group name="audit_review,reporting,cjis,accountability">
+  <rule id="100058" level="7">
+    <description>CJIS 5.4.3 - Missing or non-compliant audit reduction and reporting capability</description>
+    <field name="audit.reporting.enabled">false</field>
+    <field name="audit.reduction.enabled">false</field>
+    <field name="audit.integrity.preserved">false</field>
+    <group>audit_reporting</group>
+    <compliance>
+      <cjis>5.4.3</cjis>
+      <nist_800_53>AU-7</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.3 | NIST AU-7: Audit Record Reduction and Report Generation
+
+* Requirements:
+-- Systems must allow users (e.g., admins, auditors) to generate audit reports on demand without waiting for scheduled intervals.
+-- These reports should aid in security investigations and incident response.
+-- Log reduction (aggregation, filtering) is allowed as long as:
+   - It does not remove relevant fields
+   - It does not change the time sequence of events
+
+* Assumptions:
+-- The system logs contain structured fields such as timestamp, source, and event type.
+-- Log reports are generated from reduced views but raw audit data is still preserved and accessible.
+-- The field `audit.integrity.preserved = false` flags cases where reporting tools modify time ordering or redact data.
+
+* Integration Suggestions:
+-- Leverage tools like Kibana, Grafana, Splunk, or Wazuh dashboards to generate on-demand reports.
+-- Ensure audit reduction scripts (e.g., daily summaries) retain raw log references or links.
+-- Validate integrity via checksums, immutable storage, or versioned logs.
+
+* Risk Without Assumption Met:
+-- If logs are altered or aggregated in a way that obscures original data, legal defensibility and forensic traceability is lost.
+-- Without on-demand reporting, incident detection and response may be delayed or impossible.
+-->
