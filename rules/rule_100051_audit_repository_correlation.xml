@@ -1,0 +1,31 @@
+<group name="audit_correlation,cjis,auditing,accountability">
+  <rule id="100051" level="7">
+    <description>CJIS 5.4.1 - Audit records not being correlated across multiple repositories (AU-6(3))</description>
+    <field name="audit.repo_count">1</field>
+    <field name="event.type">audit_analysis</field>
+    <group>audit,correlation,situational_awareness</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-6(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-6(3): Correlate Audit Record Repositories
+
+* Assumptions:
+-- The audit analysis engine (e.g., Wazuh, ELK stack, SIEM) includes enrichment metadata such as:
+   - audit.repo_count (number of log sources contributing to correlation)
+   - event.type = "audit_analysis"
+-- Centralized analysis spans multiple sources (e.g., endpoint logs + firewall + VPN + cloud logs).
+
+* Integration Options:
+-- Wazuh agents forwarding to a central manager with logstash or Elasticsearch enrichment
+-- SIEM rules or alerts that define correlation logic across logs
+-- External correlation reports periodically imported and checked
+
+* Risk Without Assumption Met:
+If only isolated logs are reviewed, the organization lacks visibility into attack paths and threat movement across environments, degrading CJIS-aligned situational awareness.
+-->
