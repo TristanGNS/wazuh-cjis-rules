@@ -1,0 +1,29 @@
+<group name="audit_content_validation,cjis,auditing,accountability">
+  <rule id="100048" level="7">
+    <description>CJIS 5.4.1 - Audit record missing required contextual fields (AU-3)</description>
+    <field name="event.type">log</field>
+    <not_field name="audit.full_context">true</not_field>
+    <group>audit_event,log_integrity</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-3: Content of Audit Records
+
+* Assumptions:
+-- Logs from systems or Wazuh modules include a validation flag or context completeness check.
+-- Field `audit.full_context = true|false` is either natively logged or derived via log enrichment/decoder logic.
+-- This flag must indicate presence of: type, timestamp, location, source, result, and actor identifiers (username, IP, device, etc.).
+
+* Integration Options:
+-- Extend decoders to validate completeness of logs and flag events as incomplete if critical fields are missing.
+-- Log pipeline enrichment via Logstash, Fluentbit, or custom scripts to compute `audit.full_context`.
+
+* Risk Without Assumption Met:
+If logs do not contain full event context, forensic reconstruction, chain-of-custody validation, and compliance review will be hindered or impossible.
+-->
