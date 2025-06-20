@@ -383,4 +383,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Triggers when audit logs lack required categories (e.g., authentication, privilege use). Requires log inspection or config scan."
   },
+  "100056": {
+    "description": "Account lifecycle events (create, modify, disable, delete) are not audited, violating CJIS 5.4.1.1 and NIST AC-2(4).",
+    "cjis": ["5.4.1.1"],
+    "nist": ["AC-2(4)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Monitors for automated logging of user account management events. Assumes normalized audit fields (e.g., audit.account.create). Requires log coverage across identity/auth sources (Active Directory, auditd, etc)."
+  },
 }
