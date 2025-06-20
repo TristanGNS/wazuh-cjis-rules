@@ -369,4 +369,18 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule assumes integration with behavioral analysis or alerting platforms that flag monitoring effectiveness. Triggered when detection fails against expected threats or conditions."
   },
+  "100054": {
+    "description": "Continuous monitoring is not active or lacks strategy compliance, violating CJIS 5.4.3.",
+    "cjis": ["5.4.3"],
+    "nist": ["CA-7"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Rule detects gaps in continuous monitoring plans or scheduled system metric reporting. Assumes event fields or telemetry can show monitoring status."
+  },
+  "100055": {
+    "description": "System is missing critical audit event types required by CJIS 5.4.3, compromising forensic readiness.",
+    "cjis": ["5.4.3"],
+    "nist": ["AU-2"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Triggers when audit logs lack required categories (e.g., authentication, privilege use). Requires log inspection or config scan."
+  },
 }
