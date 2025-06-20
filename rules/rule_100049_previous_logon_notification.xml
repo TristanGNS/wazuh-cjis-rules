@@ -1,0 +1,28 @@
+<group name="auth_logon_tracking,cjis,auditing,accountability">
+  <rule id="100049" level="5">
+    <description>CJIS 5.4.1 - No previous logon notification presented to user upon successful authentication (AC-9)</description>
+    <field name="event.type">authentication_success</field>
+    <not_field name="last_logon.notified">true</not_field>
+    <group>authentication,login,usability</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AC-9</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AC-9: Previous Logon Notification
+
+* Assumptions:
+-- Logs include a flag or field (`last_logon.notified = true|false`) set by PAM, SSO platforms, or custom login scripts.
+-- Or systems generate a notification event (e.g., `notification.last_logon`) linked to authentication events.
+
+* Integration Options:
+-- PAM module or custom script sets this notification flag post-login.
+-- Endpoint agents (Wazuh, OSSEC, Winlogbeat) capture and tag this in auth success logs.
+
+* Risk Without Assumption Met:
+Users are unaware of unauthorized access if they are not informed of the last login time, increasing insider threat risk and reducing accountability.
+-->
