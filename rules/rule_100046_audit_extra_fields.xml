@@ -1,0 +1,30 @@
+<group name="audit_extra_content,cjis,auditing,accountability">
+  <rule id="100046" level="7">
+    <description>CJIS 5.4.1 - Audit record missing required additional information fields</description>
+    <field name="event.origin">!=host</field>
+    <field name="user.session_id">!exists</field>
+    <field name="src.ip">!exists</field>
+    <group>audit,missing_fields</group>
+    <compliance>
+      <cjis>5.4.1</cjis>
+      <nist_800_53>AU-3(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.4.1 | NIST AU-3(1): Additional Audit Information
+
+* Assumptions:
+-- Organization defines a baseline for additional audit data (e.g., session_id, geo_ip, src.ip, tty, hostname, terminal_id)
+-- Wazuh logs are enriched with session and source data from systems or endpoint agents
+-- Logs that omit key fields (like session ID or IP address) are incomplete per policy
+
+* Integration Options:
+-- Leverage Wazuh rules to match logs missing specific fields
+-- Extend log normalization or decoding to enrich logs before rule evaluation
+
+* Risk Without Assumption Met:
+Incomplete audit records limit forensic capabilities. If audit logs do not contain contextual fields (e.g., where a command was run from), response time increases and accountability suffers.
+-->
