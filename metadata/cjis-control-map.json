@@ -278,4 +278,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "Requires file integrity or audit trail monitoring on log directories and logging tool config files. Assumes audit.result reflects tampering or unauthorized deletion events."
   },
+  "100041": {
+    "description": "Audit logs stored on the same physical system being audited (non-compliant with separation requirement)",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-9(2)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "Assumes audit log storage path is observable and taggable via agent logs, config scans, or enrichment. Ideal with FIM or log forwarding configuration validation."
+  },
 }
