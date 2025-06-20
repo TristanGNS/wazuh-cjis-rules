@@ -299,4 +299,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule depends on visibility into audit logs flagged as anomalous or containing suspicious indicators. Alerting logic must check for unreviewed anomalies or failures to notify designated parties. Adaptable via log enrichment pipelines or correlation engines."
   },
+  "100044": {
+    "description": "Audit log storage volume exceeded threshold without issuing warning",
+    "cjis": ["5.4.1"],
+    "nist": ["AU-5(1)"],
+    "policy_area": "Auditing and Accountability",
+    "notes": "This rule assumes audit log utilization is tracked and logged as a percentage value. Failure to trigger a warning at a predefined threshold (e.g., 90%) represents non-compliance with AU-5(1). Alert logic should verify both condition (percent full) and alert status."
+  },
 }
