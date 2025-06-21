@@ -1,0 +1,34 @@
+<group name="remote_access,external_systems,BYOD,access_control">
+  <rule id="100089" level="12">
+    <description>CJIS 5.5.6.1 – Personally Owned Information Systems (AC-20) – Use of External Systems</description>
+    <match>unauthorized external system access|BYOD without approval|external device with no MDM|unmanaged system connecting to network|missing BYOD agreement</match>
+    <field name="event_type">access_policy_violation</field>
+    <group>remote_access,BYOD,compliance,policy_violation</group>
+    <compliance>
+      <cjis>5.5.6.1</cjis>
+      <nist_800_53>AC-20</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6.1 | NIST AC-20 – Use of External Systems
+
+This control governs access to CJIS systems and data from personally owned or externally managed devices.
+
+Compliant implementations may:
+- Prohibit external access altogether
+- Permit access with controls such as MDM, AV, encryption, audit logging
+
+Organizations must document:
+- Terms and conditions for access
+- Device controls
+- Authorized personnel and systems
+
+Enforcement mechanisms:
+- Conditional access policy (M365)
+- VPN + MFA
+- VDI with restricted clipboard/file transfer
+- SIEM alerts for unmanaged device logins
+-->
