@@ -1,0 +1,40 @@
+<group name="remote_access,monitoring,automated_controls,session_tracking">
+  <rule id="100085" level="10">
+    <description>CJIS 5.5.6 – Remote Access | Automated Monitoring and Control (AC-17(1))</description>
+    <match>remote session initialized|vpn connected|ssh login attempt|rdp session established|guacamole session start|zero trust access granted|vpn disconnect|rdp session ended</match>
+    <field name="event_type">remote_access</field>
+    <group>remote_access,monitoring</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17(1) – Automated Monitoring and Control for Remote Access
+
+Purpose:
+- To ensure remote access is not just permitted and logged, but also actively monitored and enforceable in real-time.
+
+Monitoring Mechanisms May Include:
+- SIEM rules for remote access events (e.g., Wazuh, ELK, Splunk)
+- Alerts for geographic anomalies or impossible travel
+- Session capture tools (teleport audit log, RDP gateway logs)
+
+Control Mechanisms May Include:
+- Auto-kill idle sessions after 15 minutes
+- Block connections from unregistered IPs or devices
+- Deny access based on failed posture checks
+
+Evidence:
+- Log entries showing session start/stop
+- SIEM alert activity
+- EDR agent denying unauthorized tool usage
+
+Risks if Unmet:
+- Remote sessions could be left unattended or misused
+- No centralized detection of malicious activity over remote channels
+- No accountability trail or enforceable session boundaries
+-->
