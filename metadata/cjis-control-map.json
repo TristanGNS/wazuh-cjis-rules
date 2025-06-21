@@ -614,4 +614,11 @@
     "policy_area": "Access Control",
     "notes": "Encryption mechanisms such as TLS, IPSec, and SSH are required to protect remote sessions from eavesdropping and tampering. Regular protocol audits and SIEM alerts should be configured to detect unencrypted traffic or insecure cipher usage."
   },
+  "100089": {
+    "description": "Implements CJIS 5.5.6.1 (AC-20) by controlling or prohibiting the use of external systems to access, store, or process CJI. Either prohibits external access or requires security controls such as encryption, endpoint management, and written authorization.",
+    "cjis": ["5.5.6.1"],
+    "nist": ["AC-20"],
+    "policy_area": "Access Control",
+    "notes": "Enforces restrictions or access conditions for personally owned or unmanaged external systems. Recommended enforcement includes signed BYOD agreements, full-disk encryption, antivirus, VPN+MFA, and remote wipe capability. Violations must be logged and investigated."
+  }
 }
