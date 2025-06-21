@@ -45,8 +45,8 @@ wazuh-cjis-rules/
 | ✅ Stage 2.02 | Rule Creation – Area 2: Security Awareness Training                   | Complete |
 | ✅ Stage 2.03 | Rule Creation – Area 3: Incident Response                             | Complete |
 | ✅ Stage 2.04 | Rule Creation – Area 4: Auditing and Accountability                   | Complete |
-| 🔧 Stage 2.05 | Rule Creation – Area 5 Access Control                                 | In Progress |
-| 🔜 Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | Planned |
+| ✅ Stage 2.05 | Rule Creation – Area 5 Access Control                                 | Complete |
+| 🔜 Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | In Progress |
 | 🔜 Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | Planned |
 | 🔜 Stage 2.08 | Rule Creation – Area 8 Media Protection                               | Planned |
 | 🔜 Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | Planned |
