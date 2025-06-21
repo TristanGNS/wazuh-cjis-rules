@@ -1,0 +1,45 @@
+<group name="least_privilege,ac6,cjis">
+  <rule id="100071" level="9">
+    <description>CJIS 5.5.2 – Privileged Account Used for Nonsecurity Functions (AC-6(2))</description>
+    <match>root user accessed browser|admin logged into workstation|domain admin running nonsecurity app|administrator launching user-mode process</match>
+    <if_sid>18107</if_sid>
+    <group>access_control,least_privilege,role_separation</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-6(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-6(2) – Least Privilege | Non-Privileged Access for Nonsecurity Functions
+
+* Purpose:
+  - Prevent privilege abuse or lateral movement by isolating high-privilege accounts to only security-relevant operations.
+
+* Example Violations Detected:
+  - Use of 'root' or 'Administrator' account to check email or browse websites
+  - Domain Admin logged in to workstations outside of domain controller or management node
+  - Service accounts running manual user-mode applications
+
+* Log Source Examples:
+  - Sysmon (Event ID 1) for process creation
+  - Windows Security Log (Event ID 4624/4672) with logon type and user context
+  - Linux audit logs showing browser/mail activity by root
+
+* Enforcement Recommendations:
+  - Require multi-account model (e.g., user@org.local + admin-user@org.local)
+  - Separate local admin elevation via UAC (Windows) or `sudo` (Linux) with strict audit trail
+  - Monitor for shell, browser, and GUI process execution under elevated sessions
+
+* Assumptions:
+  - Logs capture user context and process metadata
+  - Role/account separation policy is published and enforced
+  - Alerts help identify shadow IT or poor admin practices
+
+* Risks if Unaddressed:
+  - Compromised privileged session can access wide scope of systems
+  - Blurs audit trail between operational and administrative tasks
+  - Increases attack surface for phishing, malware, or insider abuse
+-->
