@@ -1,0 +1,37 @@
+<group name="account_management,ac2,cjis">
+  <rule id="100072" level="10">
+    <description>CJIS 5.5.2.1 – Privileged Account Assignment or Modification Detected (AC-2(7))</description>
+    <match>privileged account created|administrator group modified|new member added to domain admins|change to root sudoers|user granted elevated access</match>
+    <if_sid>18107</if_sid>
+    <group>account_management,least_privilege,privileged_user_monitoring</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>AC-2(7)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST AC-2(7) – Privileged User Account Management
+
+Purpose:
+- Enforce structured provisioning, tracking, and deprovisioning of privileged user accounts.
+- Ensure privileged access is tied to specific job duties and promptly removed when no longer needed.
+
+Detection Examples:
+- `useradd` or `usermod` commands used to create or promote accounts to sudo/wheel/root groups
+- Windows Security Event ID 4728 (user added to a security-enabled global group)
+- Auditd logs showing changes to `/etc/sudoers` or use of `gpasswd`
+- AzureAD / EntraID role assignment activity logs
+
+Assumptions:
+- Log sources include detailed audit trails of account and permission changes
+- Role-based access control policies are enforced via AD, SSO, IAM, or local mechanisms
+- There is a defined and monitored group policy or IAM structure for elevated roles
+
+Risk If Uncontrolled:
+- Former employees or internal threats retaining privileged access
+- Privilege creep due to poor offboarding or unclear responsibilities
+- Undetected changes to group memberships enabling lateral escalation
+-->
