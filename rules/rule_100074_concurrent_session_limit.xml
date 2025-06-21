@@ -1,0 +1,37 @@
+<group name="least_privilege,ac10,cjis">
+  <rule id="100074" level="10">
+    <description>CJIS 5.5.2.1 – Concurrent Session Limit Exceeded (AC-10)</description>
+    <match>maximum number of sessions|too many connections|exceeded session limit|concurrent logins not allowed|duplicate session|multiple session</match>
+    <if_sid>18107</if_sid>
+    <group>session_control,account_restrictions</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>AC-10</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST AC-10 – Concurrent Session Control
+
+Purpose:
+- Detects conditions where a user or process exceeds the defined concurrent session limit.
+- Helps enforce least privilege and reduce account misuse by limiting active sessions.
+
+Detection Examples:
+- SSH logs reporting "Too many concurrent connections"
+- RDP logs showing duplicate logon attempts
+- VPN appliance events that deny access based on existing session count
+- SIEM alerts triggered by brute-force login behavior or session hijack attempts
+
+Assumptions:
+- Session enforcement policies are defined and enforced at PAM, firewall, VPN, or application level
+- Audit logs from session brokers, VPNs, remote access systems are collected centrally
+- Mapping of user account types (privileged vs. standard) is maintained and integrated with session policies
+
+Risk If Uncontrolled:
+- Increases risk of unauthorized access persistence
+- Obfuscates audit trails by allowing too many simultaneous identities
+- Enables session replay or takeover without user detection
+-->
