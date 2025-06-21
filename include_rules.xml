@@ -59,6 +59,36 @@
     <include>rules/rule_100057_automated_audit_integration.xml</include>
     <include>rules/rule_100058_audit_report_generation.xml</include>
     <include>rules/rule_100059_audit_retention.xml</include>
+    <include>rules/rule_100060_acct_audit_actions.xml</include>
+    <include>rules/rule_100061_disable_stale_accounts.xml</include>
+    <include>rules/rule_100062_account_management_compliance.xml</include>
+    <include>rules/rule_100063_account_automation.xml</include>
+    <include>rules/rule_100064_temp_emergency_accounts.xml</include>
+    <include>rules/rule_100065_personnel_termination.xml</include>
+    <include>rules/rule_100066_access_enforcement.xml</include>
+    <include>rules/rule_100067_least_privilege_violation.xml</include>
+    <include>rules/rule_100068_user_logout_missing.xml</include>
+    <include>rules/rule_100069_dac_policy_breach.xml</include>
+    <include>rules/rule_100070_mac_policy_violation.xml</include>
+    <include>rules/rule_100071_nonprivileged_enforcement.xml</include>
+    <include>rules/rule_100072_privileged_account_lifecycle.xml</include>
+    <include>rules/rule_100073_privileged_function_access.xml</include>
+    <include>rules/rule_100074_concurrent_session_limit.xml</include>
+    <include>rules/rule_100075_privileged_account_restriction.xml</include>
+    <include>rules/rule_100076_privileged_vulnscan.xml</include>
+    <include>rules/rule_100077_separation_of_duties.xml</include>
+    <include>rules/rule_100078_password_enforcement.xml</include>
+    <include>rules/rule_100079_system_use_notification.xml</include>
+    <include>rules/rule_100080_public_content_scan.xml</include>
+    <include>rules/rule_100081_session_lock.xml</include>
+    <include>rules/rule_100082_remote_access.xml</include>
+    <include>rules/rule_100083_managed_remote_access.xml</include>
+    <include>rules/rule_100084_remote_privileged_access.xml</include>
+    <include>rules/rule_100085_remote_access_monitoring.xml</include>
+    <include>rules/rule_100086_system_monitoring.xml</include>
+    <include>rules/rule_100087_protect_remote_access_info.xml</include>
+    <include>rules/rule_100088_encrypt_remote_access.xml</include>
+    <include>rules/rule_100089_external_system_use.xml</include>
     
     <!-- <include>rules/</include> -->
     <!-- etc. -->
