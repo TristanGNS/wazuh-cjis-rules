@@ -1,0 +1,42 @@
+<group name="remote_access,privileged_access,security_controls,cjis">
+  <rule id="100084" level="10">
+    <description>CJIS 5.5.6 – Privileged Remote Access with Justification & Audit Trail (AC-17(4))</description>
+    <match>remote session with sudo|elevated ssh command issued remotely|admin powershell access via RDP|security log accessed over VPN|root access granted via remote console|remote privilege escalation event</match>
+    <field name="event_type">authentication</field>
+    <group>privileged_access,remote_administration</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17(4) – Remote Access: Privileged Commands and Access
+
+Purpose:
+- To prevent untracked elevation of privileges through remote means.
+- Ensure only authorized staff are allowed privileged access remotely and that their sessions are logged and reviewable.
+
+Assumptions:
+- Remote access tools (e.g., SSH, RDP, Guacamole, ZTNA) are integrated with auditing and session tracking.
+- Privileged access (admin/root) is protected via PAM, group policy, or jump host controls.
+
+Examples of Assessable Evidence:
+- `script`-based shell session recording
+- Teleport or BeyondTrust session audit logs
+- Windows Event ID 4672 triggered via remote IP
+- Bastion host logs that show user ID, command timestamp, and command string
+
+SSP Inclusion (Required):
+- Description of remote access method
+- Access justification (e.g., emergency fix, after-hours support)
+- Duration of elevation or role required
+- Responsible personnel and approval process
+
+Risks if Unmet:
+- Privileged users could manipulate system settings or logs with no traceability.
+- Incident response may be compromised without clear records.
+- System integrity is undermined by unauthorized or excessive remote privilege use.
+-->
