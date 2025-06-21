@@ -474,4 +474,11 @@
     "policy_area": "Access Control",
     "notes": "Supports user-driven security controls for session termination. Validates logout visibility and backend session invalidation. Part of broader access enforcement and authentication hygiene."
   },
+  "100069": {
+    "description": "Monitors for unauthorized or unreviewed discretionary access policy changes, including user-assigned privileges, ACL modifications, and inherited permission escalations.",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-3(4)"],
+    "policy_area": "Access Control",
+    "notes": "Addresses discretionary privilege propagation and user-managed access risks. Useful for systems implementing NTFS, Linux POSIX permissions, or cloud-based ACLs."
+  },
 }
