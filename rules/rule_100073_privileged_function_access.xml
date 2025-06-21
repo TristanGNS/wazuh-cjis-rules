@@ -1,0 +1,36 @@
+<group name="least_privilege,ac6,cjis">
+  <rule id="100073" level="10">
+    <description>CJIS 5.5.2.1 – Unauthorized Access or Change to Security Functions or Configurations (AC-6(1))</description>
+    <match>unauthorized access|access denied|security function|firewall rule change|audit config modified|SELinux config updated|sudo access attempted</match>
+    <if_sid>18107</if_sid>
+    <group>security_function_access,privilege_enforcement</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>AC-6(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST AC-6(1) – Authorize Access to Security Functions
+
+Purpose:
+- Ensure access to critical system security functions (audit config, firewall, IDS/IPS, access control lists, encryption modules) is restricted to explicitly authorized users or roles.
+
+Detection Examples:
+- Modification to iptables, firewalld, UFW, pf (BSD)
+- Changes to /etc/audit/audit.rules or /etc/rsyslog.conf
+- Attempts to alter sudoers file or escalate access through su/sudo without authorization
+- Admin panel access to EDR/XDR tools (e.g., Wazuh, SentinelOne) by non-whitelisted users
+- Tampering with BIOS security or bootloader settings on managed assets
+
+Assumptions:
+- Centralized logging of firewall/system security events is configured
+- Auditd or equivalent is monitoring critical file paths and command execution
+- Role/attribute-based access control is configured and mapped to system logs or directory services
+
+Risk If Uncontrolled:
+- Improper access could disable security functions, clear logs, bypass controls
+- Insider threat vector through privilege creep or lateral privilege escalation
+-->
