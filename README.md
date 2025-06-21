@@ -126,7 +126,36 @@ The following CJIS requirements and NIST controls are currently addressed in the
 | 5.4.3            | Automated Audit Review Integration                   | AU-6(1)          | Auditing and Accountability         | 100057   |
 | 5.4.3            | Audit Reduction & Report Generation                  | AU-7             | Auditing and Accountability         | 100058   |
 | 5.4.3            | Audit Record Retention Policy Enforcement            | AU-11            | Auditing and Accountability         | 100059   |
-
+| 5.5.1            | Account Lifecycle Monitoring                         | AC-2(4)          | Access Control                     | 100060   |
+| 5.5.1            | Auto-disable Expired or Inactive Accounts           | AC-2(3)          | Access Control                     | 100061   |
+| 5.5.1            | Full Account Lifecycle Enforcement                   | AC-2             | Access Control                     | 100062   |
+| 5.5.1            | Automated Account Management Enforcement             | AC-2(1)          | Access Control                     | 100063   |
+| 5.5.1            | Temporary/Emergency Account Expiration               | AC-2(2)          | Access Control                     | 100064   |
+| 5.5.1            | Termination & Offboarding Enforcement                | PS-4             | Access Control                     | 100065   |
+| 5.5.2            | Logical Access Control Enforcement                   | AC-3             | Access Control                     | 100066   |
+| 5.5.2            | Least Privilege Violation Detection                  | AC-6             | Access Control                     | 100067   |
+| 5.5.2            | User Logout Capability Enforcement                   | AC-12(1)         | Access Control                     | 100068   |
+| 5.5.2            | Discretionary Access Control Change Monitoring       | AC-3(4)          | Access Control                     | 100069   |
+| 5.5.2            | Mandatory Access Control Enforcement                 | AC-3(3)          | Access Control                     | 100070   |
+| 5.5.2            | Privileged Account Usage for Non-Security Functions  | AC-6(2)          | Access Control                     | 100071   |
+| 5.5.2.1          | Privileged Account Lifecycle Monitoring              | AC-2(7)          | Access Control                     | 100072   |
+| 5.5.2.1          | Security Function Access Monitoring                  | AC-6(1)          | Access Control                     | 100073   |
+| 5.5.2.1          | Concurrent Session Limit Enforcement                 | AC-10            | Access Control                     | 100074   |
+| 5.5.2.1          | Unauthorized Privileged Account Use Detection        | AC-6(5)          | Access Control                     | 100075   |
+| 5.5.2.1          | Privileged Account Use in Vulnerability Scanning     | RA-5(5)          | Access Control                     | 100076   |
+| 5.5.2.1          | Separation of Duties Violation Detection             | AC-5             | Access Control                     | 100077   |
+| 5.5.3            | Insecure Password Practice Detection                 | IA-5(1)          | Access Control                     | 100078   |
+| 5.5.4            | Login Banner Compliance Enforcement                  | AC-8             | Access Control                     | 100079   |
+| 5.5.4            | Public Content Publishing Control                    | AC-22            | Access Control                     | 100080   |
+| 5.5.5            | Session Lock & Inactivity Enforcement                | AC-11            | Access Control                     | 100081   |
+| 5.5.6            | Remote Access Activity Monitoring                    | AC-17            | Access Control                     | 100082   |
+| 5.5.6            | Central Control Point Enforcement for Remote Access | AC-17(3)         | Access Control                     | 100083   |
+| 5.5.6            | Remote Privileged Command Restrictions               | AC-17(4)         | Access Control                     | 100084   |
+| 5.5.6            | Automated Remote Access Monitoring                   | AC-17(1)         | Access Control                     | 100085   |
+| 5.5.6            | Real-time Threat Monitoring for Remote Sessions      | SI-4             | Access Control                     | 100086   |
+| 5.5.6            | Confidentiality of Remote Access Configuration       | AC-17(6)         | Access Control                     | 100087   |
+| 5.5.6            | Encrypted Remote Access Enforcement                  | AC-17(2)         | Access Control                     | 100088   |
+| 5.5.6.1          | External System Access Control                       | AC-20            | Access Control                     | 100089   |
 
 
 Each of these will be implemented with a dedicated `.xml` rule file that:
