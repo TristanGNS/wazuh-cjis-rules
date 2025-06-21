@@ -600,4 +600,11 @@
     "policy_area": "Access Control",
     "notes": "This rule emphasizes a proactive and multi-layered monitoring strategy using automated tools. Coverage must include IDS/IPS, endpoint telemetry, behavioral analytics, and VPN session analysis. Monitoring locations must be strategically and adaptively selected, and legal guidance obtained when needed."
   },
+  "100087": {
+    "description": "Implements CJIS 5.5.6 (AC-17(6)) by ensuring remote access mechanism configurations and details are not disclosed or exposed to unauthorized users. Supports protection of VPN, RDP, SSH, and remote management interfaces.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17(6)"],
+    "policy_area": "Access Control",
+    "notes": "The rule mandates tight confidentiality around remote access systems. Unauthorized access to this data can enable threat actors to bypass security controls. A zero-trust and RBAC-driven access model should be enforced, and all access attempts should be logged and monitored with alerts on anomalies."
+  },
 }
