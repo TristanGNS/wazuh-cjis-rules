@@ -557,5 +557,12 @@
     "nist": ["AC-22"],
     "policy_area": "Access Control",
     "notes": "Control requires public content publishing to be restricted to designated individuals, with pre-release review and regular audits to remove any accidentally posted sensitive or restricted information. Training logs, publishing authorization lists, and content review schedules must be documented."
-  }
+  },
+  "100081": {
+    "description": "Detects idle or manually-locked sessions in alignment with CJIS AC-11. Requires a device lock after inactivity or when users leave systems unattended, and enforces reauthentication for access resumption.",
+    "cjis": ["5.5.5"],
+    "nist": ["AC-11"],
+    "policy_area": "Access Control",
+    "notes": "Organizations must implement workstation and mobile device session lock mechanisms. This includes automatic lockout after inactivity (e.g., 10 minutes) and policies requiring manual locking. Authentication procedures to regain access must match organizational standards (e.g., password, MFA, CAC). Policy enforcement should be validated through event logs, device configuration profiles, and endpoint compliance reports."
+  },
 }
