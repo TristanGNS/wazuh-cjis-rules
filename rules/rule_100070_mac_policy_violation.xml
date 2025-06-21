@@ -1,0 +1,46 @@
+<group name="access_enforcement,mac,cjis">
+  <rule id="100070" level="10">
+    <description>CJIS 5.5.2 – Mandatory Access Control (MAC) Policy Violation (AC-3(3))</description>
+    <match>MAC policy violation|unauthorized label change|SELinux deny|AppArmor breach|access denied by mandatory policy</match>
+    <if_sid>18107</if_sid>
+    <group>access_control,mac,policy_enforcement</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-3(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-3(3) – Mandatory Access Control (MAC)
+
+* Purpose:
+  - Enforces a rigid access model where users cannot override or transfer permissions.
+  - Reduces the risk of privilege escalation, insider threats, and data leakage.
+
+* Key Detection Focus:
+  - Violations of enforced MAC policies (e.g., SELinux, AppArmor, Smack)
+  - Attempts to alter mandatory security labels
+  - Denied access events due to enforced security domains
+
+* Supported Sources:
+  - Linux: `auditd` logs with AVC (Access Vector Cache) messages like `avc: denied { read } for pid=...`
+  - AppArmor: `/var/log/syslog` or `/var/log/audit/audit.log`
+  - Windows: Not typically applicable unless using EMET/WDAC in enforced mode with audit logging
+
+* Example Violations:
+  - A confined process attempts to access restricted directories or system resources
+  - An unauthorized subject attempts to modify a security label
+  - A policy override is attempted without authorization
+
+* Risks if Unaddressed:
+  - Breakdown in security enforcement
+  - Bypassing of compartmentalized information zones (e.g., CJIS vs. non-CJIS data stores)
+  - Reduced effectiveness of defense-in-depth strategy
+
+* Assumptions:
+  - MAC is implemented using kernel-level enforcement (e.g., SELinux in Enforcing mode)
+  - Log events are forwarded from audit subsystem or syslog
+  - No discretionary override mechanisms are enabled unless explicitly authorized and logged
+-->
