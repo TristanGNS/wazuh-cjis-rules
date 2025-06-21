@@ -502,4 +502,11 @@
     "policy_area": "Access Control",
     "notes": "Enforces structured management of privileged accounts. This rule flags role assignments, sudo/administrator membership changes, and privilege revocation events to support CJIS and NIST AC-2(7) compliance."
   },
+  "100073": {
+    "description": "Detects access attempts and modifications to security-critical functions or configurations by unauthorized or mis-assigned users. Aligns with CJIS control 5.5.2.1 (AC-6(1)).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["AC-6(1)"],
+    "policy_area": "Access Control",
+    "notes": "Focuses on limiting access to security-relevant components like firewalls, audit logs, SELinux policies, and privileged functions. This rule flags unauthorized or unexpected changes as potential policy violations."
+  },
 }
