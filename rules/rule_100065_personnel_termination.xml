@@ -1,0 +1,43 @@
+<group name="account_management,personnel,termination,cjis,access_control">
+  <rule id="100065" level="10">
+    <description>CJIS 5.5.1 - Personnel Termination Controls (PS-4)</description>
+    <if_sid>550</if_sid>
+    <match>user termination|offboarding initiated|exit interview completed|disable user|access revoked|account terminated|badge returned|revoked credentials|deprovisioning</match>
+    <group>iam,offboarding,personnel_termination</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>PS-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST PS-4: Personnel Termination
+
+* Required Safeguards:
+  a. Terminated employees' access must be revoked within a strict time frame (typically < 24 hours).
+  b. Credentials must be invalidated, including:
+     - LDAP/Active Directory credentials
+     - VPN tokens or smart cards
+     - MFA devices
+     - Email accounts
+  c. Exit interviews should include sign-off on confidentiality and data ownership
+  d. Devices and physical access tools (badges, USBs, keys) must be collected
+  e. Retain and monitor any organizational data/resources that were assigned to the terminated user
+
+* Assumptions:
+  - HR systems log "termination" or "separation" actions
+  - Identity platforms (Azure AD, Okta, etc.) provide event logs for "disable user", "revoke token", or "delete account"
+  - SIEM or log management includes offboarding workflow tracking
+
+* Implementation:
+  - Integrate HR systems with IAM platforms to automate revocation
+  - Include device management (MDM) and badge/physical security revocation processes in workflow
+  - Ensure logs are centralized and trigger alerts if access is not revoked within defined timeframe
+
+* Risks if Unmet:
+  - Terminated user retains system access
+  - Intellectual property or sensitive data exfiltration post-employment
+  - Regulatory violations due to unmanaged offboarding
+-->
