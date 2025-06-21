@@ -516,4 +516,11 @@
     "policy_area": "Access Control",
     "notes": "Helps implement concurrent session caps based on user role or access method (e.g., max 1 SSH session per admin). Prevents session sprawl, enforces session traceability, and mitigates lateral attack risks."
   },
+  "100075": {
+    "description": "Monitors unauthorized assignment or use of privileged accounts such as root, sudo, or domain admin. Enforces CJIS control 5.5.2.1 (AC-6(5)).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["AC-6(5)"],
+    "policy_area": "Access Control",
+    "notes": "Tracks the creation, modification, or usage of privileged accounts to ensure only authorized personnel hold administrative access. Detects role escalation and improper additions to elevated groups."
+  },
 }
