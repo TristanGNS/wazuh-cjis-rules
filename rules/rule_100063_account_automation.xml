@@ -1,0 +1,40 @@
+<group name="account_management,automation,cjis,access_control">
+  <rule id="100063" level="7">
+    <description>CJIS 5.5.1 - Automated system account management enabled (AC-2(1))</description>
+    <if_sid>18107</if_sid>
+    <match>auto(provision|deprovision|disable|create|manage)|directory sync|identity orchestration|account automation|SCIM|IdM|Azure AD|Okta|LDAP provisioning|IAM platform</match>
+    <group>automation,iam</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>AC-2(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST AC-2(1): Account Management – Automated System Account Management
+
+* Required Capabilities:
+  - Automate lifecycle of system accounts (creation, modification, disabling, and removal)
+  - Use organizationally-defined mechanisms (e.g., LDAP sync, SCIM, IAM platforms)
+  - Ensure automated processes align with security policy (least privilege, revocation, etc.)
+  - Integrate automation with HR systems or approval workflows when possible
+
+* Assumptions:
+  - System account provisioning and deprovisioning are performed via centralized automation
+    tools like Okta, Azure AD, FreeIPA, or custom IAM workflows
+  - Logs from these platforms are captured and parsed by Wazuh (or forwarded from SIEM)
+  - SCIM or API-based integrations are in place with source-of-truth identity systems
+
+* Implementation Guidance:
+  - Monitor provisioning events from IAM platforms
+  - Flag manual account creation/deletion events for audit (exceptions)
+  - Track API-based or CLI-based account automation events
+  - Detect IAM sync failures that might leave accounts unmanaged
+
+* Risks if Unmonitored:
+  - Manual provisioning bypasses security policy or logging
+  - Orphaned accounts due to automation/sync failure
+  - Increased time to disable terminated users' accounts
+-->
