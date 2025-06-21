@@ -1,0 +1,35 @@
+<group name="remote_access,access_control,confidentiality">
+  <rule id="100087" level="12">
+    <description>CJIS 5.5.6 – Remote Access (AC-17(6)) – Protect Remote Access Mechanism Information</description>
+    <match>unauthorized disclosure of vpn key|ssh config accessed|remote connection string leak|remote access configuration file accessed|rdp gateway configuration exposed</match>
+    <field name="event_type">unauthorized_access</field>
+    <group>confidentiality,remote_access,security_controls</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17(6)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17(6) – Protection of Mechanism Information
+
+This rule ensures sensitive details related to remote access technology (e.g., IP ranges, tokens, scripts) are not exposed or accessed without authorization. These are frequently targeted by attackers during lateral movement and initial access phases.
+
+Typical Protections:
+- Encrypted storage of VPN and RDP details
+- RBAC restrictions on documentation or automation scripts
+- Alerting if credentials or access instructions are downloaded or shared externally
+
+Failure to implement this control increases risk of:
+- Credential stuffing or reuse
+- Targeted exploitation of exposed remote access configurations
+- Untraceable backdoor creation
+
+Suggested Log Sources:
+- DLP systems
+- Endpoint behavior analytics
+- SIEM query alerts
+- Git repo audit logs
+-->
