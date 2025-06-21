@@ -565,4 +565,11 @@
     "policy_area": "Access Control",
     "notes": "Organizations must implement workstation and mobile device session lock mechanisms. This includes automatic lockout after inactivity (e.g., 10 minutes) and policies requiring manual locking. Authentication procedures to regain access must match organizational standards (e.g., password, MFA, CAC). Policy enforcement should be validated through event logs, device configuration profiles, and endpoint compliance reports."
   },
+  "100082": {
+    "description": "Enforces CJIS 5.5.6 (AC-17) by detecting and verifying remote access activity, ensuring each connection method is pre-authorized, securely configured, and properly documented per organizational policy.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17"],
+    "policy_area": "Access Control",
+    "notes": "Organizations must implement written remote access policies detailing which technologies are allowed, connection requirements (VPN, MFA, encryption), and usage restrictions. Each remote access method must be authorized before use, with monitoring in place to detect unapproved access paths. Log collection and review should validate compliance through remote session metadata."
+  },
 }
