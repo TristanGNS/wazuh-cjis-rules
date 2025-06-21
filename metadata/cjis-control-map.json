@@ -439,4 +439,11 @@
     "policy_area": "Access Control",
     "notes": "This rule detects the presence and activity of automated account management mechanisms, including SCIM provisioning, LDAP synchronization, and identity orchestration tools such as Azure AD, Okta, or FreeIPA. It ensures account lifecycle actions are performed consistently, logged, and aligned with security and compliance policies. Automation logs are parsed to verify that no manual bypassing of account workflows is occurring."
   },
+  "100064": {
+    "description": "Detection of automated removal or disabling of temporary and emergency accounts per CJIS AC-2(2). Ensures short-lived accounts expire within the organization-defined period.",
+    "cjis": ["5.5.1"],
+    "nist": ["AC-2(2)"],
+    "policy_area": "Access Control",
+    "notes": "This rule identifies log entries associated with the automated expiration, disabling, or removal of temporary and emergency accounts. It is critical that organizations configure identity systems to auto-disable such accounts after pre-set durations, and that logs reflect these events for auditing. Manual intervention should be the exception, not the norm, for managing these accounts."
+  },
 }
