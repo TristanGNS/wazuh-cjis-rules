@@ -509,4 +509,11 @@
     "policy_area": "Access Control",
     "notes": "Focuses on limiting access to security-relevant components like firewalls, audit logs, SELinux policies, and privileged functions. This rule flags unauthorized or unexpected changes as potential policy violations."
   },
+  "100074": {
+    "description": "Flags violations of defined concurrent session limits across user accounts, including remote, local, and application-specific logins. Enforces CJIS control 5.5.2.1 (AC-10).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["AC-10"],
+    "policy_area": "Access Control",
+    "notes": "Helps implement concurrent session caps based on user role or access method (e.g., max 1 SSH session per admin). Prevents session sprawl, enforces session traceability, and mitigates lateral attack risks."
+  },
 }
