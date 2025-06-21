@@ -586,4 +586,11 @@
     "policy_area": "Access Control",
     "notes": "All elevated remote access must be traceable through session recording, command logging, or console capture tools. Remote privilege should only be permitted for documented needs and tracked within the SSP with scope, duration, and role-based approval."
   },
+  "100085": {
+    "description": "Implements CJIS 5.5.6 (AC-17(1)) by requiring automated monitoring and technical enforcement of all remote access methods, including session tracking, alerting, and automated termination.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17(1)"],
+    "policy_area": "Access Control",
+    "notes": "All remote access must be auditable and technically enforceable via automated mechanisms. Examples include VPN session tracking, real-time alerts for unexpected access, and conditional access policies. Manual review alone is insufficient for compliance."
+  }.
 }
