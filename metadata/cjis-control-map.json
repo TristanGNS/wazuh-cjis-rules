@@ -453,4 +453,11 @@
     "policy_area": "Access Control",
     "notes": "Control PS-4 ensures system access and credentials are revoked promptly following employment termination, and that security procedures (e.g., exit interviews, asset retrieval, data retention) are followed. This rule triggers on termination indicators and should be paired with alerting for delayed access revocation."
   },
+  "100066": {
+    "description": "Enforces and monitors logical access control decisions by detecting access denials, unauthorized attempts, or ACL enforcement failures. Supports CJIS AC-3 compliance.",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-3"],
+    "policy_area": "Access Control",
+    "notes": "This rule identifies unauthorized or policy-violating access attempts to systems, files, or services. It supports enforcement of logical access policies and detects enforcement failures across identity platforms, OS-level ACLs, and system logs."
+  },
 }
