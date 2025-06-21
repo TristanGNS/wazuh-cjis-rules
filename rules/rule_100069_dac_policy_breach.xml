@@ -1,0 +1,46 @@
+<group name="access_enforcement,dac,cjis">
+  <rule id="100069" level="10">
+    <description>CJIS 5.5.2 – Discretionary Access Control Violation or Misconfiguration (AC-3(4))</description>
+    <match>unauthorized privilege grant|security descriptor modified|ACL override|access policy bypass|DAC misconfiguration</match>
+    <if_sid>18107</if_sid>
+    <group>access_control,dac,policy_monitoring</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-3(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-3(4) – Discretionary Access Control
+
+* Purpose:
+  - Prevents users or programs with discretionary access from inadvertently or maliciously expanding access to protected objects.
+  - Ensures subject-object permissions are enforced consistently even in decentralized or user-managed permission schemes.
+
+* Key Detection Focus:
+  - Audit logs where users or programs change security descriptors (NTFS ACLs, Linux chmod/chown)
+  - Attempts to override group policies or elevate access via DAC rules
+  - Privilege inheritance manipulations (e.g., recursive permissions in shared folders or cloud buckets)
+  - Users assigning access to others without required oversight or approval
+
+* Implementation Considerations:
+  - Windows: Monitor Event ID 4670 (permissions on an object were changed), 4662 (object operation), and NTFS file permission logs.
+  - Linux: Auditd rules for `chown`, `chmod`, or `setfacl`.
+  - Cloud: IAM or bucket policy changes (e.g., AWS CloudTrail logs showing `PutBucketAcl`, `PutObjectAcl`)
+
+* Example Violations:
+  - A user grants another user access to a file or folder without required review
+  - A process sets world-readable permissions on a sensitive object
+  - A modified application binary receives access to new roles via inherited attributes
+
+* Risk if Unaddressed:
+  - Unauthorized access propagation
+  - Privilege escalation by insiders
+  - Leakage of sensitive or CJIS-regulated data
+
+* Assumptions:
+  - The system uses DAC (versus MAC or RBAC) for user-level access control
+  - File and object audit events are forwarded to SIEM/Wazuh
+-->
