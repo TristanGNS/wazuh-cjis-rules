@@ -1,0 +1,50 @@
+<group name="account_management,compliance,cjis,access_control">
+  <rule id="100061" level="7">
+    <description>CJIS 5.5.1 - Stale or policy-violating accounts must be disabled (AC-2(3))</description>
+    <if_sid>18107</if_sid> <!-- Example: Relevant SID for account-related activity -->
+    <match>inactive|expired|disable|orphan account|account lock</match>
+    <group>audit_account</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>AC-2(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST AC-2(3): Disable Accounts
+
+* Requirements:
+  - Disable user accounts under any of the following circumstances:
+    a. Expired accounts (e.g., contract end, temporary credentials)
+    b. Disassociated accounts (e.g., user has left organization)
+    c. Policy violations (e.g., detected misuse)
+    d. Inactivity exceeding defined thresholds (e.g., 30 days, 90 days)
+
+* Assumptions:
+  - Inactivity tracking is enforced via:
+    • Authentication logs (Linux `/var/log/wtmp`, Windows 4624/4634)
+    • Last logon timestamps from LDAP, AD, or system tools
+    • Scripts or Wazuh active response modules used for disabling inactive accounts
+  - Disablement is logged and visible to Wazuh through:
+    • `usermod --expiredate`, `passwd -l`, AD disable events, etc.
+
+* Integration Recommendations:
+  - Use scheduled Wazuh `active-response` to parse inactivity reports and disable stale accounts
+  - Monitor for AD Event IDs:
+    • 4725 - User account disabled
+    • 4726 - User account deleted
+    • 4740 - Account locked out
+  - Linux: Track `passwd`, `chage`, or system scripts that enforce aging policies
+
+* Risks if Not Monitored:
+  - Stale accounts are high-risk entry points for lateral movement and privilege escalation
+  - Orphaned credentials may allow terminated users continued access
+  - Violates CJIS, NIST, and industry-standard IAM hygiene practices
+
+* Tuning Suggestions:
+  - Correlate this rule with login timestamps or cron job results
+  - Track the effectiveness of automated disabling workflows through dashboards
+
+-->
