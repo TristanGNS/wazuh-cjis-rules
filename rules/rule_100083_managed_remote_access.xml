@@ -1,0 +1,35 @@
+<group name="remote_access,network_security,access_points,cjis">
+  <rule id="100083" level="9">
+    <description>CJIS 5.5.6 – Remote Access Routed via Authorized Control Points (AC-17(3))</description>
+    <match>remote session initiated via vpn gateway|bastion host accessed|traffic routed through reverse proxy|remote login validated at access control node|vpn concentrator authentication</match>
+    <field name="event_type">network</field>
+    <group>remote_access,control_points,traffic_validation</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17(3) – Remote Access | Managed Access Control Points
+
+Purpose:
+- Prevent unauthorized remote access paths or shadow connections.
+- Ensure full visibility and auditing of remote sessions through chokepoints.
+
+Assumptions:
+- Centralized VPN, bastion, or ZTNA components are deployed.
+- All inbound connections to CJIS systems require MFA and pass through firewall policies, proxies, or access brokers.
+
+Examples:
+- Cisco ASA VPN Gateway logs user authentication and assigns ACL based on group policy.
+- Guacamole or JumpCloud relays remote desktop sessions through hardened gateways.
+- ZTNA brokers restrict traffic based on user, device, and risk posture.
+
+Risks if Unchecked:
+- Remote users may establish unsanctioned direct access to sensitive systems, bypassing security enforcement.
+- Monitoring systems will lack full visibility if access control points are not centralized.
+- Compromise of a single endpoint could result in unrestricted lateral movement.
+-->
