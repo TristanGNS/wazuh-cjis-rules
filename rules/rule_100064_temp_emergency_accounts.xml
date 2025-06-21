@@ -1,0 +1,41 @@
+<group name="account_management,automation,cjis,access_control">
+  <rule id="100064" level="9">
+    <description>CJIS 5.5.1 - Temporary/Emergency Account Auto-Removal or Disabling Detected (AC-2(2))</description>
+    <if_sid>18107</if_sid>
+    <match>temporary account (expiration|auto-disable|auto-remove)|emergency account (expiration|disable|remove)|auto-expire temp|auto expiration policy|emergency access timeout</match>
+    <group>temp_accounts,iam,automation</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>AC-2(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST AC-2(2): Automated Temporary and Emergency Account Management
+
+* Required Capabilities:
+  - Automatically disable or remove temporary and emergency accounts after their permitted duration ends
+  - Assign specific expiration dates or durations at account creation
+  - Audit logs should show automation events tied to these time-based controls
+  - Distinct policies must exist for both temporary and emergency account types
+
+* Assumptions:
+  - Identity systems (e.g., AD, Azure AD, Okta, FreeIPA) are capable of expiring accounts via attributes like:
+    - `accountExpires`
+    - `msDS-UserAccountExpirationTime`
+    - `expirationTimestamp`
+  - Logging from IAM or automation platforms includes keywords like "temporary", "emergency", "expires", or "auto-disable"
+  - Emergency accounts are provisioned only during elevated incidents and removed promptly after
+
+* Implementation Guidance:
+  - Integrate account expiration settings into IAM policy enforcement
+  - Flag accounts created with no expiration or those still active past their intended lifespan
+  - Include enforcement in post-incident review or red team simulation logs
+
+* Risks if Unmonitored:
+  - Temporary accounts linger beyond approved duration, expanding attack surface
+  - Emergency accounts used during outages or investigations remain active indefinitely
+  - Lack of removal introduces dormant, privileged vectors for insider threats
+-->
