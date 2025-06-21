@@ -523,4 +523,11 @@
     "policy_area": "Access Control",
     "notes": "Tracks the creation, modification, or usage of privileged accounts to ensure only authorized personnel hold administrative access. Detects role escalation and improper additions to elevated groups."
   },
+  "100076": {
+    "description": "Flags the use of privileged accounts in vulnerability scanning contexts. Supports enforcement of CJIS control 5.5.2.1 (RA-5(5)).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["RA-5(5)"],
+    "policy_area": "Access Control",
+    "notes": "Detects usage of root/admin credentials for vulnerability scanning tools. Ensures that such activities are authorized, controlled, and auditable. Helps enforce scanning boundaries and protects against unauthorized use of elevated scan permissions."
+  },
 }
