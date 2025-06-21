@@ -1,0 +1,44 @@
+<group name="access_control,least_privilege,authorization,enforcement,cjis">
+  <rule id="100067" level="12">
+    <description>CJIS 5.5.2 - Least Privilege (AC-6)</description>
+    <if_sid>18107</if_sid>
+    <match>privilege escalation|unauthorized privilege use|elevated access detected|attempted sudo|runas|admin access violation</match>
+    <group>iam,least_privilege,access_control</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-6 – Least Privilege
+
+* Purpose:
+  - Limits exposure of sensitive systems and data to only those with a need to know.
+  - Reduces the blast radius of compromised or misused accounts.
+  - Enforces principle of minimum required access for job functions.
+
+* Implementation should include:
+  - Role-based access controls (RBAC) for all systems and cloud workloads.
+  - Just-in-time (JIT) elevation or temporary administrative access via approval workflows.
+  - Periodic role audits and access reviews.
+  - Least privilege scanning tools (e.g., Azure AD PIM, GPO audits, AWS IAM Access Analyzer).
+
+* Detection Use Cases:
+  - Unapproved elevation (e.g., `sudo` without justification)
+  - Admin role assignments outside standard workflows
+  - Lateral movement tied to elevated access (e.g., PowerShell remoting to domain controllers)
+  - RunAs activity by standard users
+  - Windows Event 4672 (Special Privileges Assigned)
+
+* Assumptions:
+  - Audit logs include access control violations and elevation attempts
+  - Identity events (from AD, Okta, Azure, etc.) are normalized and ingested into Wazuh/SIEM
+
+* Risks if Unmet:
+  - Uncontrolled privileged access
+  - Insider misuse or escalation attacks
+  - Untraceable changes in critical systems
+-->
