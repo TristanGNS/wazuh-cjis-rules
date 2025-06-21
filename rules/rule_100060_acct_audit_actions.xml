@@ -1,0 +1,47 @@
+<group name="account_management,compliance,cjis,access_control">
+  <rule id="100060" level="9">
+    <description>CJIS 5.5.1 - Account lifecycle actions must be audited (AC-2(4))</description>
+    <if_sid>18107</if_sid> <!-- Example: SID for 'useradd' or auditd-based account change events -->
+    <match>useradd|usermod|userdel|passwd|chage</match>
+    <group>audit_account</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>AC-2(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST AC-2(4): Automated Audit Actions for Account Management
+
+* Requirements:
+  - Automatically generate audit records whenever an account is:
+    • Created
+    • Modified (e.g., password change, group membership)
+    • Enabled / re-enabled
+    • Disabled / locked
+    • Removed / deleted
+
+* Assumptions:
+  - Log sources such as:
+    • auditd (Linux)
+    • Security Event Log (Windows 4624, 4720, 4722, 4726, etc.)
+    • Wazuh decoders produce event types tied to account changes (useradd, passwd, etc.)
+  - System can correlate relevant event IDs to account lifecycle actions
+
+* Integration Recommendations:
+  - Linux: Ensure `auditd` is configured to watch `/etc/passwd`, `/etc/shadow`, `/etc/group`
+  - Windows: Enable auditing under Group Policy for:
+      [Security Settings > Local Policies > Audit Policy > Audit Account Management]
+
+* Risks if Not Monitored:
+  - Malicious or unauthorized account manipulation can occur without detection
+  - Failure to produce account action logs violates CJIS audit trail requirements
+  - Lateral movement or privilege escalation becomes harder to detect
+
+* Tuning Suggestions:
+  - Separate individual rules by action type (e.g., one for account creation, another for password reset)
+  - Integrate anomaly detection for frequency or timing of account changes
+
+-->
