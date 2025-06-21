@@ -1,0 +1,43 @@
+<group name="access_control,enforcement,authorization,cjis,logical_access">
+  <rule id="100066" level="12">
+    <description>CJIS 5.5.2 - Access Enforcement (AC-3)</description>
+    <if_sid>18107</if_sid>
+    <match>unauthorized access|denied by policy|access violation|access attempt denied|ACL violation|permission denied|enforcement failure</match>
+    <group>iam,authorization,enforcement</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-3: Access Enforcement
+
+* Purpose:
+  - Ensures access controls are actively enforced based on authorizations
+  - Prevents unauthorized users from accessing sensitive systems, apps, or files
+  - Complements AC-2 (account mgmt), PS-4 (termination), and AC-6 (least privilege)
+
+* Implementation should include:
+  - Role-based access control (RBAC) or Attribute-based access control (ABAC)
+  - Group policy and firewall enforcement for network access
+  - Access denied logs from identity providers (e.g., Okta, AD, Duo, Azure)
+  - System logs for failed ACL checks, permission issues, and policy blocks
+
+* Monitoring Use Cases:
+  - Denied logon due to group policy
+  - Rejected API calls due to lack of scope
+  - File access violations from endpoint logs
+  - Attempted privilege escalation flagged by enforcement engine
+
+* Assumptions:
+  - Logging is enabled on authentication gateways and endpoints
+  - Centralized logging solution (e.g., Wazuh + syslog/SIEM) ingests access violation events
+
+* Risks if Unmet:
+  - Unauthorized lateral movement
+  - Data exfiltration due to over-permissioned users
+  - Insider threats with unrestricted access
+-->
