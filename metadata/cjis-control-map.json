@@ -411,4 +411,11 @@
     "policy_area": "Auditing and Accountability",
     "notes": "This rule checks for inadequate audit retention settings, typically defined by `audit.retention.days`. CJIS typically requires logs to be retained for sufficient time to enable after-the-fact investigation, legal discovery, and compliance reviews. This threshold should match agency policy and legal obligations."
   },
+  "100060": {
+    "description": "Monitors and audits account creation, modification, disabling, and deletion in real-time. Required by CJIS 5.5.1 and NIST AC-2(4).",
+    "cjis": ["5.5.1"],
+    "nist": ["AC-2(4)"],
+    "policy_area": "Access Control",
+    "notes": "This rule ensures that all lifecycle events related to user accounts—such as creation, deletion, enabling, disabling, and password modifications—are captured via logs and evaluated for compliance. This is essential for detecting insider threats, policy violations, or misconfigurations. Assumes audit policies are enabled and relevant log sources are available to Wazuh."
+  },
 }
