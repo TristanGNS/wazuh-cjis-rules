@@ -488,4 +488,11 @@
     "policy_area": "Access Control",
     "notes": "Requires strict enforcement of kernel-level MAC mechanisms. Exceptions must be explicit and logged. Works best when SELinux/AppArmor/Smack are configured and log forwarding is enabled."
   },
+  "100071": {
+    "description": "Detects when privileged accounts (e.g., root, domain admin) are used to perform nonsecurity or user-level functions, violating the separation of duties principle in AC-6(2).",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-6(2)"],
+    "policy_area": "Access Control",
+    "notes": "This rule reinforces least privilege by requiring separate non-privileged accounts for general functions. Helps reduce risk from privilege escalation or malware delivered via insecure channels like web or email."
+  },
 }
