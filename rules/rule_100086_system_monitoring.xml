@@ -1,0 +1,41 @@
+<group name="system_monitoring,remote_access,attack_detection">
+  <rule id="100086" level="12">
+    <description>CJIS 5.5.6 – System Monitoring (SI-4) – Detect Unauthorized or Malicious Activity</description>
+    <match>unauthorized access attempt|network intrusion detected|suspicious login|excessive failed logins|malware activity|port scan detected|VPN brute force|unusual outbound traffic</match>
+    <field name="event_type">system_monitoring</field>
+    <group>remote_access,system_monitoring,threat_detection</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>SI-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST SI-4 – System Monitoring
+
+This rule enforces visibility and accountability for all activity across remote access vectors, and ensures ongoing situational awareness of emerging threats.
+
+Suggested Log Sources:
+- IDS/IPS (Snort, Suricata)
+- EDR/XDR solutions
+- VPN logs (e.g., OpenVPN, Cisco AnyConnect)
+- Firewall traffic patterns
+- Behavioral monitoring (UEBA, Wazuh, OSSEC)
+
+Response Examples:
+- Alerting on brute force attempts over VPN
+- Flagging anomalies in command behavior during RDP sessions
+- Logging access to CJIS systems outside business hours
+
+Failure to implement SI-4 results in:
+- No visibility into attack attempts
+- Delayed incident response
+- Non-compliance with real-time monitoring mandates
+
+Risks if Unmet:
+- Lack of real-time insight into system misuse
+- Delayed containment of threats
+- Inability to correlate attack patterns
+-->
