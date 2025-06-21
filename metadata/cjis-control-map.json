@@ -607,4 +607,11 @@
     "policy_area": "Access Control",
     "notes": "The rule mandates tight confidentiality around remote access systems. Unauthorized access to this data can enable threat actors to bypass security controls. A zero-trust and RBAC-driven access model should be enforced, and all access attempts should be logged and monitored with alerts on anomalies."
   },
+  "100088": {
+    "description": "Implements CJIS 5.5.6 (AC-17(2)) by ensuring that all remote access sessions are encrypted using modern cryptographic protocols. Protects confidentiality and integrity of data in transit from MITM and interception threats.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17(2)"],
+    "policy_area": "Access Control",
+    "notes": "Encryption mechanisms such as TLS, IPSec, and SSH are required to protect remote sessions from eavesdropping and tampering. Regular protocol audits and SIEM alerts should be configured to detect unencrypted traffic or insecure cipher usage."
+  },
 }
