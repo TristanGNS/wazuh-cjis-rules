@@ -481,4 +481,11 @@
     "policy_area": "Access Control",
     "notes": "Addresses discretionary privilege propagation and user-managed access risks. Useful for systems implementing NTFS, Linux POSIX permissions, or cloud-based ACLs."
   },
+  "100070": {
+    "description": "Monitors for mandatory access control (MAC) enforcement violations such as SELinux/AppArmor denials or unauthorized security label changes. Ensures CJIS data cannot be accessed, shared, or relabeled without policy compliance.",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-3(3)"],
+    "policy_area": "Access Control",
+    "notes": "Requires strict enforcement of kernel-level MAC mechanisms. Exceptions must be explicit and logged. Works best when SELinux/AppArmor/Smack are configured and log forwarding is enabled."
+  },
 }
