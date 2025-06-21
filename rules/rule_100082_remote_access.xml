@@ -1,0 +1,37 @@
+<group name="remote_access,audit_control,access_control,cjis">
+  <rule id="100082" level="9">
+    <description>CJIS 5.5.6 – Remote Access Policy Definition and Enforcement (AC-17)</description>
+    <match>vpn connection established|remote desktop session initiated|ssh login from external|rdp tunnel opened|remote access granted|connection from non-local IP</match>
+    <field name="event_type">network</field>
+    <group>remote_access,authentication,session_control</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17 – Remote Access
+
+Purpose:
+- Controls the conditions under which users may remotely access protected systems.
+- Ensures access methods are explicitly documented, configured securely, and pre-approved.
+
+Assumptions:
+- All remote access is logged and monitored.
+- Logs include the connection method, user ID, source IP, and session time.
+- VPN or remote session management systems are integrated with SIEM or Wazuh for auditing.
+
+Examples:
+- RDP login to Windows Server from an external IP.
+- VPN authentication log entries from OpenVPN, Fortinet, or WireGuard.
+- SSH connection attempts via jump servers or bastions.
+- Access Control system audit logs showing successful remote authorization.
+
+Risks if Unchecked:
+- Backdoors may be introduced via unauthorized remote methods (e.g., TeamViewer, Shadow IT).
+- Insecure or unmonitored remote access increases risk of lateral movement, data exfiltration, and credential theft.
+- Lack of policy enforcement can result in violations of CJIS and internal cybersecurity policies.
+-->
