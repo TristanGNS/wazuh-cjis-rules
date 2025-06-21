@@ -1,0 +1,36 @@
+<group name="public_content,access_control,web_monitoring,cjis">
+  <rule id="100080" level="7">
+    <description>CJIS 5.5.4 – Public Content Review and Disclosure Prevention (AC-22)</description>
+    <match>content published|external website|unauthorized disclosure|web content review|public portal post</match>
+    <field name="data">.*(unauthorized|PII|nonpublic information|classified|confidential|leak).*<\/field>
+    <if_sid>18107</if_sid>
+    <group>access_control,content_audit,public_release</group>
+    <compliance>
+      <cjis>5.5.4</cjis>
+      <nist_800_53>AC-22</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.4 | NIST AC-22 – Publicly Accessible Content Controls
+
+Purpose:
+- Detects events where public-facing systems are used to share unauthorized or nonpublic content.
+- Monitors publishing activity by unapproved users, suspicious terms, or unsanctioned content changes.
+
+Assumptions:
+- Logs include CMS, SFTP, web portal, or Git repository entries tied to website content.
+- Detection sources may include WAF logs, Git commit messages, or content-scanning tools (e.g., DLP systems).
+
+Examples:
+- Public site publishes incident reports that contain SSNs or internal contact information.
+- A staff member without publishing authority pushes a website update directly.
+- File inclusion (PDFs, spreadsheets, media) bypasses data governance review.
+
+Risks if Unchecked:
+- Exposure of CJIS-sensitive or protected law enforcement data.
+- Legal liability due to unauthorized PII or classified disclosures.
+- Public trust erosion and violation of agency security policy.
+-->
