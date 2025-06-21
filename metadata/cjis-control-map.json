@@ -460,4 +460,11 @@
     "policy_area": "Access Control",
     "notes": "This rule identifies unauthorized or policy-violating access attempts to systems, files, or services. It supports enforcement of logical access policies and detects enforcement failures across identity platforms, OS-level ACLs, and system logs."
   },
+  "100067": {
+    "description": "Detects violations of the least privilege principle by monitoring unauthorized or unexplained elevation of privileges, special access use, or escalated session activities.",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-6"],
+    "policy_area": "Access Control",
+    "notes": "This rule supports enforcement of least privilege by alerting on elevation attempts, admin role assignments, and processes acting with excessive privileges. Complementary reviews of group policy, IAM roles, and entitlement reviews should accompany this detection."
+  },
 }
