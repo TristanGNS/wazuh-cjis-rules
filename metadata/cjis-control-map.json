@@ -432,4 +432,11 @@
     "policy_area": "Access Control",
     "notes": "This rule ensures full coverage of account lifecycle management events from creation to disablement. It monitors group/role changes, authorization requirements, offboarding processes, and privileged access validation. Detects violations of account policies and missed access reviews through correlated event analysis. Recommended pairing with scheduled attestation audits, LDAP monitoring, and IAM integration."
   },
+  "100063": {
+    "description": "Enforcement of automated system account management processes via identity platforms, SCIM, LDAP, or other tools to fulfill CJIS AC-2(1) requirements.",
+    "cjis": ["5.5.1"],
+    "nist": ["AC-2(1)"],
+    "policy_area": "Access Control",
+    "notes": "This rule detects the presence and activity of automated account management mechanisms, including SCIM provisioning, LDAP synchronization, and identity orchestration tools such as Azure AD, Okta, or FreeIPA. It ensures account lifecycle actions are performed consistently, logged, and aligned with security and compliance policies. Automation logs are parsed to verify that no manual bypassing of account workflows is occurring."
+  },
 }
