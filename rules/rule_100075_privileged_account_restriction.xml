@@ -1,0 +1,37 @@
+<group name="least_privilege,ac6-5,cjis">
+  <rule id="100075" level="12">
+    <description>CJIS 5.5.2.1 – Unauthorized Privileged Account Creation or Access (AC-6(5))</description>
+    <match>added to sudoers|new admin account created|user added to administrators|granted root access|elevated to privileged group</match>
+    <if_sid>18107</if_sid>
+    <group>privilege_escalation,account_control</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>AC-6(5)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST AC-6(5) – Privileged Account Restriction
+
+Purpose:
+- Detects unauthorized or unreviewed assignment of privileged roles to user accounts.
+- Reinforces least privilege by ensuring only organization-defined personnel/roles can maintain privileged access.
+
+Detection Examples:
+- Unauthorized use of `usermod -aG sudo`
+- Alerts on new group membership to `Administrators`, `root`, or `wheel`
+- SIEM events from Active Directory showing unapproved elevation
+- PAM or auditd entries showing privilege modification
+
+Assumptions:
+- Central directory services (e.g., AD, LDAP) or local system groups control elevated permissions
+- Group memberships are auditable and alerts are triggered on modification
+- Role definitions and privilege eligibility lists are documented and enforced by policy
+
+Risks if Uncontrolled:
+- Unauthorized users gain root/system-level access
+- Insider threat or lateral escalation attacks go undetected
+- Accountability breaks down due to excessive privilege distribution
+-->
