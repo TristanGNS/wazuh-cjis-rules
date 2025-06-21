@@ -418,4 +418,11 @@
     "policy_area": "Access Control",
     "notes": "This rule ensures that all lifecycle events related to user accounts—such as creation, deletion, enabling, disabling, and password modifications—are captured via logs and evaluated for compliance. This is essential for detecting insider threats, policy violations, or misconfigurations. Assumes audit policies are enabled and relevant log sources are available to Wazuh."
   },
+  "100061": {
+    "description": "Tracks and enforces automatic disabling of user accounts that are expired, inactive, or policy-violating, aligning with CJIS 5.5.1 and NIST AC-2(3).",
+    "cjis": ["5.5.1"],
+    "nist": ["AC-2(3)"],
+    "policy_area": "Access Control",
+    "notes": "This rule maps to the requirement to disable accounts automatically if they are expired, inactive beyond a defined period, or no longer tied to a legitimate user. Assumes that systems maintain login timestamps and generate appropriate audit events when disablement occurs. Can be automated through Wazuh active response or linked to IAM lifecycle management policies. Monitoring disablement actions also improves audit visibility and reduces risk from dormant credentials."
+  },
 }
