@@ -467,4 +467,11 @@
     "policy_area": "Access Control",
     "notes": "This rule supports enforcement of least privilege by alerting on elevation attempts, admin role assignments, and processes acting with excessive privileges. Complementary reviews of group policy, IAM roles, and entitlement reviews should accompany this detection."
   },
+  "100068": {
+    "description": "Detects systems or applications that do not support or fail to properly implement user-initiated session logout capabilities, as required for authenticated communication sessions.",
+    "cjis": ["5.5.2"],
+    "nist": ["AC-12(1)"],
+    "policy_area": "Access Control",
+    "notes": "Supports user-driven security controls for session termination. Validates logout visibility and backend session invalidation. Part of broader access enforcement and authentication hygiene."
+  },
 }
