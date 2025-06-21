@@ -537,4 +537,11 @@
     "policy_area": "Access Control",
     "notes": "This rule supports enforcement of separation of duties by identifying scenarios where a single user attempts to perform multiple conflicting privileged actions (e.g., user creation and audit review). Supports role-based access boundary detection through log correlation, with assumptions of a structured RBAC model in place."
   },
+  "100078": {
+    "description": "Detects insecure password behaviors such as weak passwords, insecure transmission, or improper password storage. Enforces CJIS 5.5.3 requirements for password-based authentication.",
+    "cjis": ["5.5.3"],
+    "nist": ["IA-5(1)"],
+    "policy_area": "Access Control",
+    "notes": "Covers detection and enforcement of secure password creation, storage, and transmission practices per CJIS and NIST IA-5(1). Supports denylist enforcement, secure hash storage, password complexity policies, and immediate reset post-recovery."
+  },
 }
