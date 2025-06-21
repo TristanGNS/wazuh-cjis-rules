@@ -551,4 +551,11 @@
     "policy_area": "Access Control",
     "notes": "Banners must explicitly state legal use limitations, consent to monitoring, auditability, and public use restrictions. Applies to both internal and publicly accessible systems. Detection assumes logs contain banner enforcement metadata or warnings on absence."
   },
+  "100080": {
+    "description": "Detects unauthorized public-facing content or activity in violation of AC-22. Enforces CJIS requirements for limiting publishing to trained, designated users and pre/post content review for nonpublic data.",
+    "cjis": ["5.5.4"],
+    "nist": ["AC-22"],
+    "policy_area": "Access Control",
+    "notes": "Control requires public content publishing to be restricted to designated individuals, with pre-release review and regular audits to remove any accidentally posted sensitive or restricted information. Training logs, publishing authorization lists, and content review schedules must be documented."
+  }
 }
