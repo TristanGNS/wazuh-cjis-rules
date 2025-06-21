@@ -1,0 +1,35 @@
+<group name="remote_access,encryption,confidentiality,integrity">
+  <rule id="100088" level="12">
+    <description>CJIS 5.5.6 – Remote Access (AC-17(2)) – Encryption of Remote Access Sessions</description>
+    <match>unencrypted remote access|plaintext transmission over remote session|vpn encryption disabled|insecure remote desktop connection|TLS downgrade attack|SSH cipher too weak</match>
+    <field name="event_type">session_security</field>
+    <group>remote_access,encryption,transport_security,compliance</group>
+    <compliance>
+      <cjis>5.5.6</cjis>
+      <nist_800_53>AC-17(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.6 | NIST AC-17(2) – Protection of Confidentiality and Integrity Using Encryption
+
+This rule enforces the requirement to encrypt all data transmitted during remote access sessions. Encryption ensures that data in transit cannot be intercepted or modified by attackers.
+
+Examples of acceptable encryption:
+- VPN (IPSec w/ AES-256)
+- TLS 1.2/1.3 with HSTS
+- SSH (ed25519/RSA-2048+, disabled CBC and MD5 ciphers)
+- RDP with Network Level Authentication (NLA)
+
+Failure to comply can result in:
+- Session hijacking
+- MITM attacks
+- Credential leakage
+- Data manipulation in transit
+
+Monitoring Recommendations:
+- Log TLS/SSH cipher negotiations
+- Use IDS to detect cleartext authentication protocols (Telnet, FTP, VNC)
+-->
