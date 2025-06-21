@@ -572,4 +572,11 @@
     "policy_area": "Access Control",
     "notes": "Organizations must implement written remote access policies detailing which technologies are allowed, connection requirements (VPN, MFA, encryption), and usage restrictions. Each remote access method must be authorized before use, with monitoring in place to detect unapproved access paths. Log collection and review should validate compliance through remote session metadata."
   },
+  "100083": {
+    "description": "Enforces CJIS 5.5.6 (AC-17(3)) by ensuring remote sessions are routed through authorized and centrally-managed network access control points such as VPN concentrators, firewalls, jump hosts, or ZTNA gateways.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17(3)"],
+    "policy_area": "Access Control",
+    "notes": "All remote access activity must pass through vetted and auditable control mechanisms that can enforce connection policies, log access metadata, and ensure segmentation and role-based restrictions. Bypass methods (e.g., split tunneling, unmanaged devices) must be blocked or require explicit approval and risk documentation."
+  },
 }
