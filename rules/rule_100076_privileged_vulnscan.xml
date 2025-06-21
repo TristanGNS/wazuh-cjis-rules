@@ -1,0 +1,35 @@
+<group name="vulnerability_scanning,ra5-5,least_privilege,cjis">
+  <rule id="100076" level="10">
+    <description>CJIS 5.5.2.1 – Privileged Access for Vulnerability Scanners (RA-5(5))</description>
+    <match>scanner elevated|sudo nmap|nessus root|authenticated scan with admin|vuln scan using privileged account</match>
+    <if_sid>18107</if_sid>
+    <group>scanner_activity,access_control</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>RA-5(5)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST RA-5(5) – Privileged Access for Vulnerability Scanning
+
+Purpose:
+- Ensures that only authorized scan processes/users can perform privileged-level vulnerability scans on sensitive system components.
+
+Detection Examples:
+- Nessus or OpenVAS scans using admin/root credentials
+- Authenticated scans targeting domain controllers, firewalls, or database servers
+- Scan tools configured with SSH keys, privileged tokens, or AD accounts
+
+Assumptions:
+- Vulnerability scanning tools require elevated access to perform authenticated scans.
+- Organization defines which systems can be scanned and who can perform them.
+- Audit trails/logs capture when/where/how scanners are authenticated.
+
+Risks if Uncontrolled:
+- Scanner tools could be exploited to gain access beyond intended scope
+- Weak credential handling could expose admin-level accounts
+- Excessive privilege in scanning processes violates least privilege principle
+-->
