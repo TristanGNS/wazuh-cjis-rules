@@ -1,0 +1,35 @@
+<group name="device_lock,access_control,session_security,cjis">
+  <rule id="100081" level="7">
+    <description>CJIS 5.5.5 – Automatic or Manual Device Lock Policy (AC-11)</description>
+    <match>lock workstation|session timeout|auto-lock|manual lock required|inactive session|device idle lock</match>
+    <field name="event_type">authentication</field>
+    <group>session_management,access_control,device_security</group>
+    <compliance>
+      <cjis>5.5.5</cjis>
+      <nist_800_53>AC-11</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.5 | NIST AC-11 – Device Lock (Session Lock)
+
+Purpose:
+- Ensures workstations and mobile devices are not left exposed when unattended.
+- Enforces a lockout either automatically after inactivity or manually by user policy.
+
+Assumptions:
+- Endpoint protection or audit logs capture session activity (idle time, lock event, unlock with re-auth).
+- Devices support native or MDM-enforced auto-lock policies.
+
+Examples:
+- Windows Event Log showing a session locked due to inactivity after 10 minutes.
+- Audit log entry recording a manual lock event initiated via user policy compliance tools.
+- Unlock logs that validate successful re-authentication before access was restored.
+
+Risks if Unchecked:
+- Unauthorized individuals may access open sessions left unattended.
+- Confidential information or CJIS data may be viewed, altered, or exfiltrated.
+- Violations of agency mobile device or desktop workstation security policy.
+-->
