@@ -1,0 +1,37 @@
+<group name="access_control,banners,auth_attempts,cjis">
+  <rule id="100079" level="9">
+    <description>CJIS 5.5.4 – System Use Notification Enforcement (AC-8)</description>
+    <match>login banner|system use warning|unauthorized use prohibited|audit notice</match>
+    <field name="data">.*(consent to monitoring|system may be monitored|unauthorized use prohibited|audit|recorded usage).*<\/field>
+    <if_sid>18107</if_sid>
+    <group>banner_notice,access_control,policy_violation</group>
+    <compliance>
+      <cjis>5.5.4</cjis>
+      <nist_800_53>AC-8</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.4 | NIST AC-8 – System Use Notification
+
+Purpose:
+- Detects absence or misconfiguration of login banners that fulfill CJIS/NIST requirements.
+- Assures users receive proper legal disclosure of monitoring and consent prior to system access.
+
+Assumptions:
+- Banners are configured through PAM stack, SSHD, web login portals, or GUI desktop systems.
+- Logs contain either confirmation that banners were shown or warnings/errors that indicate banner failure or bypass.
+- Publicly accessible systems include appropriate disclaimers, with additional metadata in webserver logs or access scripts.
+
+Detection Examples:
+- Log shows missing banner or skipped message (e.g., “No banner present” or “Banner file not found”).
+- Session logs confirm user did not acknowledge terms before accessing the system.
+- Web portal logs do not include pre-access terms enforcement.
+
+Risk if Uncontrolled:
+- Legal liability due to failure to disclose monitoring practices.
+- Increased chance of unauthorized access without user accountability.
+- Non-compliance with CJIS, NIST, or federal executive orders governing system disclosure.
+-->
