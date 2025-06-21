@@ -425,4 +425,11 @@
     "policy_area": "Access Control",
     "notes": "This rule maps to the requirement to disable accounts automatically if they are expired, inactive beyond a defined period, or no longer tied to a legitimate user. Assumes that systems maintain login timestamps and generate appropriate audit events when disablement occurs. Can be automated through Wazuh active response or linked to IAM lifecycle management policies. Monitoring disablement actions also improves audit visibility and reduces risk from dormant credentials."
   },
+  "100062": {
+    "description": "Comprehensive enforcement of account lifecycle controls including creation, modification, disabling, deletion, access reviews, and privilege validation, aligning with CJIS 5.5.1 and NIST AC-2.",
+    "cjis": ["5.5.1"],
+    "nist": ["AC-2"],
+    "policy_area": "Access Control",
+    "notes": "This rule ensures full coverage of account lifecycle management events from creation to disablement. It monitors group/role changes, authorization requirements, offboarding processes, and privileged access validation. Detects violations of account policies and missed access reviews through correlated event analysis. Recommended pairing with scheduled attestation audits, LDAP monitoring, and IAM integration."
+  },
 }
