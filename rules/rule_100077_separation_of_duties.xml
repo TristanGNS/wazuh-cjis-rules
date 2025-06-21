@@ -1,0 +1,35 @@
+<group name="separation_of_duties,ac5,least_privilege,cjis">
+  <rule id="100077" level="9">
+    <description>CJIS 5.5.2.1 – Separation of Duties Enforcement (AC-5)</description>
+    <match>user assumed multiple conflicting roles|same user performing audit and admin|cross-role privilege escalation attempt</match>
+    <if_sid>18107</if_sid>
+    <group>access_control,privilege_management</group>
+    <compliance>
+      <cjis>5.5.2.1</cjis>
+      <nist_800_53>AC-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2.1 | NIST AC-5 – Separation of Duties
+
+Purpose:
+- Detects activity that may indicate a user is violating separation of duties principles by performing actions reserved for different roles.
+
+Assumptions:
+- Organization defines key role conflicts (e.g., 'no single user can approve their own access').
+- Log source includes user role assignments and correlated actions (e.g., LDAP role assignment + audit logs + sudo activity).
+- Role overlap or cross-role behavior is detectable via log correlation or role-based tagging.
+
+Detection Examples:
+- Same user performs a privileged action (e.g., user provisioning) and later audits the same activity.
+- A user switches between roles in a short time window that violates duty segregation (e.g., from finance approver to payment initiator).
+- Direct log messages indicating policy override or conflict-of-interest activity.
+
+Risks if Uncontrolled:
+- Fraud, data integrity compromise, and audit failure.
+- Inability to enforce CJIS and NIST access control policy.
+- Hidden misuse of administrative or privileged roles.
+-->
