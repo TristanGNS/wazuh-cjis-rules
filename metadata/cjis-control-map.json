@@ -544,4 +544,11 @@
     "policy_area": "Access Control",
     "notes": "Covers detection and enforcement of secure password creation, storage, and transmission practices per CJIS and NIST IA-5(1). Supports denylist enforcement, secure hash storage, password complexity policies, and immediate reset post-recovery."
   },
+  "100079": {
+    "description": "Detects lack of login banners or system use notifications in violation of CJIS 5.5.4 / AC-8. Ensures users acknowledge consent to monitoring and proper usage warnings before access.",
+    "cjis": ["5.5.4"],
+    "nist": ["AC-8"],
+    "policy_area": "Access Control",
+    "notes": "Banners must explicitly state legal use limitations, consent to monitoring, auditability, and public use restrictions. Applies to both internal and publicly accessible systems. Detection assumes logs contain banner enforcement metadata or warnings on absence."
+  },
 }
