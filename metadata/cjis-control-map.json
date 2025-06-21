@@ -593,4 +593,11 @@
     "policy_area": "Access Control",
     "notes": "All remote access must be auditable and technically enforceable via automated mechanisms. Examples include VPN session tracking, real-time alerts for unexpected access, and conditional access policies. Manual review alone is insufficient for compliance."
   }.
+  "100086": {
+    "description": "Implements CJIS 5.5.6 (SI-4) by enforcing real-time monitoring of the system to detect unauthorized access, attack indicators, and anomalous behavior across remote and local connections. Provides for legal review, risk-driven tuning, and structured reporting.",
+    "cjis": ["5.5.6"],
+    "nist": ["SI-4"],
+    "policy_area": "Access Control",
+    "notes": "This rule emphasizes a proactive and multi-layered monitoring strategy using automated tools. Coverage must include IDS/IPS, endpoint telemetry, behavioral analytics, and VPN session analysis. Monitoring locations must be strategically and adaptively selected, and legal guidance obtained when needed."
+  },
 }
