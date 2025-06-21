@@ -446,4 +446,11 @@
     "policy_area": "Access Control",
     "notes": "This rule identifies log entries associated with the automated expiration, disabling, or removal of temporary and emergency accounts. It is critical that organizations configure identity systems to auto-disable such accounts after pre-set durations, and that logs reflect these events for auditing. Manual intervention should be the exception, not the norm, for managing these accounts."
   },
+  "100065": {
+    "description": "Detects events associated with personnel termination and offboarding, including revocation of credentials, access disabling, and system lockouts. Required to satisfy CJIS PS-4.",
+    "cjis": ["5.5.1"],
+    "nist": ["PS-4"],
+    "policy_area": "Access Control",
+    "notes": "Control PS-4 ensures system access and credentials are revoked promptly following employment termination, and that security procedures (e.g., exit interviews, asset retrieval, data retention) are followed. This rule triggers on termination indicators and should be paired with alerting for delayed access revocation."
+  },
 }
