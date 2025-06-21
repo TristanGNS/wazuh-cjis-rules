@@ -530,4 +530,11 @@
     "policy_area": "Access Control",
     "notes": "Detects usage of root/admin credentials for vulnerability scanning tools. Ensures that such activities are authorized, controlled, and auditable. Helps enforce scanning boundaries and protects against unauthorized use of elevated scan permissions."
   },
+  "100077": {
+    "description": "Monitors and flags activities that violate the separation of duties by detecting cross-role behavior or privilege misuse. Supports enforcement of CJIS control 5.5.2.1 (AC-5).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["AC-5"],
+    "policy_area": "Access Control",
+    "notes": "This rule supports enforcement of separation of duties by identifying scenarios where a single user attempts to perform multiple conflicting privileged actions (e.g., user creation and audit review). Supports role-based access boundary detection through log correlation, with assumptions of a structured RBAC model in place."
+  },
 }
