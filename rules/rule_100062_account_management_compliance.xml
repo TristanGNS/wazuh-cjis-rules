@@ -1,0 +1,50 @@
+<group name="account_management,compliance,cjis,access_control">
+  <rule id="100062" level="8">
+    <description>CJIS 5.5.1 - Comprehensive account management lifecycle enforcement (AC-2)</description>
+    <if_sid>18107</if_sid>
+    <match>account (created|modified|disabled|deleted|removed)|group membership|access authorization|account review|termination|offboarding</match>
+    <group>audit_account</group>
+    <compliance>
+      <cjis>5.5.1</cjis>
+      <nist_800_53>AC-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.1 | NIST AC-2: Account Management
+
+* Required Capabilities:
+  - Maintain documented account types (e.g., individual, admin, shared, service)
+  - Assign responsible account managers with clear oversight roles
+  - Apply organizationally-defined prerequisites for group/role membership
+  - Ensure account creation/removal follows policy and receives proper approval
+  - Track account status changes (disable, transfer, termination, inactivity)
+  - Review account compliance on an organization-defined periodic basis
+  - Validate access based on current role, authorization, and need-to-know
+  - Notify managers within a specific timeframe when:
+    - A user is terminated or transferred
+    - An account becomes unnecessary
+    - A user's system access needs change
+
+* Assumptions:
+  - All identity lifecycle events (creation, disablement, deletion, etc.) are logged
+    in Active Directory, LDAP, Linux usermod/passwd commands, or HR automation tools
+  - Access reviews and attestation may be logged in ticketing or IAM systems
+  - Group membership and policy violations are detectable via Wazuh file monitoring,
+    audit logs, or scheduled compliance checks
+  - Shared account credentials (if allowed) are rotated on offboarding
+
+* Implementation Guidance:
+  - Enable event log collection from AD: 
+    • Event IDs: 4720 (create), 4722 (enable), 4725 (disable), 4726 (delete), 4732/34 (group change)
+  - Monitor `/etc/passwd`, `/etc/group`, and `chage` on Linux
+  - Periodic access reviews should be reported and logged (e.g., quarterly)
+  - Track offboarding steps (e.g., tickets, HR system triggers) using Wazuh correlation or 3rd-party integration
+
+* Risks if Unmonitored:
+  - Orphaned accounts and privilege creep
+  - Misuse of system access due to stale roles
+  - Violation of principle of least privilege and CJIS IAM policies
+-->
