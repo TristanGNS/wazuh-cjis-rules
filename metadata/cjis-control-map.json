@@ -579,4 +579,11 @@
     "policy_area": "Access Control",
     "notes": "All remote access activity must pass through vetted and auditable control mechanisms that can enforce connection policies, log access metadata, and ensure segmentation and role-based restrictions. Bypass methods (e.g., split tunneling, unmanaged devices) must be blocked or require explicit approval and risk documentation."
   },
+  "100084": {
+    "description": "Implements CJIS 5.5.6 (AC-17(4)) by restricting remote execution of privileged commands to auditable, justified sessions and requiring inclusion of rationale in the system security plan.",
+    "cjis": ["5.5.6"],
+    "nist": ["AC-17(4)"],
+    "policy_area": "Access Control",
+    "notes": "All elevated remote access must be traceable through session recording, command logging, or console capture tools. Remote privilege should only be permitted for documented needs and tracked within the SSP with scope, duration, and role-based approval."
+  },
 }
