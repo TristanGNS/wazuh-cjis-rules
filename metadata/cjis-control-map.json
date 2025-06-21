@@ -495,4 +495,11 @@
     "policy_area": "Access Control",
     "notes": "This rule reinforces least privilege by requiring separate non-privileged accounts for general functions. Helps reduce risk from privilege escalation or malware delivered via insecure channels like web or email."
   },
+  "100072": {
+    "description": "Detects events related to the creation, assignment, or modification of privileged user accounts and roles. Satisfies CJIS control 5.5.2.1 (AC-2(7)).",
+    "cjis": ["5.5.2.1"],
+    "nist": ["AC-2(7)"],
+    "policy_area": "Access Control",
+    "notes": "Enforces structured management of privileged accounts. This rule flags role assignments, sudo/administrator membership changes, and privilege revocation events to support CJIS and NIST AC-2(7) compliance."
+  },
 }
