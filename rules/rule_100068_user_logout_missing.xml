@@ -1,0 +1,44 @@
+<group name="session_management,access_control,cjis">
+  <rule id="100068" level="10">
+    <description>CJIS 5.5.2 – Session Termination | Missing or Blocked User Logout Function (AC-12(1))</description>
+    <match>missing logout|logout not available|logout button not present|unable to logout|session termination failure</match>
+    <if_sid>18107</if_sid>
+    <group>access_control,session_management,authentication</group>
+    <compliance>
+      <cjis>5.5.2</cjis>
+      <nist_800_53>AC-12(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.5.2 | NIST AC-12(1) – Session Termination | User-Initiated Logouts
+
+* Purpose:
+  - Enables users to end their sessions securely and reliably.
+  - Prevents residual access if a session is left open or browser/device is shared.
+  - Supports zero-trust posture by enabling explicit logout as a risk mitigation control.
+
+* Implementation Considerations:
+  - A clear, visible "Log Out" or "Sign Out" option on all authenticated web and mobile applications.
+  - API sessions should also expose a session revocation endpoint.
+  - Endpoint logout events (e.g., Windows/Unix `logoff`, browser `localStorage.clear()` triggers) should be auditable.
+  - Public terminals and shared-use kiosks must prioritize user-driven session termination.
+  - Integration with federated identity platforms (Okta, Azure AD, ADFS) should cascade logouts through SSO where supported.
+
+* Detection Use Cases:
+  - Web applications with broken or hidden logout buttons
+  - Authentication systems that maintain active tokens after manual logout attempts
+  - Applications where `session.destroy()` or `logout()` fails to propagate to downstream systems
+  - User-reported failure to log out or unexplained persistent sessions
+
+* Assumptions:
+  - Web and app logs include front-end or API responses related to logout actions
+  - Session audit data is centralized into the SIEM
+
+* Risk if Unaddressed:
+  - Session hijacking or reuse
+  - Persistent tokens or cookies enabling re-authentication
+  - Violations of zero-trust access principles
+-->
