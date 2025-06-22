@@ -733,4 +733,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This rule ensures all remote/nonlocal maintenance sessions are formally approved, use strong authentication, and follow session lifecycle policies. It detects violations such as unmonitored RDP access, maintenance without tickets, or access via unauthorized tools."
   },
+  "100106": {
+    "description": "Implements CJIS 5.6.3 (IA-12) by requiring identity proofing for system access, including user uniqueness, identity assurance level adherence, and evidence verification.",
+    "cjis": ["5.6.3"],
+    "nist": ["IA-12"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Ensures each system user is uniquely identity-proofed using validated documentation and linked directly to a personal identifier, supporting auditability and non-repudiation. Detects shared/generic accounts and account creation without verified identity."
+  },
 }
