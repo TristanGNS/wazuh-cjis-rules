@@ -670,4 +670,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Authentication interfaces must obscure all feedback that could reveal the validity of credentials to attackers. This includes obfuscating input, suppressing differentiating error messages, and ensuring UI and log feedback cannot be leveraged for account enumeration or guessing."
   },
+  "100097": {
+    "description": "Implements CJIS 5.6.2.1.1 (IA-5(1)), enforcing secure password creation, transmission, recovery, and storage.",
+    "cjis": ["5.6.2.1.1"],
+    "nist": ["IA-5(1)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Covers all password-based authentication lifecycle events. Emphasizes screening passwords against common lists, secure hashing, immediate password reset post-recovery, support for passphrases, and use of complexity enforcement mechanisms. Also includes protections against outdated or insecure storage/transmission practices."
+  },
 }
