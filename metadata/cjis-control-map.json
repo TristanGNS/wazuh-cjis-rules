@@ -663,4 +663,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This control mandates individual user identification and authentication. The rule detects access attempts lacking unique IDs or involving generic/shared credentials. Ensures audit traceability and supports identity attribution for compliance and investigations."
   },
+  "100096": {
+    "description": "Implements CJIS 5.6.2.1 (IA-6), requiring the suppression of authentication feedback to prevent unauthorized individuals from exploiting system responses.",
+    "cjis": ["5.6.2.1"],
+    "nist": ["IA-6"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Authentication interfaces must obscure all feedback that could reveal the validity of credentials to attackers. This includes obfuscating input, suppressing differentiating error messages, and ensuring UI and log feedback cannot be leveraged for account enumeration or guessing."
+  },
 }
