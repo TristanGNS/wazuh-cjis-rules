@@ -684,4 +684,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This rule enforces procedures and technical controls for issuing, protecting, and revoking system authenticators. It ensures strong credentials are used, rotated regularly, and not reused or left as defaults. Group/shared account handling and unauthorized access detection are also monitored."
   },
+  "100099": {
+    "description": "Implements CJIS 5.6.2.1.2 (IA-2(2)) by enforcing Multi-Factor Authentication (MFA) for all non-privileged accounts, integrating factors such as PINs, tokens, or biometrics to secure access.",
+    "cjis": ["5.6.2.1.2"],
+    "nist": ["IA-2(2)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This rule ensures MFA is in place for all non-privileged users. PINs may be one component, but the rule requires two or more distinct factors to mitigate account compromise. Trigger events include MFA failure, OTP rejection, token misuse, or audit log indicators of bypassed or absent MFA enforcement."
+  },
 }
