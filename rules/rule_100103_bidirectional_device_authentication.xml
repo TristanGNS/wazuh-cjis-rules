@@ -1,0 +1,28 @@
+<group name="authentication,device,network">
+  <rule id="100103" level="10">
+    <description>CJIS 5.6.2.2 – Bidirectional cryptographic authentication must be used to validate organizational devices before local, remote, or network connections are established (IA-3(1))</description>
+    <match>mutual TLS failure|client certificate invalid|unable to verify peer identity|certificate chain incomplete|bidirectional auth failed</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,device,network</group>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>IA-3(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.2 | NIST IA-3(1)
+
+This rule supports cryptographically-based, bidirectional device authentication to establish trust between organization-defined devices and their destinations.
+
+Log source assumptions:
+- Authentication logs from mutual TLS sessions, VPN concentrators, and certificate services
+- Event logs showing client/server certificate issues or key negotiation failures
+- SSH daemon logs with mutual identity validation
+
+Risks if unimplemented:
+- Devices could connect without validating the authenticity of the server, or vice versa
+- Man-in-the-middle attacks, rogue device access, or untrusted connection establishment
+-->
