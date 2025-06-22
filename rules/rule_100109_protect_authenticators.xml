@@ -1,0 +1,34 @@
+<group name="authenticator-management,security-baseline">
+  <rule id="100109" level="12">
+    <description>CJIS 5.6.3.2 – Protect authenticators in alignment with system sensitivity (IA-5(6)).</description>
+    <match>exposed secret|plaintext password|unencrypted private key|token leak|credentials found in logs|unsecured credential store</match>
+    <field name="event_type">authenticator-security</field>
+    <compliance>
+      <cjis>5.6.3.2</cjis>
+      <nist_800_53>IA-5(6)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.3.2 | NIST IA-5(6)
+
+Requires organizations to protect all authenticators in accordance with the security category of the systems they access.
+
+Examples of authenticators:
+- Passwords
+- Tokens
+- Certificates and private keys
+- Smart cards
+- Biometric data
+
+Assumptions:
+- Credential stores (e.g., LDAP, AWS Secrets Manager, GitHub, system keyrings) are monitored or log violations
+- Alerts generated from Wazuh decoders, log parsing, or DLP tools
+
+Risks if unimplemented:
+- Exposure of credentials used to access high-impact systems
+- Attackers gaining privilege escalation via leaked or reused secrets
+- Breaches of data protected by strong authentication undermined by weak key handling
+-->
