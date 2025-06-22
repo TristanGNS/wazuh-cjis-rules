@@ -1,0 +1,31 @@
+<group name="authentication,mfa,enforcement">
+  <rule id="100099" level="12">
+    <description>CJIS 5.6.2.1.2 – Enforce MFA (Multi-Factor Authentication) for non-privileged accounts per IA-2(2)</description>
+    <match>MFA failed|MFA bypassed|2FA disabled|non-privileged login attempt|PIN mismatch|multi-factor required|OTP login|authenticator failed</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,mfa,enforcement</group>
+    <compliance>
+      <cjis>5.6.2.1.2</cjis>
+      <nist_800_53>IA-2(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.1.2 | NIST IA-2(2)
+
+Enforces the use of MFA for non-privileged accounts to meet federal authentication assurance requirements.
+Common log sources include:
+- Identity providers (e.g., Azure AD, Okta, Duo)
+- PAM/SSO logs
+- RADIUS server logs
+- VPN or web-based app authentication events
+
+Assumptions:
+- The environment distinguishes privileged and non-privileged accounts via roles or AD groups
+- MFA logs are centralized or available via endpoint agent or SIEM
+
+Risk if unimplemented:
+- Credential compromise could lead to unauthorized data access with lateral movement if MFA is not enforced on standard user accounts
+-->
