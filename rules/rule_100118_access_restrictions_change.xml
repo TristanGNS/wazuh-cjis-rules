@@ -1,0 +1,31 @@
+<group name="configuration,access-control,change-management,cm-5,unauthorized-change">
+  <rule id="100118" level="10">
+    <description>CJIS 5.7.2 – Unauthorized or unapproved configuration change detected (CM-5).</description>
+    <match>unauthorized configuration change|unauthorized access to configuration file|change without approval|unprivileged user modified settings</match>
+    <field name="event_type">compliance_audit</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>CM-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST CM-5
+
+This rule supports the enforcement of change access controls. It should detect:
+- Changes to configuration files by users lacking elevated access.
+- Attempted physical or remote changes without a corresponding approval log.
+- Access attempts outside of change windows or without proper MFA.
+
+Assumptions:
+- Logs from PAM, auditd, sudo, Windows Security (Event ID 4670, 4688), or change control platforms are being ingested.
+- Privileged sessions are monitored, and config paths are tracked.
+- SIEM correlation links change events to approval workflows.
+
+Risks if not enforced:
+- Unauthorized changes may introduce backdoors or misconfigurations.
+- Regulatory and audit violations for failing to protect critical system integrity.
+- Insider threats or lateral movement from compromised accounts.
+-->
