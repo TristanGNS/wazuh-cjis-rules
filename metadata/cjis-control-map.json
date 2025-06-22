@@ -768,4 +768,11 @@
     "policy_area": "Configuration Management",
     "notes": "Monitors logs for config changes not tied to approved workflows. Works best with File Integrity Monitoring (FIM), Security Configuration Assessment (SCA), and asset inventory delta tracking. Ensures compliance with the requirement to document, review, approve, and track all configuration-controlled changes across the environment."
   },
+  "100111": {
+    "description": "Implements CJIS 5.7.1.1 (CM-8(3)) by detecting and responding to unauthorized hardware, software, and firmware components using automated tools.",
+    "cjis": ["5.7.1.1"],
+    "nist": ["CM-8(3)"],
+    "policy_area": "Configuration Management",
+    "notes": "Supports least functionality and baseline integrity by ensuring all system components are authorized and expected. Alert triggers include unknown software, unrecognized MACs, unapproved firmware, or mismatch with authorized configuration baselines. Integration with NAC/EDR/SIEM highly recommended for actionable response."
+  },
 }
