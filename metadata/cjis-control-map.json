@@ -677,4 +677,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Covers all password-based authentication lifecycle events. Emphasizes screening passwords against common lists, secure hashing, immediate password reset post-recovery, support for passphrases, and use of complexity enforcement mechanisms. Also includes protections against outdated or insecure storage/transmission practices."
   },
+  "100098": {
+    "description": "Implements CJIS 5.6.2.1.1 (IA-5) by ensuring secure authenticator lifecycle management including verification, rotation, revocation, protection, and default credential removal.",
+    "cjis": ["5.6.2.1.1"],
+    "nist": ["IA-5"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This rule enforces procedures and technical controls for issuing, protecting, and revoking system authenticators. It ensures strong credentials are used, rotated regularly, and not reused or left as defaults. Group/shared account handling and unauthorized access detection are also monitored."
+  },
 }
