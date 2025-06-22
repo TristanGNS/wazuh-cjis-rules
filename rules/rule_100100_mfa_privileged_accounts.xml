@@ -1,0 +1,26 @@
+<group name="authentication,mfa,privileged">
+  <rule id="100100" level="12">
+    <description>CJIS 5.6.2.1.2 – Require MFA for all privileged accounts (IA-2(1))</description>
+    <match>MFA failure on admin account|privileged account login without MFA|MFA skipped|root login OTP failed|sudo login MFA disabled</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,mfa,privileged</group>
+    <compliance>
+      <cjis>5.6.2.1.2</cjis>
+      <nist_800_53>IA-2(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.1.2 | NIST IA-2(1)
+
+Enforces Multi-Factor Authentication (MFA) for all privileged accounts to reduce the risk of critical system compromise.
+
+Log source assumptions:
+- Admin login events from operating systems (Linux, Windows Event ID 4624), firewalls, cloud IAM platforms (Azure AD, AWS IAM), RADIUS, PAM tools, and VPNs.
+- Events must distinguish between privileged and non-privileged accounts (e.g., membership in 'Administrators', 'Domain Admins', or sudoers).
+
+Risk if unimplemented:
+- Compromised credentials (e.g., password reuse or phishing) could lead to full system compromise, unauthorized privilege escalation, or persistent access by threat actors.
+-->
