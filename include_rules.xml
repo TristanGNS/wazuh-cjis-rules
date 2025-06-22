@@ -89,6 +89,27 @@
     <include>rules/rule_100087_protect_remote_access_info.xml</include>
     <include>rules/rule_100088_encrypt_remote_access.xml</include>
     <include>rules/rule_100089_external_system_use.xml</include>
+    <!-- CJIS Policy Area 6 Identification and Authentication. -->
+    <include>rules/rule_100090_group_auth_individual_auth.xml</include> 
+    <include>rules/rule_100091_ia_policy_and_procedures.xml</include> 
+    <include>rules/rule_100092_access_enforcement_ori.xml</include> 
+    <include>rules/rule_100093_device_authentication.xml</include> 
+    <include>rules/rule_100094_replay_resistant.xml</include> 
+    <include>rules/rule_100095_unique_user_id.xml</include> 
+    <include>rules/rule_100096_auth_feedback_obfuscation.xml</include> 
+    <include>rules/rule_100097_password_policy_enforcement.xml</include> 
+    <include>rules/rule_100098_authenticator_management.xml</include> 
+    <include>rules/rule_100099_mfa_non_privileged_accounts.xml</include> 
+    <include>rules/rule_100100_mfa_privileged_accounts.xml</include> 
+    <include>rules/rule_100101_public_key_authentication.xml</include> 
+    <include>rules/rule_100102_out_of_band_authentication.xml</include> 
+    <include>rules/rule_100103_bidirectional_device_authentication.xml</include> 
+    <include>rules/rule_100104_crypto_key_management.xml</include> 
+    <include>rules/rule_100105_nonlocal_maintenance.xml 
+    <include>rules/rule_100106_identity_proofing.xml</include> 
+    <include>rules/rule_100107_multiple_accounts.xml</include> 
+    <include>rules/rule_100108_disable_accounts.xml</include> 
+    <include>rules/rule_100109_protect_authenticators.xml</include> 
     
     <!-- <include>rules/</include> -->
     <!-- etc. -->
