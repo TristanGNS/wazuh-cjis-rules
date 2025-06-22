@@ -1,0 +1,29 @@
+<group name="boundary-protection,network-security,external-interfaces">
+  <rule id="100113" level="12">
+    <description>CJIS 5.7.1.2 – Traffic flow or boundary violation detected on external interface (SC-7(4)).</description>
+    <match>external interface|unauthorized traffic|traffic policy violation|routing protocol from untrusted source|control plane anomaly|unauthorized connection attempt</match>
+    <field name="event_type">network</field>
+    <compliance>
+      <cjis>5.7.1.2</cjis>
+      <nist_800_53>SC-7(4)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.1.2 | NIST SC-7(4)
+
+This rule detects boundary policy violations or misconfigured external telecommunications interfaces. Relevant alerts may come from firewalls, intrusion detection systems (IDS), or router logs indicating unauthorized connection attempts, policy bypass attempts, or control-plane activity from unapproved sources.
+
+Assumptions:
+- Organization uses managed interfaces with logging enabled (e.g., NGFWs, VPN concentrators)
+- Event logs are normalized and shipped to Wazuh/SIEM
+- Control-plane protocols (e.g., ICMP, BGP) are parsed for anomalies
+- Documented traffic flow policies exist and are reviewed
+
+Risks if not implemented:
+- Unauthorized or misrouted traffic may expose internal networks
+- Potential lateral movement or command-and-control from external adversaries
+- Policy exceptions may persist without review
+-->
