@@ -1,0 +1,28 @@
+<group name="asset-inventory,config-management,cm-8">
+  <rule id="100114" level="10">
+    <description>CJIS 5.7.2 – Missing, outdated, or inconsistent system component inventory detected (CM-8).</description>
+    <match>missing asset|inventory mismatch|untracked component|inventory error|component not listed|hardware not registered</match>
+    <field name="event_type">asset_inventory</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>CM-8</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST CM-8
+
+This rule is triggered when an inventory management tool (e.g., Wazuh SCA, Lansweeper, or other CMDB) detects a discrepancy or absence of a system component in the documented inventory.
+
+Assumptions:
+- The organization uses an automated or semi-automated asset inventory solution with scheduled reconciliation
+- Logs are centralized and parsed for anomalies (e.g., components showing up in network traffic or logs but missing from inventory)
+- The control requires metadata completeness and accuracy, not just device presence
+
+Risks if not implemented:
+- Incomplete asset visibility increases risk of shadow IT or unmanaged vulnerabilities
+- Forensic efforts may be hindered by unaccounted assets
+- Fails fundamental compliance principles for system accountability
+-->
