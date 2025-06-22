@@ -1,0 +1,30 @@
+<group name="policy,authentication,compliance">
+  <rule id="100091" level="10">
+    <description>CJIS 5.6.1 – Identification and Authentication Policy and Procedures (IA-1)</description>
+    <match>missing authentication policy|identification policy not defined|authentication procedures outdated|no designated IA official|authentication controls undefined</match>
+    <field name="event_type">policy_audit</field>
+    <group>authentication,governance,compliance</group>
+    <compliance>
+      <cjis>5.6.1</cjis>
+      <nist_800_53>IA-1</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.1 | NIST IA-1
+
+This rule verifies that the organization has developed and disseminated an identification and authentication policy framework. It requires:
+- A documented policy that includes scope, roles, responsibilities, compliance references, and applicability
+- Designation of a responsible IA official
+- Regular review and update cycles (event-driven or scheduled)
+- Accompanying implementation procedures
+
+If these are not formally in place, documented, reviewed, and owned by an appointed party, the control is not met.
+
+Recommended:
+- Publish a policy document with named IA officer
+- Define review frequency (e.g., annually)
+- Include regulatory references such as CJIS, NIST 800-53, etc.
+-->
