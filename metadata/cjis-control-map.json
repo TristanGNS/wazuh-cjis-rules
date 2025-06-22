@@ -712,4 +712,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This control mitigates risk from single-channel credential attacks. Organizations must define both the conditions for OOB enforcement and the acceptable mechanisms. Monitoring should include failure to complete OOB token confirmation and audit log gaps in OOB challenge issuance."
   },
+  "100103": {
+    "description": "Implements CJIS 5.6.2.2 (IA-3(1)) by requiring bidirectional, cryptographically-based authentication between organization-defined devices and remote/local/network systems before a connection is established.",
+    "cjis": ["5.6.2.2"],
+    "nist": ["IA-3(1)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This control ensures both endpoints of a connection can verify each other using cryptographic means. Authentication failures from mutual TLS, certificate mismatch, incomplete trust chains, or invalid key exchanges are relevant log triggers."
+  },
 }
