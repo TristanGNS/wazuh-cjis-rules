@@ -1,0 +1,31 @@
+<group name="authentication,feedback,ui_protection">
+  <rule id="100096" level="10">
+    <description>CJIS 5.6.2.1 – Ensure authentication feedback is obfuscated to prevent exploitation (IA-6)</description>
+    <match>authentication error|invalid credentials|login failure|password rejected|incorrect password|username not found</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,feedback,ui_protection</group>
+    <compliance>
+      <cjis>5.6.2.1</cjis>
+      <nist_800_53>IA-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.1 | NIST IA-6
+
+This rule enforces suppression of authentication feedback that may be used by attackers to determine valid usernames or guess credentials.
+
+Common violations include:
+- Explicit error messages that differentiate between invalid usernames and invalid passwords.
+- Password prompts that echo characters in cleartext.
+- Debug logs that print credential input or validation responses.
+
+Detection should focus on:
+- Log entries or system events that expose partial authentication responses
+- Interfaces that display detailed error messages during login
+- Excessively verbose authentication system logs
+
+This rule supports confidentiality of the authentication process and thwarts brute-force enumeration attacks.
+-->
