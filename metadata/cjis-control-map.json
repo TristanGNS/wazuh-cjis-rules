@@ -635,4 +635,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This foundational control ensures the organization's IA framework is documented, accountable, and actively reviewed. Without these governance elements, downstream authentication safeguards cannot be validated or maintained."
   },
+  "100092": {
+    "description": "Implements CJIS 5.6.1.1 (AC-3), requiring enforcement of approved authorizations for logical access to data systems and CJI resources, based on mapped policies and identities including ORI.",
+    "cjis": ["5.6.1.1"],
+    "nist": ["AC-3"],
+    "policy_area": "Access Control",
+    "notes": "This control requires all logical access be granted only through pre-approved authorization policies. Systems must verify ORI identity relationships and policy scope before granting access to any controlled interface or data set."
+  },
 }
