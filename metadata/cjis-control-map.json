@@ -740,4 +740,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Ensures each system user is uniquely identity-proofed using validated documentation and linked directly to a personal identifier, supporting auditability and non-repudiation. Detects shared/generic accounts and account creation without verified identity."
   },
+  "100107": {
+    "description": "Implements CJIS 5.6.3 (IA-5(8)) by requiring controls to manage risks when users maintain accounts on multiple systems.",
+    "cjis": ["5.6.3"],
+    "nist": ["IA-5(8)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Detects situations where one individual holds multiple accounts across distinct systems or services, enabling enforcement of security controls to mitigate account compromise risk. Organizations may define specific policies including IAM, SSO, or account usage audits."
+  },
 }
