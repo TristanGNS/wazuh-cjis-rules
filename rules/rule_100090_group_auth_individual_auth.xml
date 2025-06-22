@@ -1,0 +1,30 @@
+<group name="authentication,group_access,accountability">
+  <rule id="100090" level="10">
+    <description>CJIS 5.6.1 – Individual Authentication with Group Authentication (IA-2(5))</description>
+    <match>group login without individual auth|shared account accessed without individual login|anonymous access to group credentials|missing audit trail for shared access</match>
+    <field name="event_type">authentication</field>
+    <group>access_control,authentication,compliance</group>
+    <compliance>
+      <cjis>5.6.1</cjis>
+      <nist_800_53>IA-2(5)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.1 | NIST IA-2(5)
+
+This control mandates that when group or shared accounts are used, each user must still be authenticated individually.
+
+Examples:
+- A Windows server with a shared "dispatchadmin" account should not be logged into directly. Instead, use individual user accounts and privilege escalation.
+- Kiosk or dispatcher terminals must still enforce user-level login even if multiple employees use the same device.
+
+Risk: Without individual authentication, there is no forensic trail linking actions to people.
+
+Recommended:
+- Enforce per-user authentication before any shared access
+- Maintain individual audit logs
+- Restrict group account usage where possible
+-->
