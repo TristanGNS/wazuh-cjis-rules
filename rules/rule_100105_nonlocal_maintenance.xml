@@ -1,0 +1,30 @@
+<group name="authentication,remote-access,maintenance">
+  <rule id="100105" level="10">
+    <description>CJIS 5.6.2.2 – Remote/nonlocal maintenance must be approved, strongly authenticated, monitored, logged, and terminated after use (MA-4).</description>
+    <match>unauthorized remote session|unlogged RDP connection|nonlocal access without ticket|unmonitored remote maintenance|non-vpn admin login</match>
+    <field name="event_type">remote_access</field>
+    <group>compliance,authentication,maintenance</group>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>MA-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.2 | NIST MA-4
+
+This rule focuses on detection of unapproved or non-compliant nonlocal maintenance sessions. 
+
+Assumptions:
+- Organization has remote session logging enabled (e.g., VPN, SSH, RDP logs)
+- Support staff are required to submit tickets/change orders prior to remote access
+- Strong authentication is enforced on all remote access portals
+- Session termination logs are available and auditable
+
+Key risks if misconfigured:
+- Shadow IT access (e.g., tools bypassing audit)
+- Admin access from unknown IPs
+- Retained session credentials after disconnect
+-->
