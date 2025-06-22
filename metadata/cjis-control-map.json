@@ -824,4 +824,11 @@
     "policy_area": "Configuration Management",
     "notes": "Requires pre-approved, role-based access enforcement for system changes. Detects and alerts on violations such as unprivileged modifications, changes outside of maintenance windows, or lack of change authorization."
   },
+  "100119": {
+    "description": "Implements CJIS 5.7.2 (CM-5(1)) by enforcing access restrictions via automated mechanisms and logging all enforcement decisions.",
+    "cjis": ["5.7.2"],
+    "nist": ["CM-5(1)"],
+    "policy_area": "Configuration Management",
+    "notes": "Triggers on access control denials and policy enforcement events from OS security mechanisms or endpoint protection agents. Satisfies the requirement for non-discretionary access controls and audit visibility."
+  },
 }
