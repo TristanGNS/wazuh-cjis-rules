@@ -628,4 +628,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This control supports traceability and audit logging when group credentials are necessary. All access must be attributable to an individual identity. Shared or anonymous logins should be prevented unless wrapped in per-user session initiation processes (e.g., login shells, PAM, smartcard auth, or MFA)."
   },
+  "100091": {
+    "description": "Implements CJIS 5.6.1 (IA-1) requiring a formalized identification and authentication policy, supporting procedures, assignment of responsible official, and a defined review/update cycle. Enables policy governance for authentication systems.",
+    "cjis": ["5.6.1"],
+    "nist": ["IA-1"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This foundational control ensures the organization's IA framework is documented, accountable, and actively reviewed. Without these governance elements, downstream authentication safeguards cannot be validated or maintained."
+  },
 }
