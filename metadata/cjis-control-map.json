@@ -796,4 +796,11 @@
     "policy_area": "Configuration Management",
     "notes": "Inventory must avoid duplicate or stale entries, reflect actual system state, and support accountability. Alerts should be triggered when components are observed in use (e.g., via logs or scans) but are not present or updated in the system inventory. Assumes CMDB, scanner, or similar tooling is in place."
   },
+  "100115": {
+    "description": "Implements CJIS 5.7.2 (SA-5) by requiring and monitoring the existence of current system and user documentation for all components and services.",
+    "cjis": ["5.7.2"],
+    "nist": ["SA-5"],
+    "policy_area": "Configuration Management",
+    "notes": "This rule ensures that administrative and user documentation exists, is complete, and distributed. It also covers fallback procedures when vendor/system documentation cannot be obtained. Helps reduce misconfigurations and improve security posture."
+  },
 }
