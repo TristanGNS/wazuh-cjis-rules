@@ -620,5 +620,12 @@
     "nist": ["AC-20"],
     "policy_area": "Access Control",
     "notes": "Enforces restrictions or access conditions for personally owned or unmanaged external systems. Recommended enforcement includes signed BYOD agreements, full-disk encryption, antivirus, VPN+MFA, and remote wipe capability. Violations must be logged and investigated."
-  }
+  },
+  "100090": {
+    "description": "Enforces CJIS 5.6.1 (IA-2(5)) by requiring individual authentication before access to shared/group accounts. Prevents anonymous or untraceable shared account use and ensures auditability.",
+    "cjis": ["5.6.1"],
+    "nist": ["IA-2(5)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This control supports traceability and audit logging when group credentials are necessary. All access must be attributable to an individual identity. Shared or anonymous logins should be prevented unless wrapped in per-user session initiation processes (e.g., login shells, PAM, smartcard auth, or MFA)."
+  },
 }
