@@ -1,0 +1,28 @@
+<group name="configuration,maintenance,ma-5,access-control">
+  <rule id="100116" level="10">
+    <description>CJIS 5.7.2 – Maintenance performed by unauthorized or unverified personnel (MA-5).</description>
+    <match>unauthorized maintenance|unverified technician|maintenance personnel not listed|no escort present|unauthorized access during repair</match>
+    <field name="event_type">compliance_audit</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>MA-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST MA-5
+
+This rule detects when system maintenance is conducted by individuals lacking proper authorization, or when supervision protocols are not followed.
+
+Assumptions:
+- Wazuh receives logs from ticketing systems, badge/access logs, or CMDB systems that correlate technician identity and activity.
+- Escorted vs. unescorted status can be inferred based on user groups, timestamps, or logs from physical security systems.
+- CM or SIEM tools may generate alerts if non-authorized users access maintenance tools or admin shells.
+
+Risks if not implemented:
+- Increased insider threat or accidental misconfiguration risk.
+- Lack of chain-of-custody during critical maintenance operations.
+- Reduced forensic traceability in case of post-maintenance incidents.
+-->
