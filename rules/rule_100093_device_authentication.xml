@@ -1,0 +1,32 @@
+<group name="authentication,device,connection_control">
+  <rule id="100093" level="10">
+    <description>CJIS 5.6.2 – Enforce device identification and authentication for system connections (IA-3)</description>
+    <match>unauthenticated device connection|unknown device attempted connection|missing device certificate|endpoint validation failure</match>
+    <field name="event_type">connection_attempt</field>
+    <group>authentication,device,connection_control</group>
+    <compliance>
+      <cjis>5.6.2</cjis>
+      <nist_800_53>IA-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2 | NIST IA-3
+
+This rule enforces the CJIS requirement to uniquely identify and authenticate organizationally defined devices before allowing system access.
+
+Typical implementation methods:
+- Certificate-based mutual TLS authentication
+- MAC address + certificate pair validation
+- Endpoint management with device posture validation (e.g., via MDM, NAC)
+- Use of endpoint UUIDs + TPM-bound identity assertions
+
+Devices that bypass authentication represent a critical security risk and violate compliance. Alerts should be generated when:
+- A device connects without authentication
+- A device's certificate is invalid, revoked, or mismatched
+- A connection is attempted from an unrecognized or unmanaged device
+
+This rule supports enforcement through log inspection of authentication events and connection attempts.
+-->
