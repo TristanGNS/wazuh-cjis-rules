@@ -698,4 +698,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This rule targets administrator and high-privilege user accounts. It validates that MFA is consistently enforced, especially during logins that could lead to elevated control over infrastructure. Log parsing must account for role or group-based privilege detection, and correlated authentication events that either confirm or omit a second factor."
   },
+  "100101": {
+    "description": "Implements CJIS 5.6.2.2 (IA-5(2)) for secure public key authentication, enforcing private key protections, identity mapping, and full certificate validation using PKI. Ensures systems validate revocation status and cache certificate metadata appropriately.",
+    "cjis": ["5.6.2.2"],
+    "nist": ["IA-5(2)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This rule ensures all public key authentication methods validate certificate trust chains and enforce cryptographic protections. Local and cloud-based authentication systems must maintain revocation integrity and traceability for audit and forensic purposes."
+  },
 }
