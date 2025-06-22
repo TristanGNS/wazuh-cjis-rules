@@ -46,8 +46,8 @@ wazuh-cjis-rules/
 | ✅ Stage 2.03 | Rule Creation – Area 3: Incident Response                             | Complete |
 | ✅ Stage 2.04 | Rule Creation – Area 4: Auditing and Accountability                   | Complete |
 | ✅ Stage 2.05 | Rule Creation – Area 5 Access Control                                 | Complete |
-| 🔜 Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | In Progress |
-| 🔜 Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | Planned |
+| ✅ Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | Complete |
+| 🔜 Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | In Progress |
 | 🔜 Stage 2.08 | Rule Creation – Area 8 Media Protection                               | Planned |
 | 🔜 Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | Planned |
 | 🔜 Stage 2.10 | Rule Creation – Area 10 Systems and Communication                     | Planned |
@@ -156,6 +156,26 @@ The following CJIS requirements and NIST controls are currently addressed in the
 | 5.5.6            | Confidentiality of Remote Access Configuration       | AC-17(6)         | Access Control                     | 100087   |
 | 5.5.6            | Encrypted Remote Access Enforcement                  | AC-17(2)         | Access Control                     | 100088   |
 | 5.5.6.1          | External System Access Control                       | AC-20            | Access Control                     | 100089   |
+| 5.6.1            | Individual Authentication for Shared Accounts        | IA-2(5)          | Identification and Authentication   | 100090   |
+| 5.6.1            | Identification and Authentication Policy Governance | IA-1             | Identification and Authentication   | 100091   |
+| 5.6.1.1          | Logical Access Authorization Enforcement            | AC-3             | Access Control                      | 100092   |
+| 5.6.2            | Device Authentication Enforcement                   | IA-3             | Identification and Authentication   | 100093   |
+| 5.6.2            | Replay-Resistant Authentication Enforcement         | IA-2(8)          | Identification and Authentication   | 100094   |
+| 5.6.2            | Unique User Authentication Enforcement              | IA-2             | Identification and Authentication   | 100095   |
+| 5.6.2.1          | Authentication Feedback Suppression                 | IA-6             | Identification and Authentication   | 100096   |
+| 5.6.2.1.1        | Secure Password Management                          | IA-5(1)          | Identification and Authentication   | 100097   |
+| 5.6.2.1.1        | Authenticator Lifecycle Enforcement                 | IA-5             | Identification and Authentication   | 100098   |
+| 5.6.2.1.2        | MFA Enforcement for Non-Privileged Users            | IA-2(2)          | Identification and Authentication   | 100099   |
+| 5.6.2.1.2        | MFA Enforcement for Privileged Users                | IA-2(1)          | Identification and Authentication   | 100100   |
+| 5.6.2.2          | Secure Public Key Authentication                    | IA-5(2)          | Identification and Authentication   | 100101   |
+| 5.6.2.2          | Out-of-Band Authentication                          | IA-2(13)         | Identification and Authentication   | 100102   |
+| 5.6.2.2          | Mutual Device Authentication                        | IA-3(1)          | Identification and Authentication   | 100103   |
+| 5.6.2.2          | Cryptographic Key Management                        | SC-12            | Identification and Authentication   | 100104   |
+| 5.6.2.2          | Secure Remote Maintenance                           | MA-4             | Identification and Authentication   | 100105   |
+| 5.6.3            | Identity Proofing and Assurance                     | IA-12            | Identification and Authentication   | 100106   |
+| 5.6.3            | Multiple Account Risk Management                    | IA-5(8)          | Identification and Authentication   | 100107   |
+| 5.6.3.1          | Disablement of Expired or Inactive Accounts         | AC-2(3)          | Account Management                   | 100108   |
+| 5.6.3.2          | Authenticator Protection                            | IA-5(6)          | Authenticator Management             | 100109   |
 
 
 Each of these will be implemented with a dedicated `.xml` rule file that:
