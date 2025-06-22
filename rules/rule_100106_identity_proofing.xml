@@ -1,0 +1,30 @@
+<group name="identity-management,authentication">
+  <rule id="100106" level="10">
+    <description>CJIS 5.6.3 – Identity proofing required for all user accounts accessing CJIS systems (IA-12).</description>
+    <match>shared account|generic login|unauthorized identity|access granted without proofing|duplicate user ID</match>
+    <field name="event_type">authentication</field>
+    <group>compliance,identity</group>
+    <compliance>
+      <cjis>5.6.3</cjis>
+      <nist_800_53>IA-12</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.3 | NIST IA-12
+
+This rule supports enforcement of identity proofing prior to account creation, uniquely resolving users, and maintaining auditable evidence of verification.
+
+Assumptions:
+- New user onboarding requires HR or supervisor-submitted identity validation
+- Shared or generic logins are flagged as noncompliant
+- Audit logs can correlate account creation with identity evidence
+- Identity documents are stored per organizational retention policy
+
+Risks if unimplemented:
+- Non-repudiation failure
+- Audit trail gaps
+- Insider threat using false credentials
+-->
