@@ -726,4 +726,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Cryptographic key failures are among the highest security risks when improperly handled. This control ensures compliance with lifecycle-based key security practices and integrity checks. It assumes access to crypto module logs and HSM/PKI systems where applicable."
   },
+  "100105": {
+    "description": "Implements CJIS 5.6.2.2 (MA-4) by enforcing secure and documented procedures for remote maintenance, requiring approval, strong authentication, session auditing, and termination controls.",
+    "cjis": ["5.6.2.2"],
+    "nist": ["MA-4"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This rule ensures all remote/nonlocal maintenance sessions are formally approved, use strong authentication, and follow session lifecycle policies. It detects violations such as unmonitored RDP access, maintenance without tickets, or access via unauthorized tools."
+  },
 }
