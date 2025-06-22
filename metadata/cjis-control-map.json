@@ -754,4 +754,11 @@
     "policy_area": "Account Management",
     "notes": "Triggers based on account expiration, user separation, or inactivity policies. Should be integrated with IAM/IdP systems and monitored through log events related to account status changes. Helps enforce least privilege and reduce credential exposure."
   },
+  "100109": {
+    "description": "Implements CJIS 5.6.3.2 (IA-5(6)) by enforcing protection of authenticators based on the sensitivity of systems and data they secure.",
+    "cjis": ["5.6.3.2"],
+    "nist": ["IA-5(6)"],
+    "policy_area": "Authenticator Management",
+    "notes": "Monitors for events indicating improper handling or storage of credentials, such as plaintext secrets, leaked tokens, or unencrypted private keys. Intended to enforce credential protection aligned with data/system sensitivity classifications. Should be paired with logging from DLP, IAM, and credential vaulting systems."
+  },
 }
