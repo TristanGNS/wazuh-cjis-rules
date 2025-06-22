@@ -649,4 +649,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Covers the requirement for uniquely identifying and authenticating devices before establishing any type of connection to sensitive systems. Typical strategies include mutual TLS, device certificates, MDM validation, or NAC enforcement. This rule detects failures or bypass attempts."
   },
+  "100094": {
+    "description": "Implements CJIS 5.6.2 (IA-2(8)), requiring replay-resistant authentication mechanisms for both privileged and non-privileged accounts.",
+    "cjis": ["5.6.2"],
+    "nist": ["IA-2(8)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Covers replay resistance to prevent session hijacking and credential reuse attacks. Enforcement strategies include MFA, PKI, challenge-response protocols, and mutual TLS. Detection relies on access logs and behavioral analysis for token reuse or replay signatures."
+  },
 }
