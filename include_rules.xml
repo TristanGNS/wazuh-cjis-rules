@@ -110,6 +110,18 @@
     <include>rules/rule_100107_multiple_accounts.xml</include> 
     <include>rules/rule_100108_disable_accounts.xml</include> 
     <include>rules/rule_100109_protect_authenticators.xml</include> 
+    <!-- CJIS Policy Area 7 Configuration Management. -->
+    <include>rules/rule_100110_config_change_control.xml</include>
+    <include>rules/rule_100111_unauthorized_component_detection.xml</include>
+    <include>rules/rule_100112_program_execution_block.xml</include>
+    <include>rules/rule_100113_boundary_protection.xml</include>
+    <include>rules/rule_100114_system_component_inventory.xml</include>
+    <include>rules/rule_100115_system_documentation.xml</include>
+    <include>rules/rule_100116_maintenance_personnel.xml</include>
+    <include>rules/rule_100117_controlled_maintenance.xml</include>
+    <include>rules/rule_100118_access_restrictions_change.xml</include>
+    <include>rules/rule_100119_automated_change_enforcement.xml</include>
+    <include>rules/rule_100120_vendor_contract_terms.xml</include>
     
     <!-- <include>rules/</include> -->
     <!-- etc. -->
