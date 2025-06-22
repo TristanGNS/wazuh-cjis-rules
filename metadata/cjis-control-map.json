@@ -803,4 +803,11 @@
     "policy_area": "Configuration Management",
     "notes": "This rule ensures that administrative and user documentation exists, is complete, and distributed. It also covers fallback procedures when vendor/system documentation cannot be obtained. Helps reduce misconfigurations and improve security posture."
   },
+  "100116": {
+    "description": "Implements CJIS 5.7.2 (MA-5) by ensuring only authorized maintenance personnel perform work on systems, and that supervision is enforced for all others.",
+    "cjis": ["5.7.2"],
+    "nist": ["MA-5"],
+    "policy_area": "Configuration Management",
+    "notes": "Helps ensure maintenance activities are secure and traceable. All personnel must be vetted and authorized; others must be supervised. This reduces the risk of unauthorized changes or exploitation during maintenance windows."
+  },
 }
