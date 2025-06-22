@@ -1,0 +1,27 @@
+<group name="authentication,crypto,key-management">
+  <rule id="100104" level="10">
+    <description>CJIS 5.6.2.2 – Cryptographic key management policy must govern generation, distribution, access, storage, and destruction of cryptographic keys in accordance with SC-12.</description>
+    <match>key management failure|key not found|key expired|unauthorized key access|invalid key length|insecure key storage|crypto module error</match>
+    <field name="event_type">crypto</field>
+    <group>authentication,key-management,compliance</group>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>SC-12</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.2 | NIST SC-12
+
+This rule detects potential mismanagement of cryptographic keys, including unauthorized access, invalid formats, insecure storage methods, and operational failures related to generation/distribution.
+
+Assumptions:
+- Cryptographic event logs are parsed from system crypto libraries (e.g., OpenSSL, GnuTLS), HSM logs, and secure key stores.
+- Key lifecycle events (creation, revocation, destruction) are captured via audit trail or syslog.
+- Systems enforce key validation checks during authentication or secure transactions.
+
+If this rule triggers:
+- It may indicate noncompliance with CJIS Section 5.6.2.2 or SC-12 cryptographic handling standards.
+-->
