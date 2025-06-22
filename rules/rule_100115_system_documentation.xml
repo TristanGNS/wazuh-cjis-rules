@@ -1,0 +1,28 @@
+<group name="documentation,cm,sa-5,system-baseline">
+  <rule id="100115" level="10">
+    <description>CJIS 5.7.2 – Missing, outdated, or insufficient system documentation detected (SA-5).</description>
+    <match>documentation missing|manual not found|system guide unavailable|undocumented component|missing admin guide|no user documentation</match>
+    <field name="event_type">compliance_audit</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>SA-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST SA-5
+
+This rule captures any evidence of undocumented systems, missing guides, or internal compliance audit failures regarding documentation.
+
+Assumptions:
+- Documentation tracking is part of system provisioning or ITSM (e.g., asset onboarding checklists).
+- Audit logs or reports note missing, incomplete, or outdated admin/user guides.
+- Notification events from compliance tools or CMDBs may generate this rule.
+
+Risks if not implemented:
+- Security mechanisms may be improperly configured or unused due to knowledge gaps.
+- Lack of administrative documentation may result in misconfiguration or insecure operations.
+- End users may misuse system features, increasing the risk of data leakage or policy violations.
+-->
