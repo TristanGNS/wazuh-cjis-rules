@@ -1,0 +1,32 @@
+<group name="procurement,contracts,supply_chain,sa-4,acquisition,configuration">
+  <rule id="100120" level="10">
+    <description>CJIS 5.7.2 – Acquisition contract missing security and privacy requirements (SA-4).</description>
+    <match>contract|acquisition|vendor agreement|supply chain|procurement</match>
+    <regex>missing|undefined|incomplete security (controls|requirements)|lack of privacy criteria</regex>
+    <field name="event_type">compliance_review</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>SA-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST SA-4
+
+Supports compliance by detecting deficiencies in security/privacy language within vendor procurement processes, contracts, or acquisition documentation.
+
+Examples of triggering events:
+- Compliance reviews or audits flagging incomplete or missing security clauses in vendor contracts.
+- Supply chain assessments lacking formal security acceptance criteria.
+- Risk assessments noting vendor responsibility gaps.
+
+Assumptions:
+- Events are parsed from GRC platforms, procurement logs, or audit reports.
+- Acquisition workflows are auditable and monitored (e.g., SIEM ingesting SharePoint logs, procurement DB logs).
+
+Risks if non-compliant:
+- Critical system components may lack enforceable security baselines.
+- Exposure to supply chain-based breaches with no legal recourse.
+-->
