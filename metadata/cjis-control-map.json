@@ -817,4 +817,11 @@
     "policy_area": "Configuration Management",
     "notes": "Ensures secure handling of maintenance activities. Requires formal documentation, proper offsite approvals, sanitization of media, and post-maintenance control validation. Supports forensic accountability and audit readiness."
   },
+  "100118": {
+    "description": "Implements CJIS 5.7.2 (CM-5) by enforcing logical and physical access controls for any configuration change operations.",
+    "cjis": ["5.7.2"],
+    "nist": ["CM-5"],
+    "policy_area": "Configuration Management",
+    "notes": "Requires pre-approved, role-based access enforcement for system changes. Detects and alerts on violations such as unprivileged modifications, changes outside of maintenance windows, or lack of change authorization."
+  },
 }
