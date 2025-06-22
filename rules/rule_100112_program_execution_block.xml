@@ -1,0 +1,33 @@
+<group name="program-execution,whitelisting,application-control">
+  <rule id="100112" level="12">
+    <description>CJIS 5.7.1.1 – Unauthorized program execution attempt (CM-7(2)).</description>
+    <match>execution blocked|unauthorized application attempted|AppLocker denied|blocked process launch|disallowed software execution</match>
+    <field name="event_type">program-execution</field>
+    <compliance>
+      <cjis>5.7.1.1</cjis>
+      <nist_800_53>CM-7(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.1.1 | NIST CM-7(2)
+
+This rule enforces least functionality by detecting or blocking program execution that is not in alignment with approved software lists or organizational usage agreements.
+
+Assumptions:
+- Endpoint protection software or OS policies are configured to generate logs when execution is denied
+- Execution blocking is centrally managed and logs are forwarded to Wazuh or other SIEM tools
+- Unauthorized programs are identified by path, hash, signature, or execution behavior
+
+Recommendations:
+- Maintain a tight software approval process with periodic reviews
+- Automate response via SOAR or EDR when unauthorized execution is attempted
+- Review denial logs for insider threat indicators or misconfigurations
+
+Risks if not implemented:
+- Unauthorized tools (e.g., password crackers, port scanners) may be executed
+- Increased likelihood of malware running on endpoints
+- Policy violations without auditability or enforcement
+-->
