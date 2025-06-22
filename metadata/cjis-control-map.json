@@ -761,4 +761,11 @@
     "policy_area": "Authenticator Management",
     "notes": "Monitors for events indicating improper handling or storage of credentials, such as plaintext secrets, leaked tokens, or unencrypted private keys. Intended to enforce credential protection aligned with data/system sensitivity classifications. Should be paired with logging from DLP, IAM, and credential vaulting systems."
   },
+  "100110": {
+    "description": "Implements CJIS 5.7.1 (CM-3) by detecting unauthorized configuration changes and verifying enforcement of formal configuration change controls.",
+    "cjis": ["5.7.1"],
+    "nist": ["CM-3"],
+    "policy_area": "Configuration Management",
+    "notes": "Monitors logs for config changes not tied to approved workflows. Works best with File Integrity Monitoring (FIM), Security Configuration Assessment (SCA), and asset inventory delta tracking. Ensures compliance with the requirement to document, review, approve, and track all configuration-controlled changes across the environment."
+  },
 }
