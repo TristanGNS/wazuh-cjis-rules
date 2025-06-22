@@ -691,4 +691,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This rule ensures MFA is in place for all non-privileged users. PINs may be one component, but the rule requires two or more distinct factors to mitigate account compromise. Trigger events include MFA failure, OTP rejection, token misuse, or audit log indicators of bypassed or absent MFA enforcement."
   },
+  "100100": {
+    "description": "Implements CJIS 5.6.2.1.2 (IA-2(1)) by requiring Multi-Factor Authentication (MFA) for all privileged accounts. Privileged access must not be granted unless a valid combination of at least two authentication factors is validated.",
+    "cjis": ["5.6.2.1.2"],
+    "nist": ["IA-2(1)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This rule targets administrator and high-privilege user accounts. It validates that MFA is consistently enforced, especially during logins that could lead to elevated control over infrastructure. Log parsing must account for role or group-based privilege detection, and correlated authentication events that either confirm or omit a second factor."
+  },
 }
