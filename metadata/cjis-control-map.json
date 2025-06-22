@@ -642,4 +642,11 @@
     "policy_area": "Access Control",
     "notes": "This control requires all logical access be granted only through pre-approved authorization policies. Systems must verify ORI identity relationships and policy scope before granting access to any controlled interface or data set."
   },
+  "100093": {
+    "description": "Implements CJIS 5.6.2 (IA-3), enforcing unique identification and authentication of defined devices before allowing local, remote, or network connections.",
+    "cjis": ["5.6.2"],
+    "nist": ["IA-3"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Covers the requirement for uniquely identifying and authenticating devices before establishing any type of connection to sensitive systems. Typical strategies include mutual TLS, device certificates, MDM validation, or NAC enforcement. This rule detects failures or bypass attempts."
+  },
 }
