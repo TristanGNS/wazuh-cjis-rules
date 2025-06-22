@@ -810,4 +810,11 @@
     "policy_area": "Configuration Management",
     "notes": "Helps ensure maintenance activities are secure and traceable. All personnel must be vetted and authorized; others must be supervised. This reduces the risk of unauthorized changes or exploitation during maintenance windows."
   },
+  "100117": {
+    "description": "Implements CJIS 5.7.2 (MA-2) by ensuring all system maintenance is scheduled, approved, documented, and sanitized before any equipment is removed or replaced.",
+    "cjis": ["5.7.2"],
+    "nist": ["MA-2"],
+    "policy_area": "Configuration Management",
+    "notes": "Ensures secure handling of maintenance activities. Requires formal documentation, proper offsite approvals, sanitization of media, and post-maintenance control validation. Supports forensic accountability and audit readiness."
+  },
 }
