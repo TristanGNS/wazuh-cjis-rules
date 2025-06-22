@@ -1,0 +1,29 @@
+<group name="authenticators,lifecycle_management">
+  <rule id="100098" level="12">
+    <description>CJIS 5.6.2.1.1 – Enforce secure management of system authenticators per IA-5</description>
+    <match>default password|authenticator issued|credential rotation|revoked token|authenticator expiration|credential provisioning|key regeneration</match>
+    <field name="event_type">authentication</field>
+    <group>authenticators,lifecycle_management</group>
+    <compliance>
+      <cjis>5.6.2.1.1</cjis>
+      <nist_800_53>IA-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.1.1 | NIST IA-5
+
+Covers full lifecycle management of authenticators (passwords, tokens, etc.). The rule monitors key events such as:
+- Default password detection
+- Manual or automatic credential rotation
+- Credential issuance or revocation logging
+- Authenticator compromise or tampering alerts
+- Evidence of administrative policies around shared/group account maintenance
+
+Assumptions:
+- Logs include authenticator provisioning, password reset, and credential expiration events
+- Admin and user-side enforcement is detectable from logs
+- Group/role membership changes are logged in a way that shows authenticator updates
+-->
