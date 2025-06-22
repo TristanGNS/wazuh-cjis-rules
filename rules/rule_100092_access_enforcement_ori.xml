@@ -1,0 +1,28 @@
+<group name="access_control,enforcement,authorization">
+  <rule id="100092" level="10">
+    <description>CJIS 5.6.1.1 – Enforce approved authorizations for logical access to information and system resources (AC-3)</description>
+    <match>unauthorized logical access|access without policy|bypass of access policy|ori mismatch|access control failure</match>
+    <field name="event_type">authorization</field>
+    <group>access_control,enforcement,authorization</group>
+    <compliance>
+      <cjis>5.6.1.1</cjis>
+      <nist_800_53>AC-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.1.1 | NIST AC-3
+
+This rule supports CJIS guidance requiring that only approved and policy-authorized users or services are allowed logical access to CJI data systems.
+
+Typical enforcement mechanisms may include:
+- Group policy configurations (e.g., GPO in Active Directory)
+- SSO platforms with scoped access tokens
+- NAC (Network Access Control) and SIEM-based correlation
+
+ORI-based enforcement must ensure that transactions are permitted only if the initiating identity (often encoded in ORI format) has been mapped to an access policy that supports the transaction type and sensitivity.
+
+Lack of policy enforcement introduces high risk of unauthorized data disclosure or integrity compromise.
+-->
