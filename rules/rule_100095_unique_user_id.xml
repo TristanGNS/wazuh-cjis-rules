@@ -1,0 +1,32 @@
+<group name="authentication,access_control,identity">
+  <rule id="100095" level="10">
+    <description>CJIS 5.6.2 – Enforce unique identification and authentication for all users (IA-2)</description>
+    <match>anonymous login|unauthenticated user|unknown UID|shared account usage|generic username</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,access_control,identity</group>
+    <compliance>
+      <cjis>5.6.2</cjis>
+      <nist_800_53>IA-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2 | NIST IA-2
+
+This rule enforces the requirement that every user be individually identified and authenticated prior to system access.
+
+Organizations must:
+- Assign and manage individual credentials
+- Prohibit the use of shared or generic accounts unless paired with MFA and audit logging
+- Ensure that all system processes and logged events are traceable to a unique user
+- Enforce credential rotation, lifecycle management, and periodic access reviews
+
+Detection should trigger on:
+- Authentication attempts using anonymous, guest, or default usernames
+- Access attempts without a resolved UID
+- System logs lacking a user attribution field
+
+This rule supports identity-centric auditing and accountability controls required for compliance and forensic integrity.
+-->
