@@ -1,0 +1,28 @@
+<group name="configuration,maintenance,ma-2,maintenance-logging,data-sanitization">
+  <rule id="100117" level="10">
+    <description>CJIS 5.7.2 – Incomplete or unauthorized controlled maintenance detected (MA-2).</description>
+    <match>unauthorized maintenance|component removed without approval|maintenance log missing|unsanitized device removal|no control check post maintenance</match>
+    <field name="event_type">compliance_audit</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>MA-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST MA-2
+
+This rule helps enforce secure, documented maintenance practices to ensure compliance and protect sensitive data.
+
+Assumptions:
+- Alerts are received from SIEM tools, CMDBs, or endpoint agents indicating unscheduled maintenance or missing logs.
+- Data sanitization status is either logged directly or inferred from file system wiping activity.
+- Manual approval systems (e.g., service desk software) feed audit logs into Wazuh via API or agent integrations.
+
+Risks if not enforced:
+- Untracked offsite repairs could lead to data breaches or compliance failure.
+- Incomplete maintenance could introduce vulnerabilities or damage operational controls.
+- Audit trail loss or integrity gaps during security reviews or forensic analysis.
+-->
