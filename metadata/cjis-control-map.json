@@ -656,4 +656,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Covers replay resistance to prevent session hijacking and credential reuse attacks. Enforcement strategies include MFA, PKI, challenge-response protocols, and mutual TLS. Detection relies on access logs and behavioral analysis for token reuse or replay signatures."
   },
+  "100095": {
+    "description": "Implements CJIS 5.6.2 (IA-2), requiring unique identification and authentication for all organizational users and associating their identity with actions and processes they initiate.",
+    "cjis": ["5.6.2"],
+    "nist": ["IA-2"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This control mandates individual user identification and authentication. The rule detects access attempts lacking unique IDs or involving generic/shared credentials. Ensures audit traceability and supports identity attribution for compliance and investigations."
+  },
 }
