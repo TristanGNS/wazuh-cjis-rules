@@ -1,0 +1,29 @@
+<group name="authentication,publickey,pki">
+  <rule id="100101" level="10">
+    <description>CJIS 5.6.2.2 – Enforce secure public key authentication and validate PKI certificate chains (IA-5(2))</description>
+    <match>certificate validation failed|revocation check failed|unauthorized private key access|PKI authentication error|CRL or OCSP unavailable</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,publickey,pki</group>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>IA-5(2)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.2 | NIST IA-5(2)
+
+Enforces secure implementation of public key authentication including PKI verification steps, private key security, and real-time certificate validation.
+
+Log source assumptions:
+- Authentication services (e.g., SSH, LDAP, VPNs, SSO gateways)
+- Certificate validation libraries or middleware
+- System logs indicating certificate chain issues, missing revocation data, or private key access by unauthorized users
+
+Risks if unimplemented:
+- Compromised keys could be used for impersonation
+- Invalid or revoked certificates may be trusted due to missing path validation
+- Weak identity mapping breaks accountability and audit traceability
+-->
