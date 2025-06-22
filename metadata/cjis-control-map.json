@@ -775,4 +775,11 @@
     "policy_area": "Configuration Management",
     "notes": "Supports least functionality and baseline integrity by ensuring all system components are authorized and expected. Alert triggers include unknown software, unrecognized MACs, unapproved firmware, or mismatch with authorized configuration baselines. Integration with NAC/EDR/SIEM highly recommended for actionable response."
   },
+  "100112": {
+    "description": "Implements CJIS 5.7.1.1 (CM-7(2)) by preventing the execution of unauthorized programs in alignment with approved software lists and organizational access agreements.",
+    "cjis": ["5.7.1.1"],
+    "nist": ["CM-7(2)"],
+    "policy_area": "Configuration Management",
+    "notes": "Supports least functionality enforcement by restricting system execution to only explicitly approved programs. Detects or blocks unauthorized software via application control tools like AppLocker, WDAC, or EDR. Execution policies are enforced based on rules of behavior, acceptable use policies, and third-party access agreements."
+  },
 }
