@@ -176,6 +176,18 @@ The following CJIS requirements and NIST controls are currently addressed in the
 | 5.6.3            | Multiple Account Risk Management                    | IA-5(8)          | Identification and Authentication   | 100107   |
 | 5.6.3.1          | Disablement of Expired or Inactive Accounts         | AC-2(3)          | Account Management                   | 100108   |
 | 5.6.3.2          | Authenticator Protection                            | IA-5(6)          | Authenticator Management             | 100109   |
+| 5.7.1            | Configuration Change Control Enforcement            | CM-3             | Configuration Management             | 100110 |
+| 5.7.1.1          | Automated Component Detection                       | CM-8(3)          | Configuration Management             | 100111 |
+| 5.7.1.1          | Unauthorized Program Execution Prevention           | CM-7(2)          | Configuration Management             | 100112 |
+| 5.7.1.2          | External Interface Traffic Flow Control             | SC-7(4)          | Configuration Management             | 100113 |
+| 5.7.2            | Configuration Inventory Accuracy                    | CM-8             | Configuration Management             | 100114 |
+| 5.7.2            | System and User Documentation Requirement           | SA-5             | Configuration Management             | 100115 |
+| 5.7.2            | Authorized Maintenance Enforcement                  | MA-5             | Configuration Management             | 100116 |
+| 5.7.2            | Secure Maintenance Scheduling and Sanitization      | MA-2             | Configuration Management             | 100117 |
+| 5.7.2            | Configuration Access Control Enforcement            | CM-5             | Configuration Management             | 100118 |
+| 5.7.2            | Automated Access Control Enforcement                | CM-5(1)          | Configuration Management             | 100119 |
+| 5.7.2            | Security Documentation in Acquisition Contracts     | SA-4             | Configuration Management             | 100120 |
+
 
 
 Each of these will be implemented with a dedicated `.xml` rule file that:
