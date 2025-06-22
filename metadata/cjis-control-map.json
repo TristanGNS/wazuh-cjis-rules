@@ -747,4 +747,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "Detects situations where one individual holds multiple accounts across distinct systems or services, enabling enforcement of security controls to mitigate account compromise risk. Organizations may define specific policies including IAM, SSO, or account usage audits."
   },
+  "100108": {
+    "description": "Implements CJIS 5.6.3.1 (AC-2(3)) by enforcing disablement of accounts under conditions such as expiration, policy violations, or prolonged inactivity.",
+    "cjis": ["5.6.3.1"],
+    "nist": ["AC-2(3)"],
+    "policy_area": "Account Management",
+    "notes": "Triggers based on account expiration, user separation, or inactivity policies. Should be integrated with IAM/IdP systems and monitored through log events related to account status changes. Helps enforce least privilege and reduce credential exposure."
+  },
 }
