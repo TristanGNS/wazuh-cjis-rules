@@ -1,0 +1,29 @@
+<group name="identity-management,authentication">
+  <rule id="100107" level="10">
+    <description>CJIS 5.6.3 – Mitigate risk of compromise due to individuals having accounts on multiple systems (IA-5(8)).</description>
+    <match>multiple accounts|duplicate user|cross-system login|conflicting identity|role overlap</match>
+    <field name="event_type">authentication</field>
+    <group>compliance,identity</group>
+    <compliance>
+      <cjis>5.6.3</cjis>
+      <nist_800_53>IA-5(8)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.3 | NIST IA-5(8)
+
+Supports implementation of organizational controls to manage risks from users having multiple system accounts.
+
+Assumptions:
+- Users may be assigned different accounts on different systems (e.g., for testing, elevated access, or cross-departmental work)
+- Organization must define what controls apply: e.g., IAM enforcement, periodic review, SSO deployment, or privilege separation
+- Alerts may focus on overlapping login events, user ID mismatches, or multi-account behavior anomalies
+
+Risks if unimplemented:
+- Credential reuse vulnerabilities
+- Policy circumvention
+- Insider threat using multiple credentials to evade detection
+-->
