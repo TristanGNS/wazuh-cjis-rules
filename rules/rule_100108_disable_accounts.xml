@@ -1,0 +1,32 @@
+<group name="identity-management,account-management">
+  <rule id="100108" level="10">
+    <description>CJIS 5.6.3.1 – Disable accounts that are expired, inactive, or otherwise non-compliant (AC-2(3)).</description>
+    <match>account disabled|user account expired|inactive user|orphaned credentials|account removed due to policy violation</match>
+    <field name="event_type">user-account</field>
+    <compliance>
+      <cjis>5.6.3.1</cjis>
+      <nist_800_53>AC-2(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.3.1 | NIST AC-2(3)
+
+Supports account disablement within an organization-defined timeframe under any of the following conditions:
+(a) Account expiration
+(b) User separation or reassignment
+(c) Policy violations
+(d) Extended inactivity
+
+Assumptions:
+- Directory services (AD, LDAP) or IdPs are logging disablement events
+- Inactivity and expiration thresholds are configured in accordance with org policy
+- Alerts are generated either from system logs or SIEM parsing (e.g., event ID 4726 in Windows)
+
+Risks if unimplemented:
+- Orphaned accounts present credential compromise risk
+- Accounts may retain access despite changes in employment or roles
+- Lack of enforcement undermines access control model
+-->
