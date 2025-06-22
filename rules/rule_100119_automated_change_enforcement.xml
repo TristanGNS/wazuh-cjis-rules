@@ -1,0 +1,33 @@
+<group name="configuration,access-control,cm-5(1),enforcement,audit,automation">
+  <rule id="100119" level="12">
+    <description>CJIS 5.7.2 – Unauthorized configuration change blocked by automated enforcement mechanism (CM-5(1)).</description>
+    <match>access denied|permission denied|unauthorized write attempt|SELinux denial|audit rule violation|policy enforcement triggered</match>
+    <field name="event_type">access_control</field>
+    <compliance>
+      <cjis>5.7.2</cjis>
+      <nist_800_53>CM-5(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.2 | NIST CM-5(1)
+
+Supports compliance through:
+- Automated blocking of unauthorized change attempts via policy-based mechanisms.
+- Generating real-time audit logs from mechanisms such as:
+  - SELinux/AppArmor violations
+  - auditd syscall blocks
+  - Windows security logs (Event IDs 4656, 4657, 4663)
+  - RBAC enforcement
+
+Assumptions:
+- Host-based access controls are centrally managed or deployed (e.g., Ansible, GPO, Puppet).
+- Logging pipelines capture and forward access violations.
+- Access controls are defined in accordance with organizational policy (role-based or least privilege).
+
+Risks if non-compliant:
+- Manual enforcement fails silently or inconsistently.
+- Lack of verifiable logs makes accountability and root cause analysis impossible after a breach.
+-->
