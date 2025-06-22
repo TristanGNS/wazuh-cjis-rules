@@ -1,0 +1,32 @@
+<group name="inventory-monitoring,unauthorized-software,hardware-monitoring">
+  <rule id="100111" level="10">
+    <description>CJIS 5.7.1.1 – Unauthorized system component detected (CM-8(3)).</description>
+    <match>unauthorized software detected|unknown device connected|firmware mismatch|asset inventory anomaly|unverified component|rogue application found</match>
+    <field name="event_type">inventory-change</field>
+    <compliance>
+      <cjis>5.7.1.1</cjis>
+      <nist_800_53>CM-8(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.1.1 | NIST CM-8(3)
+
+This rule enforces automated detection of unauthorized hardware, software, and firmware components.
+
+Assumptions:
+- Asset inventories are continuously maintained via agents or scanning tools
+- Detected anomalies generate logs that include asset ID, device name, timestamp, and violation type
+- The organization has a policy for periodic baseline enforcement and alert triage
+
+Recommendations:
+- Integrate with EDR, NAC, or configuration compliance systems to respond in real time
+- Trigger endpoint isolation or alert escalation workflows when unknown components are discovered
+
+Risks if not implemented:
+- Undetected rogue or shadow IT devices
+- Unauthorized firmware modifications
+- Inability to meet audit or compliance expectations for asset integrity
+-->
