@@ -705,4 +705,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This rule ensures all public key authentication methods validate certificate trust chains and enforce cryptographic protections. Local and cloud-based authentication systems must maintain revocation integrity and traceability for audit and forensic purposes."
   },
+  "100102": {
+    "description": "Implements CJIS 5.6.2.2 (IA-2(13)) by requiring out-of-band authentication using a separate communication channel for identity verification under defined high-risk conditions.",
+    "cjis": ["5.6.2.2"],
+    "nist": ["IA-2(13)"],
+    "policy_area": "Identification and Authentication",
+    "notes": "This control mitigates risk from single-channel credential attacks. Organizations must define both the conditions for OOB enforcement and the acceptable mechanisms. Monitoring should include failure to complete OOB token confirmation and audit log gaps in OOB challenge issuance."
+  },
 }
