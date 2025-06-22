@@ -831,4 +831,11 @@
     "policy_area": "Configuration Management",
     "notes": "Triggers on access control denials and policy enforcement events from OS security mechanisms or endpoint protection agents. Satisfies the requirement for non-discretionary access controls and audit visibility."
   },
+  "100120": {
+    "description": "Implements CJIS 5.7.2 (SA-4) by verifying that acquisition contracts explicitly contain security and privacy functional, assurance, documentation, and supply chain risk management requirements.",
+    "cjis": ["5.7.2"],
+    "nist": ["SA-4"],
+    "policy_area": "Configuration Management",
+    "notes": "Monitors acquisition and procurement workflows for absence or deficiency of required security clauses. Supports supply chain accountability and third-party risk reduction. Best used in tandem with periodic contract review events or compliance dashboards."
+  },
 }
