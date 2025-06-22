@@ -1,0 +1,35 @@
+<group name="authentication,replay_protection,account_access">
+  <rule id="100094" level="10">
+    <description>CJIS 5.6.2 – Enforce replay-resistant authentication for account access (IA-2(8))</description>
+    <match>authentication failure due to replay|reused token|detected credential replay|replayed login request</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,replay_protection,account_access</group>
+    <compliance>
+      <cjis>5.6.2</cjis>
+      <nist_800_53>IA-2(8)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2 | NIST IA-2(8)
+
+This rule enforces the requirement that all authentication methods for privileged and non-privileged accounts must include replay-resistant protections.
+
+Replay resistance ensures that even if an attacker captures a credential or session artifact, it cannot be reused to gain unauthorized access.
+
+Examples of compliant mechanisms include:
+- Public-key-based mutual authentication (e.g., TLS with client certs)
+- Multi-factor authentication (MFA) solutions that generate ephemeral codes
+- Cryptographic challenge-response systems
+- Kerberos with short-lived ticket granting
+- FIDO2 / WebAuthn with client-side attestation
+
+Monitored event types should include:
+- Logins using non-encrypted channels (e.g., telnet, FTP)
+- Use of legacy protocols (NTLM, LDAP simple bind)
+- Detected credential reuse or replay signatures
+
+This rule may require advanced logging and heuristic detection via SIEM integration or endpoint security tooling.
+-->
