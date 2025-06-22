@@ -1,0 +1,28 @@
+<group name="config-management,security-baseline">
+  <rule id="100110" level="10">
+    <description>CJIS 5.7.1 – Configuration change control enforcement detected (CM-3).</description>
+    <match>unauthorized configuration change|config drift|unexpected package update|firewall rule modified|untracked software change|policy exception|configuration not approved</match>
+    <field name="event_type">config-change</field>
+    <compliance>
+      <cjis>5.7.1</cjis>
+      <nist_800_53>CM-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.7.1 | NIST CM-3
+
+This rule flags any unexpected or unapproved configuration change activity. It serves as an enforcement point for organizations implementing change management policies aligned with CJIS CM-3.
+
+Assumptions:
+- Systems emit logs (e.g., via auditd, sysmon, Wazuh SCA, or file integrity monitoring) identifying config file or system state changes
+- Approval workflows are externally handled (e.g., ticketing systems, CMDB), and alerts represent deviations or unapproved events
+- Change control governance (CMCB or equivalent) exists to enforce policy and review logs
+
+Risks if unimplemented:
+- Loss of traceability on system modifications
+- Introduction of unverified software/config that could open attack vectors
+- Audit failure due to lack of change records or approvals
+-->
