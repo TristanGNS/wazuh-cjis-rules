@@ -47,8 +47,8 @@ wazuh-cjis-rules/
 | ✅ Stage 2.04 | Rule Creation – Area 4: Auditing and Accountability                   | Complete |
 | ✅ Stage 2.05 | Rule Creation – Area 5 Access Control                                 | Complete |
 | ✅ Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | Complete |
-| 🔜 Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | In Progress |
-| 🔜 Stage 2.08 | Rule Creation – Area 8 Media Protection                               | Planned |
+| ✅ Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | Complete |
+| 🔜 Stage 2.08 | Rule Creation – Area 8 Media Protection                               | In Progress |
 | 🔜 Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | Planned |
 | 🔜 Stage 2.10 | Rule Creation – Area 10 Systems and Communication                     | Planned |
 | 🔜 Stage 2.11 | Rule Creation – Area 11 Formal Audits                                 | Planned |
