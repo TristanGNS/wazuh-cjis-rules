@@ -719,4 +719,11 @@
     "policy_area": "Identification and Authentication",
     "notes": "This control ensures both endpoints of a connection can verify each other using cryptographic means. Authentication failures from mutual TLS, certificate mismatch, incomplete trust chains, or invalid key exchanges are relevant log triggers."
   },
+  "100104": {
+    "description": "Implements CJIS 5.6.2.2 (SC-12) by requiring secure and auditable management of cryptographic keys, covering generation, distribution, access, storage, and destruction as per organizational policy.",
+    "cjis": ["5.6.2.2"],
+    "nist": ["SC-12"],
+    "policy_area": "Identification and Authentication",
+    "notes": "Cryptographic key failures are among the highest security risks when improperly handled. This control ensures compliance with lifecycle-based key security practices and integrity checks. It assumes access to crypto module logs and HSM/PKI systems where applicable."
+  },
 }
