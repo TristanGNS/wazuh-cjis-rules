@@ -1,0 +1,28 @@
+<group name="authentication,outofband,mfa">
+  <rule id="100102" level="10">
+    <description>CJIS 5.6.2.2 – Out-of-band authentication mechanisms must be used in high-risk or organization-defined scenarios (IA-2(13))</description>
+    <match>out-of-band authentication failed|secondary channel auth failure|OOB token timeout|missing push auth confirmation</match>
+    <field name="event_type">authentication</field>
+    <group>authentication,outofband,mfa</group>
+    <compliance>
+      <cjis>5.6.2.2</cjis>
+      <nist_800_53>IA-2(13)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.6.2.2 | NIST IA-2(13)
+
+Enforces a second authentication factor via an alternate communication channel to mitigate risks from primary channel compromise.
+
+Log source assumptions:
+- Authentication logs from MFA providers (Duo, Microsoft Authenticator, Okta, etc.)
+- Audit logs showing secondary token delivery, timeout, or failure
+- Remote access solutions with conditional access triggers
+
+Risks if unimplemented:
+- Credential replay or phishing could lead to unauthorized access
+- Lack of dual-channel verification exposes systems to session hijacking and MITM attacks
+-->
