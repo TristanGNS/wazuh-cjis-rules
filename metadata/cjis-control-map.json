@@ -859,4 +859,11 @@
     "policy_area": "Media Protection",
     "notes": "Covers digital media, storage devices, and system components. All movement and maintenance are approved, recorded, and verified for proper sanitization prior to leaving secure areas. Suitable event sources include maintenance logs, SIEM events for data destruction, and chain-of-custody records."
   },
+  "100124": {
+    "description": "Implements CJIS 5.9.1 (MA-5) by enforcing authorization, access control, and active supervision of all maintenance personnel. Ensures only approved individuals can perform maintenance, with appropriate oversight and documentation for any exceptions.",
+    "cjis": ["5.9.1"],
+    "nist": ["MA-5"],
+    "policy_area": "Physical Protection",
+    "notes": "Covers internal and third-party maintenance staff. Supervisors must be assigned for non-cleared maintenance personnel. All access must be authorized and verifiable. Suitable event sources: access control, ticketing, SIEM, and physical security logs."
+  },
 }
