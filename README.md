@@ -49,8 +49,8 @@ wazuh-cjis-rules/
 | ✅ Stage 2.06 | Rule Creation – Area 6 Identification and Auth                        | Complete |
 | ✅ Stage 2.07 | Rule Creation – Area 7 Configruation Management                       | Complete |
 | ✅ Stage 2.08 | Rule Creation – Area 8 Media Protection                               | Complete |
-| 🔜 Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | In Progress |
-| 🔜 Stage 2.10 | Rule Creation – Area 10 Systems and Communication                     | Planned |
+| ✅ Stage 2.09 | Rule Creation – Area 9 Physical Protection                            | Complete |
+| 🔜 Stage 2.10 | Rule Creation – Area 10 Systems and Communication                     | In Progress |
 | 🔜 Stage 2.11 | Rule Creation – Area 11 Formal Audits                                 | Planned |
 | 🔜 Stage 2.12 | Rule Creation – Area 12 Personnel Security                            | Planned |
 | 🔜 Stage 2.13 | Rule Creation – Area 13 Mobile Devices                                | Planned |
@@ -192,6 +192,17 @@ The following CJIS requirements and NIST controls are currently addressed in the
 | 5.8.1            | Restrictions on Media Access and Use                | MP-2             | Media Protection                     | 100121 |
 | 5.8.1            | Controlled Media Transport and Accountability       | MP-5             | Media Protection                     | 100122 |
 | 5.8.3            | Secure Media Maintenance and Sanitization           | MA-2             | Media Protection                     | 100123 |
+| 5.9.1            | Authorized Maintenance Access and Supervision       | MA-5             | Physical Protection                  | 100124 |
+| 5.9.1            | Comprehensive Physical Access Control               | PE-3             | Physical Protection                  | 100125 |
+| 5.9.1            | Physical Access Control of Output Devices           | PE-5             | Physical Protection                  | 100126 |
+| 5.9.1            | Continuous Guard Coverage at Access Points          | PE-3(3)          | Physical Protection                  | 100127 |
+| 5.9.1            | Role-based Physical Access Authorization            | PE-2(1)          | Physical Protection                  | 100128 |
+| 5.9.1            | Physical Access Monitoring and Review               | PE-6             | Physical Protection                  | 100129 |
+| 5.9.1            | Visitor Access Record and Review                    | PE-8             | Physical Protection                  | 100130 |
+| 5.9.1            | Monitoring of System Distribution/Transmission Lines| PE-4             | Physical Protection                  | 100131 |
+| 5.9.1            | Intrusion Alarm and Surveillance Monitoring         | PE-6(1)          | Physical Protection                  | 100132 |
+| 5.9.1            | Access List Management and Credential Revocation    | PE-2             | Physical Protection                  | 100133 |
+
 
 
 
