@@ -894,4 +894,11 @@
     "policy_area": "Physical Protection",
     "notes": "Requires integration of access control logs with HR/role management systems for real-time updates. Alerts on access by terminated, transferred, or unauthorized roles. Uses <if_sid> to correlate with foundational access control alerts, minimizing false positives."
   },
+  "100129": {
+    "description": "Implements CJIS 5.9.1 (PE-6) by requiring continuous monitoring and scheduled/ad hoc reviews of physical access to CJIS facilities. Alerts on unauthorized access, security incidents, and ensures coordination with incident response. Enforces organization-defined log review frequency and event triggers.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-6"],
+    "policy_area": "Physical Protection",
+    "notes": "Organization must document log review schedule and define events that require ad hoc review. Rule assumes integration of access logs, alarm/CCTV events, and incident response workflows. Uses <if_sid> to correlate with base physical access rule and reduce false positives."
+  },
 }
