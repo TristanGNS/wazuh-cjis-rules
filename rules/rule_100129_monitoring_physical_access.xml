@@ -1,0 +1,61 @@
+<group name="physical_access,pe-6,monitoring,cjis">
+  <rule id="100129" level="10">
+    <description>
+      CJIS 5.9.1 – PE-6: Monitor and review physical access to CJIS facilities to detect and respond to security incidents, with log reviews at organization-defined intervals and in response to defined triggers. Coordinate investigation results with incident response.
+    </description>
+    <match>physical access|access log review|facility entry|security incident|log review|badge access|entry log|exit log|security event|incident response|physical breach|unauthorized access|alarm event|log review finding|investigation initiated|incident ticket|security monitoring|review frequency|potential security event|review trigger|access audit|video monitoring|CCTV review</match>
+    <regex>unauthorized access detected|physical security incident|log review finding|investigation initiated|incident response triggered|access log anomaly|suspicious entry|badge misuse|tailgating|log review overdue|log review failed|event review required|alarm triggered|access without authorization|CCTV review initiated|coordination with incident response|potential breach</regex>
+    <field name="event_type">physical_access_monitoring</field>
+    <if_sid>100125</if_sid> <!-- Reference the foundational physical access rule (PE-3), to ensure this rule only triggers on actual access-related events. Adjust as needed for your rulebase. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-6</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-6
+
+**Intent of this Rule:**  
+To ensure that organizations actively monitor and review all physical access to facilities containing CJIS systems, to detect and respond promptly to security incidents. This includes regular (scheduled) log reviews, ad hoc reviews triggered by specific events, and coordination of findings with the incident response function.
+
+**Requirements from Control:**  
+a. All physical access (entry/exit) to CJIS facilities must be monitored to detect unauthorized or suspicious activity, and to enable rapid response to physical security incidents.
+b. Physical access logs must be reviewed at an **organization-defined frequency** (e.g., daily, weekly, or as required by policy) and additionally upon occurrence of **organization-defined events** (e.g., alarms, unauthorized access attempts, suspicious entries).
+c. Any findings, anomalies, or incident triggers from reviews must be promptly coordinated with the organization's incident response team or function for investigation, escalation, and resolution.
+
+**Log Source Assumptions:**
+- Electronic access control logs (badge/proximity, biometrics, entry/exit systems).
+- Security event logs from alarms, cameras, and monitoring devices (CCTV).
+- Manual access logs and visitor sign-in sheets.
+- Physical security incident tickets or helpdesk reports.
+- Incident response system logs (case/ticketing platforms).
+
+**Integration Options:**
+- Automate ingestion of access logs and trigger alerts based on suspicious patterns, unauthorized access, or tailgating.
+- Automate scheduled reviews of logs with customizable frequency ([Assignment: organization-defined frequency]).
+- Trigger ad hoc reviews and alerts upon occurrence of suspicious or predefined events ([Assignment: organization-defined events]).
+- Link security event findings with incident response workflows, case management, or SIEM alerts.
+- Integrate with video/CCTV systems for correlated review and incident confirmation.
+
+**Assumptions:**
+- Organization has clearly documented its log review schedule and defined triggers for ad hoc reviews.
+- All relevant log sources are available, ingested, and searchable within Wazuh or the SIEM environment.
+- There is an established incident response capability with documented escalation and coordination procedures.
+- Review and investigation activities are logged and auditable.
+
+**Risks if Non-Compliant:**
+- Delayed or missed detection of physical breaches or unauthorized access.
+- Incomplete audit trail for access-related incidents.
+- Failure to respond promptly to incidents or coordinate across teams.
+- Audit or regulatory violations due to insufficient monitoring or incident documentation.
+
+**[Assignment: organization-defined frequency/events]:**
+- Organization must specify, in policy, the frequency of regular log reviews and which types of events (alarms, unauthorized access attempts, etc.) trigger ad hoc review. This rule assumes customization during deployment.
+
+**<if_sid> Use:**
+- References the foundational physical access control rule (100125/PE-3) to avoid false positives and ensure this rule only escalates on actual access-related events.
+
+-->
