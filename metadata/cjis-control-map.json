@@ -866,4 +866,11 @@
     "policy_area": "Physical Protection",
     "notes": "Covers internal and third-party maintenance staff. Supervisors must be assigned for non-cleared maintenance personnel. All access must be authorized and verifiable. Suitable event sources: access control, ticketing, SIEM, and physical security logs."
   },
+  "100125": {
+    "description": "Implements CJIS 5.9.1 (PE-3) by requiring comprehensive physical access control, logging, and device/key management for all CJIS facilities. Ensures only authorized individuals gain access and that all access, visitor, and device management events are auditable.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-3"],
+    "policy_area": "Physical Protection",
+    "notes": "Applies to all facility entry/exit points, public areas, visitors, and access devices. Audit logs must be maintained, and all device/key losses or changes documented and managed."
+  },
 }
