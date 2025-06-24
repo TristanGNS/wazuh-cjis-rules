@@ -1,0 +1,58 @@
+<group name="physical_access,pe-3-3,continuous_guarding,cjis">
+  <rule id="100127" level="10">
+    <description>
+      CJIS 5.9.1 – PE-3(3): Enforce continuous (24x7) guard presence at organization-defined physical access points to facilities housing CJIS systems, in order to ensure only authorized entry and continuous monitoring.
+    </description>
+    <match>guard shift|security guard|continuous guard|physical access point|access control post|guard log|facility monitoring|24x7 security|guard handoff|guard shift change|unauthorized entry|physical security incident|guard not present|guard absence|guard post vacant|security staffing|manual checkpoint|unmanned access|guard log anomaly|CJI facility access</match>
+    <regex>guard absent|no guard on duty|access point unmanned|guard shift gap|unauthorized facility entry|guard failed to log event|guard post unattended|guard not logged|breach during unguarded period|facility left unmonitored|physical security lapse|guarding policy violation</regex>
+    <field name="event_type">physical_guarding</field>
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-3(3)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-3(3)
+
+**Intent of this Rule:**  
+To require the presence of human guards at all organization-defined physical access points to facilities containing CJIS systems. Guards must be stationed at these points 24 hours per day, 7 days per week, to ensure effective physical access control, incident response, and deterrence of unauthorized entry.
+
+**Requirements from Control:**  
+- Organizations must identify (in local policy) which physical access points require continuous guard coverage ([Assignment: organization-defined physical access points]).
+- Human guards must be physically present and actively controlling access to the facility 24x7x365.
+- Access points must never be left unattended during operational hours.
+- Guard logs or shift records must be maintained and reviewed to ensure no gaps in coverage.
+- Any absence, vacancy, or failure to cover an access point must trigger immediate alerting and incident investigation.
+- Security incidents (e.g., guard absence, unmanned posts, unauthorized entry during unguarded periods) must be logged and correlated with physical access logs and guard logs.
+
+**Log Source Assumptions:**
+- Physical security staffing logs (manual or digital guard logs, badge/check-in/check-out for guards).
+- Electronic or manual logs at guard posts (who is on duty, when, for each access point).
+- Incident and security event logs relating to guard absences, shift changes, or unstaffed access points.
+- Physical access control systems (badge readers, alarms) correlated with guard logs.
+- Incident management or security event tickets related to physical access control.
+
+**Integration Options:**
+- Ingest guard shift logs, staffing records, and correlate with access logs to ensure continuous presence.
+- Monitor for events indicating a guard post was left unmanned (scheduled vs. actual staffing).
+- Alert on guard handoff/shift events with gaps or failed check-ins.
+- Integrate incident management reports related to physical security coverage.
+
+**Assumptions:**
+- Facility maintains up-to-date guard shift schedules and attendance logs.
+- Access points requiring continuous guarding are clearly documented and mapped.
+- Logs or event feeds provide data on guard presence, shift handoff, and incident reports.
+- Security policies define escalation procedures for gaps in coverage.
+
+**Risks if Non-Compliant:**
+- Unauthorized physical access to facilities containing CJIS systems due to unguarded entry points.
+- Delayed or failed incident response in the absence of physical security personnel.
+- Audit and compliance failures due to lack of staffing records or gaps in coverage.
+- Elevated risk of insider threat or external intrusion.
+
+**[Assignment: organization-defined physical access points]:**
+- Organizations must specify which access points (e.g., main entrances, delivery doors, server room doors) require continuous guard presence in their local security policy. This rule assumes deployment will align with local assignment.
+-->
