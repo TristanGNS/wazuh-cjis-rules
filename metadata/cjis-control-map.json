@@ -915,4 +915,11 @@
     "policy_area": "Physical Protection",
     "notes": "Organization must define protected transmission/distribution lines and applicable security controls. Rule assumes integration with physical security, access, and tamper alarm logs. Uses <if_sid> to correlate with base physical access control events."
   },
+  "100132": {
+    "description": "Implements CJIS 5.9.1 (PE-6(1)) by requiring continuous monitoring of physical access to CJIS facilities with intrusion alarms and surveillance equipment. Alerts on intrusion, alarm activations, surveillance anomalies, and device failures, and ensures all events are logged, reviewed, and escalated.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-6(1)"],
+    "policy_area": "Physical Protection",
+    "notes": "Assumes integration of alarm and surveillance logs with real-time alerting, correlation with physical access events, and linkage to incident response. Uses <if_sid> for correlation with physical access monitoring rule (PE-6, 100129)."
+  },
 }
