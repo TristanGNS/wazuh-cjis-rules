@@ -1,0 +1,63 @@
+<group name="physical_access,pe-4,transmission_access_control,cjis">
+  <rule id="100131" level="9">
+    <description>
+      CJIS 5.9.1 – PE-4: Control physical access to organization-defined system distribution and transmission lines within organizational facilities, using organization-defined security controls, to prevent unauthorized access, tampering, or eavesdropping.
+    </description>
+    <match>distribution line|transmission line|cable tray|network cable|fiber run|wiring closet|server room|system cabling|physical conduit|restricted area|security control|access control|tamper alarm|unauthorized access|infrastructure protection|physical barrier|security incident|lockout|facility wiring|alarm event|security zone|access to cabling|network closet</match>
+    <regex>unauthorized access to cabling|tamper detected|security control failure|alarm triggered|barrier bypassed|wiring closet accessed|transmission line breach|distribution line accessed|security zone violation|conduit compromised|physical protection failure|cable tray accessed|access without authorization|alarm not acknowledged|infrastructure anomaly</regex>
+    <field name="event_type">transmission_access_control</field>
+    <if_sid>100125</if_sid> <!-- Reference foundational physical access rule (PE-3) to correlate only with legitimate physical access events. Adjust SID if rulebase changes. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-4</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-4
+
+**Intent of this Rule:**  
+To ensure that physical access to critical system distribution and transmission lines (including network cables, fiber, electrical runs, wiring closets, cable trays, and conduits) within organizational facilities is strictly controlled, monitored, and protected by documented security measures to prevent unauthorized access, tampering, or interception.
+
+**Requirements from Control:**  
+- Organization must define in policy which system distribution and transmission lines require protection ([Assignment: organization-defined system distribution and transmission lines]).
+- Physical access to these assets must be controlled with appropriate security controls ([Assignment: organization-defined security controls]) such as locked closets, barriers, alarms, or surveillance.
+- Access events, attempts, or security control failures (e.g., alarms, unauthorized entry, bypassed barriers) must be logged, reviewed, and acted upon.
+- Tampering, unauthorized access, or anomalies must trigger immediate alerts and be escalated to security or incident response.
+- Controls must be reviewed and maintained to ensure ongoing effectiveness.
+
+**Log Source Assumptions:**
+- Physical security event logs from wiring closets, server rooms, cable trays, and other protected areas.
+- Tamper detection alarms, door contact sensors, or video surveillance logs.
+- Access control systems protecting infrastructure areas.
+- Incident management or helpdesk tickets for security control failures or alarms.
+- Audit or inspection logs for security control effectiveness.
+
+**Integration Options:**
+- Ingest access logs from secured areas housing distribution and transmission lines.
+- Integrate tamper alarms, door contacts, and barrier monitoring with alerting systems.
+- Correlate physical access attempts with badge or key records for authorized personnel.
+- Automate incident creation and escalation for unauthorized access or control failures.
+- Link security control reviews/audit findings to system health monitoring.
+
+**Assumptions:**
+- Organization has identified and mapped critical transmission/distribution lines and protected areas.
+- Physical security controls (locks, alarms, cameras) are deployed, operational, and capable of generating logs.
+- Access and alarm events are ingested and monitored in Wazuh/SIEM.
+- Incident response and escalation procedures are documented.
+
+**Risks if Non-Compliant:**
+- Unauthorized access leading to eavesdropping, tampering, or service interruption.
+- Loss of confidentiality, integrity, or availability of CJIS or critical systems.
+- Audit findings due to ineffective or missing controls.
+- Unmonitored physical access or security incidents.
+
+**[Assignment: organization-defined system distribution and transmission lines/security controls]:**
+- Organization must specify in policy which transmission lines and security controls apply. This rule assumes correct mapping and log integration at deployment.
+
+**<if_sid> Use:**
+- Correlates with foundational physical access rule (100125/PE-3) to avoid false positives and focus on actual physical access incidents.
+
+-->
