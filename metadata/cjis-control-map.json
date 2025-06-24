@@ -901,4 +901,11 @@
     "policy_area": "Physical Protection",
     "notes": "Organization must document log review schedule and define events that require ad hoc review. Rule assumes integration of access logs, alarm/CCTV events, and incident response workflows. Uses <if_sid> to correlate with base physical access rule and reduce false positives."
   },
+  "100130": {
+    "description": "Implements CJIS 5.9.1 (PE-8) by ensuring visitor access to CJIS facilities is fully recorded, reviewed at defined intervals, and that anomalies are reported to designated personnel. Alerts on missing/incomplete records, overdue reviews, and reporting failures.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-8"],
+    "policy_area": "Physical Protection",
+    "notes": "Organization must define retention periods, review frequency, and personnel for reporting. Assumes integration with visitor log systems, review tracking, and escalation processes. Uses <if_sid> for correlation with base physical access rule to reduce false positives."
+  },
 }
