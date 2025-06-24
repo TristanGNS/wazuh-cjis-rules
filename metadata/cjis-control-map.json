@@ -880,4 +880,11 @@
     "policy_area": "Physical Protection",
     "notes": "Requires organizations to define and document all output devices subject to access control. Assumes integration with physical security event logs, print server/device logs, and helpdesk/security incident reports. Risks include unauthorized disclosure of CJI or PII, regulatory violations, and audit failures."
   },
+  "100127": {
+    "description": "Implements CJIS 5.9.1 (PE-3(3)) by requiring and monitoring continuous (24x7) human guard presence at all organization-defined physical access points to facilities where CJIS systems reside. Detects gaps in guard coverage, unmanned access points, and incidents of unauthorized access due to absence of security staff.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-3(3)"],
+    "policy_area": "Physical Protection",
+    "notes": "Applies only to access points defined by the organization as requiring 24x7 guard coverage. Assumes integration with guard logs, staffing schedules, physical access logs, and incident management systems. Risks include unauthorized access or security incidents due to unmanned entry points."
+  },
 }
