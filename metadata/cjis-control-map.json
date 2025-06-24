@@ -852,4 +852,11 @@
     "policy_area": "Media Protection",
     "notes": "Supports audit and compliance for all types of media transport, both logical and physical. Enforces chain-of-custody, encryption, and personnel authorization requirements. Event sources should include sign-out logs, courier manifests, SIEM/DLP removable media monitoring, and incident management systems."
   },
+  "100123": {
+    "description": "Implements CJIS 5.8.3 (MA-2) by enforcing strict documentation, oversight, and secure sanitization of digital media and system components during all maintenance, repair, and disposal activities. Ensures all removals and sanitizations are approved, logged, and validated.",
+    "cjis": ["5.8.3"],
+    "nist": ["MA-2"],
+    "policy_area": "Media Protection",
+    "notes": "Covers digital media, storage devices, and system components. All movement and maintenance are approved, recorded, and verified for proper sanitization prior to leaving secure areas. Suitable event sources include maintenance logs, SIEM events for data destruction, and chain-of-custody records."
+  },
 }
