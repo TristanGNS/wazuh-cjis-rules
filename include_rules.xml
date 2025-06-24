@@ -126,7 +126,17 @@
     <include>rules/rule_100121_media_access.xml</include>
     <include>rules/rule_100122_media_transport.xml</include>
     <include>rules/rule_100123_media_sanitization.xml</include>
-      
+    <!-- CJIS Policy Area 9 Physical Protection. -->
+    <include>rules/rule_100124_maintenance_personnel.xml</include>
+    <include>rules/rule_100125_physical_access_control.xml</include>
+    <include>rules/rule_100126_output_device_access.xml</include>
+    <include>rules/rule_100127_continuous_guards.xml</include>
+    <include>rules/rule_100128_physical_access_by_role.xml</include>
+    <include>rules/rule_100129_monitoring_physical_access.xml</include>
+    <include>rules/rule_100130_visitor_access_records.xml</include>
+    <include>rules/rule_100131_access_control_for_transmission.xml</include>
+    <include>rules/rule_100132_intrusion_alarm_and_surveillance.xml</include>
+    <include>rules/rule_100133_physical_access_authorizations.xml</include>
     <!-- <include>rules/</include> -->
     <!-- etc. -->
   </rule>
