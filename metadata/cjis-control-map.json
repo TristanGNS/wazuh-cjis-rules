@@ -887,4 +887,11 @@
     "policy_area": "Physical Protection",
     "notes": "Applies only to access points defined by the organization as requiring 24x7 guard coverage. Assumes integration with guard logs, staffing schedules, physical access logs, and incident management systems. Risks include unauthorized access or security incidents due to unmanned entry points."
   },
+  "100128": {
+    "description": "Implements CJIS 5.9.1 (PE-2(1)) by requiring and monitoring that physical access to CJIS facilities is strictly authorized by up-to-date position or role. Triggers on access attempts by unauthorized or outdated roles, ensures access lists are synchronized with HR changes, and supports auditability.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-2(1)"],
+    "policy_area": "Physical Protection",
+    "notes": "Requires integration of access control logs with HR/role management systems for real-time updates. Alerts on access by terminated, transferred, or unauthorized roles. Uses <if_sid> to correlate with foundational access control alerts, minimizing false positives."
+  },
 }
