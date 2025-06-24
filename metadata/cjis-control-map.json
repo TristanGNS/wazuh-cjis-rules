@@ -908,4 +908,11 @@
     "policy_area": "Physical Protection",
     "notes": "Organization must define retention periods, review frequency, and personnel for reporting. Assumes integration with visitor log systems, review tracking, and escalation processes. Uses <if_sid> for correlation with base physical access rule to reduce false positives."
   },
+  "100131": {
+    "description": "Implements CJIS 5.9.1 (PE-4) by controlling and monitoring physical access to organization-defined system distribution and transmission lines using documented security controls. Detects unauthorized access, tampering, alarm events, and control failures.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-4"],
+    "policy_area": "Physical Protection",
+    "notes": "Organization must define protected transmission/distribution lines and applicable security controls. Rule assumes integration with physical security, access, and tamper alarm logs. Uses <if_sid> to correlate with base physical access control events."
+  },
 }
