@@ -1,0 +1,34 @@
+<group name="media,access_control,mp-2,media_protection">
+  <rule id="100121" level="10">
+    <description>CJIS 5.8.1 – Unauthorized access attempt to protected media (MP-2).</description>
+    <match>media|removable drive|usb|backup|tape|optical|paper|microfiche|external disk|cloud storage</match>
+    <regex>unauthorized|access denied|access violation|forbidden|policy violation</regex>
+    <field name="event_type">media_access</field>
+    <compliance>
+      <cjis>5.8.1</cjis>
+      <nist_800_53>MP-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.8.1 | NIST MP-2
+
+This rule enforces logging, monitoring, and alerting for unauthorized access to all organization-defined types of media, including digital and physical formats.
+
+Typical log sources:
+- Windows Security Log: "Access denied" on removable media
+- Linux audit logs: unauthorized mount/access attempts
+- DLP systems: blocked file copies to USB/cloud
+- Physical security logs: failed badge access to records rooms
+
+Assumptions:
+- Access lists are maintained in an auditable system.
+- Security logging covers all relevant digital and physical assets.
+- Event source normalization tags events as "media_access" for SIEM consumption.
+
+Risks if non-compliant:
+- Loss or exposure of CJIS-regulated data via unauthorized access, theft, or copying.
+- Regulatory action, audit findings, or criminal liability for data leakage.
+-->
