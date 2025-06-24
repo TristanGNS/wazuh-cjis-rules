@@ -1,0 +1,41 @@
+<group name="maintenance,personnel,ma-5,physical_protection">
+  <rule id="100124" level="9">
+    <description>CJIS 5.9.1 – Maintenance personnel authorization, oversight, and supervision (MA-5).</description>
+    <match>maintenance authorization|maintenance personnel list|authorized maintenance|maintenance supervisor|access authorization check|unauthorized maintenance|non-escorted maintenance|maintenance escort required|maintenance staff approval</match>
+    <regex>not authorized|missing from list|unauthorized personnel|supervision required|access not verified|maintenance audit failure|unapproved maintenance</regex>
+    <field name="event_type">maintenance_access</field>
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>MA-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST MA-5
+
+This rule enforces strict control and oversight of all maintenance activities on CJIS systems by:
+- Requiring a formal process for authorizing and maintaining a list of permitted maintenance organizations/personnel.
+- Ensuring that anyone performing non-escorted maintenance has their access authorizations checked and logged prior to work beginning.
+- Mandating that any maintenance performed by individuals without required authorizations is supervised in real time by appropriately cleared and technically competent staff.
+- Documenting all maintenance access events, including approvals, supervisory actions, and access verification steps.
+
+Log sources may include:
+- Access control logs (e.g., badge, sign-in/out)
+- Maintenance scheduling/ticketing systems
+- Physical security incident reports
+- SIEM events referencing maintenance or staff approval actions
+
+Assumptions:
+- Maintenance lists are current and reviewed regularly.
+- All maintenance access events are logged and can be correlated to a specific individual.
+- Non-escorted maintenance is only performed by individuals on the approved list.
+- Supervisors are present and documented for any supervised maintenance activities.
+
+Risks if non-compliant:
+- Unauthorized individuals may access sensitive CJIS systems or data.
+- Regulatory or audit failures due to lack of documented access or supervision.
+- Increased risk of compromise, tampering, or data loss.
+
+-->
