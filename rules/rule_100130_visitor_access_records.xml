@@ -1,0 +1,61 @@
+<group name="physical_access,pe-8,visitor_access_records,cjis">
+  <rule id="100130" level="9">
+    <description>
+      CJIS 5.9.1 – PE-8: Maintain, review, and report on visitor access records for CJIS facilities, according to organization-defined time periods, review frequencies, and reporting requirements. Detects missing records, review gaps, or anomalies requiring escalation.
+    </description>
+    <match>visitor access|visitor sign-in|visitor log|guest registration|facility entry log|visitor escort|visitor badge|visitor review|access record|access review|review overdue|missing visitor record|anomaly in visitor log|visitor departure|visitor sign-out|access record retention|visitor access audit|reporting anomaly|access reporting|CJIS facility visitor</match>
+    <regex>visitor record missing|log not reviewed|review overdue|anomaly detected|record retention failed|visitor access anomaly|unauthorized visitor|unlogged visitor|visitor report required|missing escort|departure not logged|review not performed|escalation required|anomaly not reported|visitor policy violation</regex>
+    <field name="event_type">visitor_access_record</field>
+    <if_sid>100125</if_sid> <!-- Reference foundational physical access control rule to reduce false positives and correlate with actual access events. Adjust as necessary. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-8</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-8
+
+**Intent of this Rule:**  
+To ensure visitor access to CJIS facilities is fully recorded, regularly reviewed, and that anomalies are escalated and reported to responsible personnel in accordance with defined policy.
+
+**Requirements from Control:**  
+a. Maintain complete visitor access records for all visits to CJIS facilities for an **organization-defined retention period**. This includes visitor name, company, escort, entry/exit times, and areas accessed.
+b. Review visitor access records at an **organization-defined frequency** (e.g., daily, weekly, or as required by local policy).
+c. Report anomalies in visitor access (such as unlogged entries, missing sign-outs, or unauthorized escorts) to **organization-defined personnel** (such as security manager, facility administrator, or compliance officer).
+
+**Log Source Assumptions:**
+- Electronic or manual visitor log systems, including sign-in/sign-out sheets, visitor management software, or badge systems.
+- Escort logs or access control logs showing visitor movement and departure.
+- Review logs indicating when, and by whom, visitor records were reviewed.
+- Incident reports or tickets documenting discovered anomalies.
+- Automated reporting/escalation systems or email notifications for compliance events.
+
+**Integration Options:**
+- Ingest and normalize visitor access records from digital or scanned manual logs.
+- Alert when visitor records are missing, incomplete, not reviewed on schedule, or retention limits are not enforced.
+- Correlate review activities with assigned staff; alert if reviews are overdue or unassigned.
+- Detect anomalies (e.g., unlogged visitor, visitor not signed out, visitor present without an escort).
+- Generate or integrate with incident reporting/escalation systems to notify **organization-defined personnel**.
+
+**Assumptions:**
+- Visitor access records are digitized or ingested for search and audit.
+- Organization has defined retention periods, review schedules, and designated reporting personnel.
+- Review and reporting processes are logged and auditable.
+- Escalation procedures exist for anomalies.
+
+**Risks if Non-Compliant:**
+- Unauthorized access or unescorted visitors remain undetected.
+- Incomplete audit trail for regulatory or incident investigations.
+- Failure to comply with retention or review requirements results in audit findings.
+- Incidents not escalated to appropriate personnel in a timely manner.
+
+**[Assignment: organization-defined time period/frequency/personnel]:**
+- Organization must specify in policy the required retention period for visitor records, the frequency of review, and the roles or individuals responsible for anomaly reporting. This rule assumes customization upon deployment.
+
+**<if_sid> Use:**
+- Correlates with foundational physical access control rule (100125/PE-3) to avoid false positives and ensure relevance to access events.
+
+-->
