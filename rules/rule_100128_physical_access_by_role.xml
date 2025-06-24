@@ -1,0 +1,61 @@
+<group name="physical_access,pe-2-1,access_by_role,cjis">
+  <rule id="100128" level="9">
+    <description>
+      CJIS 5.9.1 – PE-2(1): Require that physical access to facilities housing CJIS systems is authorized and controlled strictly according to organization-defined positions or roles, and that any access event is validated against current authorization lists.
+    </description>
+    <match>physical access|badge access|facility entry|access granted|access denied|door entry|CJI facility|role-based access|access list|authorization policy|visitor entry|security checkpoint|unauthorized access attempt|position-based access|physical access violation|access control list|role revoked|access removed|change in role|employment status change</match>
+    <regex>unauthorized position|role not permitted|access attempt by unauthorized role|badge access denied|access list mismatch|access attempted after role change|physical access without role|visitor bypass|role-based restriction violation|authorization failed|access by terminated staff|access after privilege removal</regex>
+    <field name="event_type">physical_access_by_role</field>
+    <if_sid>100125</if_sid> <!-- This assumes an earlier foundational physical access control rule exists (e.g., PE-3, rule 100125). Adjust SID as needed based on your existing rulebase to prevent redundant alerts. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-2(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-2(1)
+
+**Intent of this Rule:**  
+To ensure that physical access to facilities (or areas within facilities) housing CJIS systems is strictly granted or denied based on the individual’s current position or role within the organization. Authorization decisions must be actively managed and updated when positions/roles change.
+
+**Requirements from Control:**  
+- Physical access must be explicitly tied to an up-to-date list of authorized positions or roles.  
+- Authorization lists must be kept current with personnel/role changes, and access should be removed immediately upon role/position change, transfer, or termination.
+- Access events (granted or denied) must be logged and auditable by position or role.
+- Visitor access must be controlled and logged separately, with temporary roles assigned and monitored.
+- Access attempts by individuals not matching authorized positions or roles must trigger alerts, incident tickets, and review.
+- Regular reviews of access control lists against HR/role changes are required to prevent "orphaned" or excess access.
+
+**Log Source Assumptions:**
+- Electronic access control logs (badge/proximity cards) that tie access attempts to user identity, position, or role.
+- HR systems or identity management feeds indicating position/role changes, access grants/removals, or employment status.
+- Physical access control lists (ACLs) with position/role mapping.
+- Visitor management and sign-in logs (for temporary/visitor roles).
+- Incident or helpdesk reports of access control anomalies, denied entries, or violations.
+
+**Integration Options:**
+- Integrate access control systems with HR/identity management for real-time authorization list updates.
+- Correlate access logs with HR data to alert on access by terminated or transferred staff.
+- Cross-check access control events with prior rule alerts (see <if_sid> usage).
+- Monitor for badge use, entry attempts, or access grants after position/role changes.
+- Ingest helpdesk/incident tickets for suspected access control violations.
+
+**Assumptions:**
+- The organization maintains accurate, up-to-date lists mapping users to authorized roles/positions.
+- Physical access control systems can log and export position/role data (or are mapped in a CMDB/identity platform).
+- HR changes (hires, terminations, transfers, role changes) are reflected quickly in access systems.
+- Visitor access is distinct and controlled, not subject to the same permanent role-based privileges.
+
+**Risks if Non-Compliant:**
+- Unauthorized access by individuals in unapproved roles or after termination/transfer.
+- Insider threat from excessive or outdated physical access.
+- Audit or compliance findings due to mismatched access lists and actual personnel.
+- Increased risk of physical breach, data compromise, or regulatory non-compliance.
+
+**<if_sid> Use:**
+- The <if_sid> tag is used to correlate this rule with existing foundational physical access alert rules (such as PE-3, e.g., rule 100125). This reduces false positives by ensuring that only relevant, correlated events are escalated. Adjust the SID to match your actual foundational rule IDs.
+
+-->
