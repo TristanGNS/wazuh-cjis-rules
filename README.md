@@ -69,6 +69,8 @@ The following CJIS requirements and NIST controls are currently addressed in the
 
 | CJIS Requirement | Control Name                                         | NIST Control     | Policy Area                        | Rule ID  |
 |------------------|------------------------------------------------------|------------------|-------------------------------------|----------|
+| 5.6.2.2          | Failed login attempt                                 | AC-7             | Access Control                      | 100001   |
+| 5.3.4            | Audit log file modified or deleted                   | AU-9             | Incident Response                   | 100002   |
 | 5.1.1            | Information Exchange                                 | AC-21            | Information Exchange                | 100003   |
 | 5.1.1            | Information Exchange                                 | SA-4             | Information Exchange                | 100004   |
 | 5.1.1.1          | Information Handling                                 | PM-1             | Information Exchange                | 100005   |
@@ -187,6 +189,9 @@ The following CJIS requirements and NIST controls are currently addressed in the
 | 5.7.2            | Configuration Access Control Enforcement            | CM-5             | Configuration Management             | 100118 |
 | 5.7.2            | Automated Access Control Enforcement                | CM-5(1)          | Configuration Management             | 100119 |
 | 5.7.2            | Security Documentation in Acquisition Contracts     | SA-4             | Configuration Management             | 100120 |
+| 5.8.1            | Restrictions on Media Access and Use                | MP-2             | Media Protection                     | 100121 |
+| 5.8.1            | Controlled Media Transport and Accountability       | MP-5             | Media Protection                     | 100122 |
+| 5.8.3            | Secure Media Maintenance and Sanitization           | MA-2             | Media Protection                     | 100123 |
 
 
 
