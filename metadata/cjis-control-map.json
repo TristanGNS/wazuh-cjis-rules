@@ -845,4 +845,11 @@
     "policy_area": "Media Protection",
     "notes": "Supports auditing and response for both digital and non-digital media. Use with logs from endpoint DLP, access control systems, and manual audit records for physical media. Regular review and update of authorized personnel and access lists is essential."
   },
+  "100122": {
+    "description": "Implements CJIS 5.8.1 (MP-5) by enforcing strict controls and documentation for the transport of system media outside of controlled areas. Ensures all transport activities are logged, accountability is maintained, and only authorized personnel may conduct media transport.",
+    "cjis": ["5.8.1"],
+    "nist": ["MP-5"],
+    "policy_area": "Media Protection",
+    "notes": "Supports audit and compliance for all types of media transport, both logical and physical. Enforces chain-of-custody, encryption, and personnel authorization requirements. Event sources should include sign-out logs, courier manifests, SIEM/DLP removable media monitoring, and incident management systems."
+  },
 }
