@@ -838,4 +838,11 @@
     "policy_area": "Configuration Management",
     "notes": "Monitors acquisition and procurement workflows for absence or deficiency of required security clauses. Supports supply chain accountability and third-party risk reduction. Best used in tandem with periodic contract review events or compliance dashboards."
   },
+  "100121": {
+    "description": "Implements CJIS 5.8.1 (MP-2) by monitoring and enforcing restrictions on access to organization-defined digital and non-digital media. Triggers on unauthorized or denied access events, both logical and physical.",
+    "cjis": ["5.8.1"],
+    "nist": ["MP-2"],
+    "policy_area": "Media Protection",
+    "notes": "Supports auditing and response for both digital and non-digital media. Use with logs from endpoint DLP, access control systems, and manual audit records for physical media. Regular review and update of authorized personnel and access lists is essential."
+  },
 }
