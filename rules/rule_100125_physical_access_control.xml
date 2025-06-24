@@ -1,0 +1,42 @@
+<group name="physical_access,pe-3,facility,access_control,cjis">
+  <rule id="100125" level="9">
+    <description>CJIS 5.9.1 – Enforce and audit all physical access controls, entry/exit, and access device security (PE-3).</description>
+    <match>physical access|access badge|entry authorization|exit authorization|visitor escort|physical key inventory|key change|combination change|facility access log|access device control|security guard log|public access area|unauthorized entry|lost key|compromised key|visitor control</match>
+    <regex>unauthorized access|missing authorization|audit log failure|visitor not escorted|device lost|key compromised|combination compromised|inventory discrepancy|policy violation</regex>
+    <field name="event_type">physical_access</field>
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-3</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-3
+
+This rule ensures physical access to CJIS facilities is tightly controlled and auditable:
+- All entry and exit points must be protected by technical or procedural controls (badges, guards, access logs).
+- Access is only granted after verifying individual authorization.
+- Physical access logs are maintained and regularly reviewed for anomalies.
+- Special controls must be in place for public areas and visitors—such as escorts and activity monitoring.
+- All access devices (keys, cards, codes) must be secured, inventoried, and promptly changed when necessary (lost, compromised, personnel change).
+- Incidents such as unauthorized entry, missing audit logs, visitor policy breaches, or device/key compromise are logged for alerting and investigation.
+
+Log sources may include:
+- Electronic access control logs (badge systems, door controllers, biometrics)
+- Visitor sign-in/escort logs
+- Security guard logs and incident reports
+- Key/combination inventory management tools
+
+Assumptions:
+- Physical access audit logs are available and can be ingested by Wazuh.
+- Inventory and change events are recorded digitally or logged through security event management systems.
+- Visitor management is auditable.
+
+Risks if non-compliant:
+- Physical breach or loss of CJIS data due to weak access controls or missing logs.
+- Undetected visitor activity or tailgating.
+- Regulatory violations and audit findings.
+
+-->
