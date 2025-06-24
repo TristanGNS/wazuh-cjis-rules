@@ -1,0 +1,35 @@
+<group name="media,transport,mp-5,media_protection">
+  <rule id="100122" level="10">
+    <description>CJIS 5.8.1 – Media transport activity outside controlled area (MP-5).</description>
+    <match>media transport|offsite|courier|removable|chain of custody|media shipment|media log|media accountability</match>
+    <regex>unauthorized|policy violation|not logged|untracked|missing|improperly sealed|no encryption</regex>
+    <field name="event_type">media_transport</field>
+    <compliance>
+      <cjis>5.8.1</cjis>
+      <nist_800_53>MP-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.8.1 | NIST MP-5
+
+This rule enforces documentation, accountability, and control for any transport of system media (digital or non-digital) outside secure/controlled areas.
+
+Typical log sources:
+- Media checkout/return logs (digital or paper, must be auditable)
+- Shipping or courier records with chain-of-custody tracking
+- SIEM or DLP logs flagging unencrypted removable device ejection/connection events
+- Incident tracking: lost/missing media, or unauthorized personnel involvement
+
+Assumptions:
+- All transport requests and approvals are logged, and logs are regularly reviewed.
+- Media is physically secured (locked, sealed) and/or logically protected (encryption).
+- Organization maintains a list of personnel authorized to handle and transport media.
+- All deviations or policy violations (missing log, lost media, improper handling) are treated as incidents.
+
+Risks if non-compliant:
+- Loss, theft, or tampering with CJIS-controlled data during transport.
+- Audit findings or legal exposure due to incomplete chain of custody or unauthorized handlers.
+-->
