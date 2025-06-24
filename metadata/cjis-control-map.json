@@ -922,4 +922,11 @@
     "policy_area": "Physical Protection",
     "notes": "Assumes integration of alarm and surveillance logs with real-time alerting, correlation with physical access events, and linkage to incident response. Uses <if_sid> for correlation with physical access monitoring rule (PE-6, 100129)."
   },
+  "100133": {
+    "description": "Implements CJIS 5.9.1 (PE-2) by ensuring access lists for CJIS facilities are developed, approved, reviewed at defined intervals, and kept current with credential issuance and revocation. Alerts on unapproved credentials, overdue reviews, or failure to promptly remove access.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-2"],
+    "policy_area": "Physical Protection",
+    "notes": "Requires integration with access list, credential management, and HR/personnel change logs. Review interval must be defined by the organization. Uses <if_sid> to correlate with base physical access control (PE-3, 100125)."
+  },
 }
