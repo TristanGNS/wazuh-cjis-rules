@@ -1,0 +1,39 @@
+<group name="media,sanitization,disposal,ma-2,media_protection">
+  <rule id="100123" level="10">
+    <description>CJIS 5.8.3 – Digital media sanitization and disposal activity (MA-2 Controlled Maintenance).</description>
+    <match>media sanitization|media disposal|drive wipe|disk erasure|media removal|degauss|crypto erase|off-site maintenance|maintenance log</match>
+    <regex>not sanitized|unsanitized|missing log|no approval|policy violation|data found|recovery possible|unapproved removal</regex>
+    <field name="event_type">media_maintenance</field>
+    <compliance>
+      <cjis>5.8.3</cjis>
+      <nist_800_53>MA-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.8.3 | NIST MA-2
+
+This rule enforces documentation, oversight, and secure handling for maintenance and disposal of all system components and media.
+- Media must be sanitized prior to off-site maintenance, repair, or disposal using approved methods (e.g., NIST SP 800-88 guidelines for data destruction).
+- Explicit approval is required for the removal of equipment/media from secure areas, and must be logged.
+- Maintenance records must include sanitization logs, approval documentation, chain-of-custody, and verification that controls are still effective post-maintenance.
+
+Log sources may include:
+- Maintenance/repair ticketing systems
+- SIEM alerts for drive wipes, disk erasure, degaussing, crypto erasure events
+- Physical access logs for equipment/media leaving facilities
+- Incident tracking for failed or improper sanitization
+
+Assumptions:
+- All sanitization is performed and logged before any device leaves the secure area.
+- Removal of equipment/media is always approved and traceable.
+- Maintenance personnel are trained and access-controlled.
+- All post-maintenance validation steps are recorded.
+
+Risks if non-compliant:
+- Data exposure from unsanitized devices sent for repair or disposal.
+- Inability to demonstrate compliance during audits.
+- Breach of confidentiality for sensitive CJIS-controlled data.
+-->
