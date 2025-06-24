@@ -1,0 +1,62 @@
+<group name="output_device_access,pe-5,physical_protection,cjis">
+  <rule id="100126" level="9">
+    <description>
+      CJIS 5.9.1 – PE-5: Enforce physical access control to organization-defined output devices to prevent unauthorized retrieval of sensitive output (e.g., printouts, faxes, display monitors, external media).
+    </description>
+    <match>output device|printer|fax machine|copier|multifunction device|plotter|output tray|display monitor|external media|unauthorized access|physical access violation|output retrieval|document pickup|unattended output|CJI|PII</match>
+    <regex>unauthorized retrieval|output left unattended|output device access policy violation|uncollected print job|output data breach|access to restricted output device|physical access alarm|unauthorized individual|unattended output|physical security incident|misplaced printout|missing output</regex>
+    <field name="event_type">physical_output_access</field>
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-5</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-5
+
+**Intent of this Rule:**  
+To ensure all physical output devices (including but not limited to printers, fax machines, copiers, display monitors in public areas, external media writers, etc.) are subject to strict physical access controls. This is to prevent unauthorized individuals from accessing, viewing, or removing printed, displayed, or otherwise outputted CJI or sensitive information.
+
+**Requirements from Control:**  
+- The organization must define (via policy) all output devices that process, store, or transmit CJI or sensitive information.
+- Physical access to these devices and their output must be strictly controlled, including:
+  - Printer and fax output trays,
+  - Display monitors (especially in public or shared spaces),
+  - External media writers (USB, CD/DVD burners, etc.),
+  - Multifunction devices (scan/print/fax).
+- Unattended output must not be left exposed or accessible to unauthorized personnel.
+- Policies must define what constitutes an “output device” in the local context ([Assignment: organization-defined output devices]).
+- Monitoring and alerting on events such as unauthorized output retrieval, uncollected documents, or physical access alarms for output device areas.
+
+**Log Source Assumptions:**
+- Physical security event logs (badge readers, cameras, or alarms) near output device locations.
+- Output device access logs (if available from modern network printers/MFDs).
+- Print server logs indicating print job owner and collection confirmation.
+- Helpdesk/incident reports of missing output, unauthorized access, or unattended printouts.
+- Security incident reporting systems and walk-around security inspections.
+
+**Integration Options:**
+- Ingest badge reader logs and match access times to output device areas.
+- Integrate with printer/MFD management systems that log output events and retrievals.
+- Correlate helpdesk tickets and security incident reports regarding output device issues.
+- Monitor for alerts from physical access control systems tied to output device rooms.
+- Use custom scripts or agents to monitor for print jobs left uncollected for excessive time.
+
+**Assumptions:**
+- Output device areas are covered by physical security controls and can generate logs or alerts.
+- Print servers or devices support logging of job owner, time, and collection (via PIN or badge pull-print, if implemented).
+- The organization has documented its “organization-defined output devices” as required by the control.
+- Staff are trained to report unattended output or suspicious activity near output devices.
+
+**Risks if Non-Compliant:**
+- Unauthorized disclosure of CJI or PII due to uncollected printouts, misplaced faxes, or unauthorized viewing of display output.
+- Loss of chain of custody for printed or outputted sensitive information.
+- Regulatory violations, audit failures, and reputational harm.
+- Increased risk of social engineering or physical intrusion to target unattended output.
+
+**[Assignment: organization-defined output devices]:**
+- Organizations must specify and document all relevant output devices in local policy. This rule assumes the deployment will map the correct devices and update log collection accordingly.
+-->
