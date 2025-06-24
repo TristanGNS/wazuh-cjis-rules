@@ -122,7 +122,11 @@
     <include>rules/rule_100118_access_restrictions_change.xml</include>
     <include>rules/rule_100119_automated_change_enforcement.xml</include>
     <include>rules/rule_100120_vendor_contract_terms.xml</include>
-    
+    <!-- CJIS Policy Area 8 Media Protection. -->
+    <include>rules/rule_100121_media_access.xml</include>
+    <include>rules/rule_100122_media_transport.xml</include>
+    <include>rules/rule_100123_media_sanitization.xml</include>
+      
     <!-- <include>rules/</include> -->
     <!-- etc. -->
   </rule>
