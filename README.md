@@ -223,9 +223,13 @@ git clone https://github.com/YOUR_ORG/wazuh-cjis-rules.git /var/ossec/etc/cjis-r
 ### 2. Modify `ossec.conf`:
 
 ```xml
-<rules>
-  <include>etc/cjis-rules/include_rules.xml</include>
-</rules>
+<ruleset>
+  <!-- Explicitly load the include file that references individual CJIS rules -->
+  <rule_include>etc/cjis-rules/include_rules.xml</rule_include>
+
+  <!-- Automatically load all individual rule files named like rule_*.xml -->
+  <rule_dir pattern="^rule_.*\.xml$">etc/cjis-rules/rules</rule_dir>
+</ruleset>
 ```
 
 ### 3. Restart Wazuh manager:
