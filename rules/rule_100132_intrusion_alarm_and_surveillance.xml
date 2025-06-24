@@ -1,0 +1,59 @@
+<group name="physical_access,pe-6-1,intrusion_alarm_surveillance,cjis">
+  <rule id="100132" level="10">
+    <description>
+      CJIS 5.9.1 – PE-6(1): Monitor physical access to facilities housing CJIS systems using physical intrusion alarms and surveillance equipment, including real-time alerting on intrusion detection or surveillance system events.
+    </description>
+    <match>intrusion alarm|alarm triggered|physical security alarm|CCTV|video surveillance|motion sensor|facility breach|security camera|alarm event|unauthorized entry|alarm zone|tamper alarm|intrusion detection|perimeter alarm|access monitoring|alarm reset|video review|security sensor|sensor event|alarm activation|surveillance footage|facility access detected|monitoring event</match>
+    <regex>intrusion detected|alarm triggered|unauthorized access detected|motion detected after hours|surveillance alert|camera offline|alarm not acknowledged|alarm zone breached|security sensor activated|unacknowledged alarm|alarm failure|monitoring failure|video loss|CCTV offline|false alarm|surveillance anomaly|sensor tamper</regex>
+    <field name="event_type">intrusion_alarm_surveillance</field>
+    <if_sid>100129</if_sid> <!-- Correlates with base physical access monitoring (PE-6, rule 100129) to ensure only real, escalated monitoring events are alerted. Adjust SID if rulebase changes. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-6(1)</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-6(1)
+
+**Intent of this Rule:**  
+To ensure all physical access to facilities containing CJIS systems is monitored with physical intrusion detection alarms and surveillance (such as CCTV, video analytics, motion sensors), and that all relevant events are logged, reviewed, and escalated for response.
+
+**Requirements from Control:**  
+- Deploy physical intrusion alarms and surveillance equipment to cover all critical access points, entrances, and sensitive areas.
+- Monitor alarm and surveillance event logs in real time for unauthorized entry, breaches, or suspicious activity.
+- Log, review, and act upon all alarm activations, tamper events, sensor triggers, and anomalies.
+- Ensure alarms and surveillance are operational, regularly tested, and maintained.
+- Escalate and investigate all alarm or surveillance events per incident response procedures.
+
+**Log Source Assumptions:**
+- Intrusion detection system logs (alarm panels, sensors, door contacts, window sensors).
+- Video surveillance logs/events (CCTV, VMS, DVR/NVR systems).
+- Security monitoring system alerts (motion detection, video analytics).
+- Incident response tickets for alarm or surveillance system events.
+- Device health logs (for monitoring system outages/failures).
+
+**Integration Options:**
+- Ingest real-time alarm and surveillance logs into Wazuh/SIEM for correlation and alerting.
+- Correlate intrusion or surveillance events with badge access and monitoring events.
+- Link alarms to incident response workflows or case management systems.
+- Generate automated alerts for unacknowledged alarms, camera failures, or sensor tampering.
+- Monitor system health and operational status for alarms and surveillance.
+
+**Assumptions:**
+- All alarm and surveillance events are logged digitally and available for ingestion.
+- Alarm and surveillance systems are properly mapped to facility areas and access points.
+- Procedures exist for timely response and escalation of alarm events.
+
+**Risks if Non-Compliant:**
+- Undetected physical breaches or security incidents.
+- Incomplete coverage or failure to respond to alarm/surveillance events.
+- Regulatory or audit findings for lack of monitoring or incident documentation.
+- Security system outages or failures go unaddressed.
+
+**<if_sid> Use:**
+- Correlates with physical access monitoring rule (100129/PE-6) to ensure only valid, monitored events are escalated and to avoid noise from raw sensor data.
+
+-->
