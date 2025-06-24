@@ -873,4 +873,11 @@
     "policy_area": "Physical Protection",
     "notes": "Applies to all facility entry/exit points, public areas, visitors, and access devices. Audit logs must be maintained, and all device/key losses or changes documented and managed."
   },
+  "100126": {
+    "description": "Implements CJIS 5.9.1 (PE-5) by requiring strict physical access control to organization-defined output devices (e.g., printers, fax machines, copiers, display monitors, external media writers) to prevent unauthorized individuals from obtaining sensitive output. Alerts on unauthorized retrievals, unattended output, or access policy violations.",
+    "cjis": ["5.9.1"],
+    "nist": ["PE-5"],
+    "policy_area": "Physical Protection",
+    "notes": "Requires organizations to define and document all output devices subject to access control. Assumes integration with physical security event logs, print server/device logs, and helpdesk/security incident reports. Risks include unauthorized disclosure of CJI or PII, regulatory violations, and audit failures."
+  },
 }
