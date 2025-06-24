@@ -1,0 +1,62 @@
+<group name="physical_access,pe-2,access_authorizations,cjis">
+  <rule id="100133" level="9">
+    <description>
+      CJIS 5.9.1 – PE-2: Ensure the list of individuals with authorized access to CJIS facilities is developed, maintained, reviewed at organization-defined intervals, and promptly updated to issue or revoke credentials as access requirements change.
+    </description>
+    <match>access authorization|access list|access credential|badge issuance|credential issuance|facility entry list|access approval|authorization removal|access list review|credential revocation|badge deactivation|access revocation|authorized personnel|access list update|access review|facility access removal|entry credential|security badge|list update|access required|access list maintenance|CJI facility</match>
+    <regex>unauthorized individual on access list|credential issued without approval|access list not reviewed|review overdue|access not removed|credential not revoked|outdated access list|unapproved badge|access list anomaly|authorization expired|individual not removed|access review failed|entry credential misuse|credential not deactivated|access list discrepancy</regex>
+    <field name="event_type">physical_access_authorization</field>
+    <if_sid>100125</if_sid> <!-- Correlate with foundational physical access control (PE-3, 100125) to avoid noise and ensure true positive access management events. Adjust as needed if your rulebase changes. -->
+    <compliance>
+      <cjis>5.9.1</cjis>
+      <nist_800_53>PE-2</nist_800_53>
+    </compliance>
+  </rule>
+</group>
+<!--
+Notes:
+
+CJIS 5.9.1 | NIST PE-2
+
+**Intent of this Rule:**  
+To enforce that only authorized individuals have access to CJIS facilities, through the development, approval, and ongoing maintenance of an up-to-date access list, and that credentials are issued, reviewed, and revoked as required.
+
+**Requirements from Control:**  
+a. Develop, approve, and maintain a current list of individuals with authorized access to each CJIS facility.
+b. Issue facility access credentials only after authorization approval.
+c. Review access lists at an **organization-defined frequency** (e.g., monthly, quarterly) to verify accuracy and relevance.
+d. Promptly remove individuals from access lists and revoke credentials when access is no longer needed (e.g., job change, termination, role change).
+
+**Log Source Assumptions:**
+- Access control system logs tracking badge/credential issuance, revocation, and use.
+- HR or identity management feeds for personnel changes affecting access rights.
+- Access list change records, approval logs, and review activity logs.
+- Audit logs of access list reviews, including dates, reviewers, and changes.
+- Incident reports for unauthorized access or credentials not removed in a timely fashion.
+
+**Integration Options:**
+- Ingest badge issuance/revocation logs from access management systems.
+- Correlate access list review activities and approval logs with personnel changes.
+- Trigger alerts for overdue reviews, unapproved credential issuance, or failure to remove access.
+- Automate monitoring for access list anomalies or mismatches with HR data.
+- Link review and change events to incident response workflows if discrepancies are found.
+
+**Assumptions:**
+- Organization maintains a centralized, auditable access list for each secure facility.
+- Badge and credential issuance/revocation is logged in real time.
+- Regular, scheduled reviews are documented and performed.
+- Policy defines timeframes for access removal and review intervals.
+
+**Risks if Non-Compliant:**
+- Access by individuals who should no longer have facility authorization (insider threat).
+- Outdated or inaccurate access lists leading to security or audit findings.
+- Credentials issued or not revoked without proper approval, risking facility security.
+- Inability to track, audit, or respond to unauthorized facility access.
+
+**[Assignment: organization-defined frequency]:**
+- Organization must specify review intervals for access list verification. This rule assumes customization on deployment.
+
+**<if_sid> Use:**
+- Correlates with foundational physical access rule (100125/PE-3) to minimize false positives and ensure alerting only for true authorization/credential management events.
+
+-->
